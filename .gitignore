@@ -29,6 +29,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.vs*
+api-doc-monitor-enviroment*
 
 # IDE
 .vscode/
