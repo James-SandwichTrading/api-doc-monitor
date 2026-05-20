@@ -1,41 +1,47 @@
 {
-  "timestamp": "2026-05-15T12:16:10.769598",
+  "timestamp": "2026-05-20T10:30:57.147580",
   "sections": {
     "https://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response": {
       "title": "API Update: Introducing the 'pool' field to the ws subscription response",
       "hash": "7cbc0cf2a575e01b6d55d2b7814e4fe92b95015f3563287489e85b2f5ea4abb4",
-      "last_checked": "2026-05-15T12:16:10.769598",
+      "last_checked": "2026-05-20T10:30:57.147961",
       "content": "API Update: Introducing the 'pool' field to the ws subscription response\nTue, 12 May 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response\nBitMEX is adding a new 'pool' field to WebSocket API subscription responses for order book, quote, and trade feeds, effective 19 May 2026.\nAPI"
+    },
+    "https://www.bitmex.com/blog/bitmex-ginarea": {
+      "title": "Now Live: Advanced Backtesting on BitMEX with GinArea ",
+      "hash": "fcc63cb805939ed3ab475d7f391a3c5721cd49ee1fa5d65662f02c1e7bcaed38",
+      "last_checked": "2026-05-20T10:30:57.448859",
+      "content": "Now Live: Advanced Backtesting on BitMEX with GinArea \nSun, 17 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/bitmex-ginarea\nFree backtesting on GinArea. Earn up to 4,000 USDT in trading rebates on BitMEX.\n\nPartners and Affiliates"
     },
     "https://www.bitmex.com/blog/copy-and-conquer-now-live": {
       "title": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers",
       "hash": "f138c07412dc250306419701b71fcc5fe533098862bf792c0e7222ed0bc4e401",
-      "last_checked": "2026-05-15T12:16:11.074665",
+      "last_checked": "2026-05-20T10:30:57.749922",
       "content": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/copy-and-conquer-now-live\nCopy and Conquer is live. New copiers get $50 in loss protection, with new lead traders earning up to 50% profit share. All users can unlock six reward tiers for up to $150 in credits. Learn how to win your share here . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/fx-perps-now-live": {
       "title": "Win from $50,000: 6 FX Perpetuals Now Live",
       "hash": "7a3fa3ef5050180e1e1c9276b4ccc73a29efb96558f9a28acccd98c51faf028e",
-      "last_checked": "2026-05-15T12:16:11.378212",
+      "last_checked": "2026-05-20T10:30:58.051440",
       "content": "Win from $50,000: 6 FX Perpetuals Now Live\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps-now-live\nTrade perpetual swaps on EUR/USD , USD/JPY , GBP/USD , AUD/USD , USD/CHF , and USD/CAD with up to 100x leverage using crypto as collateral. Peer-to-Peer. No weekend closures. The $50,000 prize pool is now live for all FX Perps contracts. Learn how you can trade to win your share here . For full details on the new contracts and how to get started, read our blog . If you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/maker-rebate-14-05-now-live": {
       "title": "Now Live: Updates to Fees for Selected Derivatives Contracts",
       "hash": "ec076f06e94df1cde6c393b9b61578ac4db17150ab10c7079086217a42fc07cf",
-      "last_checked": "2026-05-15T12:16:11.681632",
+      "last_checked": "2026-05-20T10:30:58.352800",
       "content": "Now Live: Updates to Fees for Selected Derivatives Contracts\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/maker-rebate-14-05-now-live\nAs of 14 May at 07:00 UTC, the fees for the below derivatives contracts will be updated to a standard base fee of 5 bps (0.05%). Both Maker and Taker fees will be set at 0.05% and discounts will be applied based on your fee tier. Thank you to all traders who participated during the promotional maker rebate period.\nSite Announcements"
     },
     "https://www.bitmex.com/blog/maker-rebates-14-05-2026": {
       "title": "Now Live: Maker Rebates on Selected Derivatives Contracts ",
       "hash": "aee1156fdee67e16cdebacf15c6589dd32e6ed3e43a4989b8795dc59197945d8",
-      "last_checked": "2026-05-15T12:16:11.984255",
+      "last_checked": "2026-05-20T10:30:58.653992",
       "content": "Now Live: Maker Rebates on Selected Derivatives Contracts \nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/maker-rebates-14-05-2026\nNow Live: Maker Rebates on Selected Derivatives Contracts \n\nListing"
     },
-    "https://www.bitmex.com/blog/switch-mode-now-live": {
-      "title": "Now Live: Switch Position Modes Without Closing Trades",
-      "hash": "08a3cab5c8c92a018ca1a408951297b6aa184c96a6f46388d2ff0bf4729fa4b1",
-      "last_checked": "2026-05-15T12:16:12.287516",
-      "content": "Now Live: Switch Position Modes Without Closing Trades\nWed, 06 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/switch-mode-now-live\nYou can now change between hedge mode and one-way mode on any supported contract without closing your open positions. No slippage, No Fees. Switch Mode is available on Web, Mobile, and via the BitMEX API. For full details on the new feature and how to get started, read our FAQs . In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/p_powellk26_settlement": {
+      "title": "Now Live: P_POWELLK26 Contract Settled at 0%",
+      "hash": "1167896db93f2111f5abea2dcd199c880fa94816e874578addb9140910148a1c",
+      "last_checked": "2026-05-20T10:30:58.954559",
+      "content": "Now Live: P_POWELLK26 Contract Settled at 0%\nSun, 17 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/p_powellk26_settlement\nBy the terms stated in the P_POWELLK26 Settlement Event, P_POWELLK26 contract was settled at 0% at 02:00 UTC on 18 May 2026. As Jerome Powell did not resign and held his position as Chairman of the Board of Governors of the Federal Reserve until the end of his term on 15 May 2026, the P_POWELLK26 contract should payout at 0%. In the meantime, if you have any questions please contact Support .\nSite Announcements"
     }
   }
 }
