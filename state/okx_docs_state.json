@@ -1,28 +1,22 @@
 {
-  "timestamp": "2026-05-20T10:52:57.522848",
+  "timestamp": "2026-05-21T08:42:21.191642",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-deprecation-of-checksum-field-in-order-book-channels": {
       "title": "Deprecation of checksum field in order book channels",
       "hash": "7d48d3fad146e71a0a5436f291d74db209039dbc439c921af6d27dcdfdfa810a",
-      "last_checked": "2026-05-20T10:52:59.883913",
+      "last_checked": "2026-05-21T08:42:22.831915",
       "content": "Deprecation of checksum field in order book channels\nLast update: May 19, 2026\nTo improve the efficiency and stability of the market data feed, the following order book channels will deprecate the checksum field in both snapshot and incremental updates. After the deprecation, the checksum field will still be present in snapshot and incremental updates, but its value will always be 0 and must no longer be used for integrity verification. Please use seqId/prevSeqId to verify the data continuity and accuracy before the deprecation .\nThe deprecation date of demo trading environment: June 2, 2026 The deprecation date of production environment: June 23, 2026\nDeprecate the checksum field in both snapshot and incremental updates (the field remains in the push but its value will be fixed to 0 ). WS / Order book channel books books-l2-tbt books50-l2-tbt\nNote: 1. books5 and bbo-tbt channels do not carry a checksum field and are not affected by this change. 2. The WebSocket connection now fully enforces TLS (wss://), providing protection against eavesdropping and tampering, and ensuring data integrity. Together with rigorous validation of seqId and prevSeqId , it effectively prevents out-of-order messages, partial data loss, or malicious injection, providing integrity protection equivalent to or stronger than the original checksum mechanism."
-    },
-    "https://www.okx.com/docs-v5/log_en#upcoming-changes-elp-maker-fee-rate": {
-      "title": "ELP Maker fee rate",
-      "hash": "47c75e6d955b8e483816222262527f74030c8cf060ffe56c36d4deee3978140f",
-      "last_checked": "2026-05-20T10:53:02.630470",
-      "content": "ELP Maker fee rate\nLast update: May 14, 2026\nAs part of the ELP Maker fee adjustment, a new response parameter elpMaker has been added to the fee rates endpoint to indicate the ELP Maker effective fee rate. This change is expected to go live on May 20, 2026 . Please refer to announcement for more details.\nAdded new response parameter elpMaker in feeGroup to: GET / Get fee rates\nResponse Parameters\nParameter Type Description > elpMaker String ELP Maker effective fee rate. Returns \"\" if ELP is not applicable to the instrument. Not applicable to EVENTS instType."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-signal-clone-new-api-endpoint": {
       "title": "Signal Clone \u2014 New API endpoint",
       "hash": "ef0de2a4bf56fc77f9a182d9919a5717a3053ce2610d7d13cf0e504a004d774f",
-      "last_checked": "2026-05-20T10:53:05.500315",
+      "last_checked": "2026-05-21T08:42:25.033368",
       "content": "Signal Clone \u2014 New API endpoint\nLast update: May 14, 2026\nOKX is adding API support for the Signal Clone (Order Sharing) feature. API traders can now generate a universal sharing link programmatically by passing an order ID. The link encodes the order parameters (instrument, side, leverage, price, TP/SL, etc.) server-side. Recipients who open the link will have those parameters prefilled in the OKX App trading panel.\nThis feature is scoped to USDT-margined perpetual contracts. Signal Clone must be enabled for the account.\nCreate signal link\nCreate signal link\nA new endpoint POST /api/v5/copytrade/create-sgl-link is added. Pass orderId and instId in the request body. The order must belong to the requesting account. Only USDT-margined perpetual contracts ( instId ending in -USDT-SWAP ) are supported. Other instrument types will return an error. Returns a shortLink \u2014 a universal OKX App link that can be shared with others to prefill the trading panel with the order parameters. Rate limit: 10 requests per second per user.\nRequest example\nPOST /api/v5/copytrade/create-sgl-link\nbody { \"orderId\" : \"3556007031710728192\" , \"instId\" : \"ADA-USDT-SWAP\" }\nRequest parameters\nParameter Type Required Description orderId String Yes Order ID. Must belong to the requesting account. instId String Yes Instrument ID, e.g. BTC-USDT-SWAP . Only USDT-margined perpetuals are supported.\nResponse example\n{ \"code\" : \"0\" , \"data\" : [ { \"shortLink\" : \"https://www.okx.com/ul/1xJ7nV\" } ], \"msg\" : \"\" }\nResponse parameters\nParameter Type Description shortLink String Universal sharing link. Recipients can open this link in the OKX App to have the order parameters prefilled in the trading panel."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-signal-clone-new-api-endpoint-create-signal-link": {
       "title": "Create signal link",
       "hash": "06ec5419522e4460ddef8f295eef0e6f6b708a566ec708718d4e3fd3c73a76f1",
-      "last_checked": "2026-05-20T10:53:08.680909",
+      "last_checked": "2026-05-21T08:42:27.078611",
       "content": "Create signal link\nCreate signal link\nA new endpoint POST /api/v5/copytrade/create-sgl-link is added. Pass orderId and instId in the request body. The order must belong to the requesting account. Only USDT-margined perpetual contracts ( instId ending in -USDT-SWAP ) are supported. Other instrument types will return an error. Returns a shortLink \u2014 a universal OKX App link that can be shared with others to prefill the trading panel with the order parameters. Rate limit: 10 requests per second per user.\nRequest example\nPOST /api/v5/copytrade/create-sgl-link\nbody { \"orderId\" : \"3556007031710728192\" , \"instId\" : \"ADA-USDT-SWAP\" }\nRequest parameters\nParameter Type Required Description orderId String Yes Order ID. Must belong to the requesting account. instId String Yes Instrument ID, e.g. BTC-USDT-SWAP . Only USDT-margined perpetuals are supported.\nResponse example\n{ \"code\" : \"0\" , \"data\" : [ { \"shortLink\" : \"https://www.okx.com/ul/1xJ7nV\" } ], \"msg\" : \"\" }\nResponse parameters\nParameter Type Description shortLink String Universal sharing link. Recipients can open this link in the OKX App to have the order parameters prefilled in the trading panel."
     }
   }
