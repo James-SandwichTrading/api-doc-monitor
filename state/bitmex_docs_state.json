@@ -1,47 +1,59 @@
 {
-  "timestamp": "2026-05-25T08:17:37.237652",
+  "timestamp": "2026-05-26T08:20:00.865788",
   "sections": {
+    "https://www.bitmex.com/blog/XBTN26-futures-listing": {
+      "title": "Now Live: XBTN26 Futures Listing ",
+      "hash": "37af5e021d59401f6dee6eb84f94dd67222a35c1475300e827fb9f6d2978ea9f",
+      "last_checked": "2026-05-26T08:20:00.865788",
+      "content": "Now Live: XBTN26 Futures Listing \nWed, 20 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/XBTN26-futures-listing\nNow Live: XBTN26 Futures Listing \nListing"
+    },
     "https://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response": {
       "title": "API Update: Introducing the 'pool' field to the ws subscription response",
       "hash": "7cbc0cf2a575e01b6d55d2b7814e4fe92b95015f3563287489e85b2f5ea4abb4",
-      "last_checked": "2026-05-25T08:17:37.237652",
+      "last_checked": "2026-05-26T08:20:01.170901",
       "content": "API Update: Introducing the 'pool' field to the ws subscription response\nTue, 12 May 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/api-update-introducing-the-pool-field-to-ws-subscription-response\nBitMEX is adding a new 'pool' field to WebSocket API subscription responses for order book, quote, and trade feeds, effective 19 May 2026.\nAPI"
     },
     "https://www.bitmex.com/blog/bitmex-ginarea": {
       "title": "Now Live: Advanced Backtesting on BitMEX with GinArea ",
       "hash": "fcc63cb805939ed3ab475d7f391a3c5721cd49ee1fa5d65662f02c1e7bcaed38",
-      "last_checked": "2026-05-25T08:17:37.547816",
+      "last_checked": "2026-05-26T08:20:01.475974",
       "content": "Now Live: Advanced Backtesting on BitMEX with GinArea \nSun, 17 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/bitmex-ginarea\nFree backtesting on GinArea. Earn up to 4,000 USDT in trading rebates on BitMEX.\n\nPartners and Affiliates"
     },
     "https://www.bitmex.com/blog/copy-and-conquer-now-live": {
       "title": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers",
       "hash": "f138c07412dc250306419701b71fcc5fe533098862bf792c0e7222ed0bc4e401",
-      "last_checked": "2026-05-25T08:17:37.851531",
+      "last_checked": "2026-05-26T08:20:01.781360",
       "content": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/copy-and-conquer-now-live\nCopy and Conquer is live. New copiers get $50 in loss protection, with new lead traders earning up to 50% profit share. All users can unlock six reward tiers for up to $150 in credits. Learn how to win your share here . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/fx-perps-now-live": {
       "title": "Win from $50,000: 6 FX Perpetuals Now Live",
       "hash": "7a3fa3ef5050180e1e1c9276b4ccc73a29efb96558f9a28acccd98c51faf028e",
-      "last_checked": "2026-05-25T08:17:38.158825",
+      "last_checked": "2026-05-26T08:20:02.086929",
       "content": "Win from $50,000: 6 FX Perpetuals Now Live\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/fx-perps-now-live\nTrade perpetual swaps on EUR/USD , USD/JPY , GBP/USD , AUD/USD , USD/CHF , and USD/CAD with up to 100x leverage using crypto as collateral. Peer-to-Peer. No weekend closures. The $50,000 prize pool is now live for all FX Perps contracts. Learn how you can trade to win your share here . For full details on the new contracts and how to get started, read our blog . If you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/maker-rebate-14-05-now-live": {
       "title": "Now Live: Updates to Fees for Selected Derivatives Contracts",
       "hash": "ec076f06e94df1cde6c393b9b61578ac4db17150ab10c7079086217a42fc07cf",
-      "last_checked": "2026-05-25T08:17:38.461889",
+      "last_checked": "2026-05-26T08:20:02.391231",
       "content": "Now Live: Updates to Fees for Selected Derivatives Contracts\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/maker-rebate-14-05-now-live\nAs of 14 May at 07:00 UTC, the fees for the below derivatives contracts will be updated to a standard base fee of 5 bps (0.05%). Both Maker and Taker fees will be set at 0.05% and discounts will be applied based on your fee tier. Thank you to all traders who participated during the promotional maker rebate period.\nSite Announcements"
     },
     "https://www.bitmex.com/blog/maker-rebates-14-05-2026": {
       "title": "Now Live: Maker Rebates on Selected Derivatives Contracts ",
       "hash": "aee1156fdee67e16cdebacf15c6589dd32e6ed3e43a4989b8795dc59197945d8",
-      "last_checked": "2026-05-25T08:17:38.766802",
+      "last_checked": "2026-05-26T08:20:02.697560",
       "content": "Now Live: Maker Rebates on Selected Derivatives Contracts \nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/maker-rebates-14-05-2026\nNow Live: Maker Rebates on Selected Derivatives Contracts \n\nListing"
     },
     "https://www.bitmex.com/blog/p_powellk26_settlement": {
       "title": "Now Live: P_POWELLK26 Contract Settled at 0%",
       "hash": "1167896db93f2111f5abea2dcd199c880fa94816e874578addb9140910148a1c",
-      "last_checked": "2026-05-25T08:17:39.067563",
+      "last_checked": "2026-05-26T08:20:03.003317",
       "content": "Now Live: P_POWELLK26 Contract Settled at 0%\nSun, 17 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/p_powellk26_settlement\nBy the terms stated in the P_POWELLK26 Settlement Event, P_POWELLK26 contract was settled at 0% at 02:00 UTC on 18 May 2026. As Jerome Powell did not resign and held his position as Chairman of the Board of Governors of the Federal Reserve until the end of his term on 15 May 2026, the P_POWELLK26 contract should payout at 0%. In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    },
+    "https://www.bitmex.com/blog/xbtn26-now-live": {
+      "title": "Now Live: XBTN26 Futures Contract",
+      "hash": "30a62d6c3655b9f0ee3c4f98540e9eddb265e69c10c7e734c17430d4b5b572ef",
+      "last_checked": "2026-05-26T08:20:03.308773",
+      "content": "Now Live: XBTN26 Futures Contract\nMon, 25 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xbtn26-now-live\nOur new monthly Bitcoin futures contract - XBTN26 - is now live. It began trading at 04:00 UTC on 26 May 2026 and is available to trade here . More details can be found on our blog .\nSite Announcements"
     }
   }
 }
