@@ -1,46 +1,40 @@
 {
-  "timestamp": "2026-06-01T08:10:08.748393",
+  "timestamp": "2026-06-02T08:12:10.041168",
   "sections": {
     "https://www.bitmex.com/blog/XBTN26-futures-listing": {
       "title": "Now Live: XBTN26 Futures Listing ",
       "hash": "37af5e021d59401f6dee6eb84f94dd67222a35c1475300e827fb9f6d2978ea9f",
-      "last_checked": "2026-06-01T08:10:08.748393",
+      "last_checked": "2026-06-02T08:12:10.041168",
       "content": "Now Live: XBTN26 Futures Listing \nWed, 20 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/XBTN26-futures-listing\nNow Live: XBTN26 Futures Listing \nListing"
     },
     "https://www.bitmex.com/blog/bitmex-ginarea": {
       "title": "Now Live: Advanced Backtesting on BitMEX with GinArea ",
       "hash": "fcc63cb805939ed3ab475d7f391a3c5721cd49ee1fa5d65662f02c1e7bcaed38",
-      "last_checked": "2026-06-01T08:10:09.051155",
+      "last_checked": "2026-06-02T08:12:10.357172",
       "content": "Now Live: Advanced Backtesting on BitMEX with GinArea \nSun, 17 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/bitmex-ginarea\nFree backtesting on GinArea. Earn up to 4,000 USDT in trading rebates on BitMEX.\n\nPartners and Affiliates"
     },
-    "https://www.bitmex.com/blog/copy-and-conquer-now-live": {
-      "title": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers",
-      "hash": "f138c07412dc250306419701b71fcc5fe533098862bf792c0e7222ed0bc4e401",
-      "last_checked": "2026-06-01T08:10:09.351647",
-      "content": "Now Live: Copy and Conquer, Rewards for Leaders and Copiers\nWed, 13 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/copy-and-conquer-now-live\nCopy and Conquer is live. New copiers get $50 in loss protection, with new lead traders earning up to 50% profit share. All users can unlock six reward tiers for up to $150 in credits. Learn how to win your share here . In the meantime, if you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/hassonline-now-live": {
+      "title": "Now Live: BitMEX x HaasOnline Trading Campaign",
+      "hash": "3ba61edd60958e9762a97e61d2f120c2c0d1dd35e3cfbf9d869155b128433544",
+      "last_checked": "2026-06-02T08:12:10.663946",
+      "content": "Now Live: BitMEX x HaasOnline Trading Campaign\nSun, 31 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/hassonline-now-live\nJoin the BitMEX x HaasOnline trading campaign and unlock 10 premium trading bots (5 Spot / 5 Futures) completely free for six months, in addition to fee rebates of 0.0025% on all derivatives volume, for trades placed on BitMEX via HaasOnline bots. Unlock the mentioned rewards by joining the campaign here . More details can be found on our blog . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/order-and-execute-api-update": {
       "title": "API Update: Order and Execution API Changes",
       "hash": "611098fe0a5a3e66316a317c1a74f737654615f359e0f0d9d63fce4da27677bc",
-      "last_checked": "2026-06-01T08:10:09.654236",
+      "last_checked": "2026-06-02T08:12:10.979025",
       "content": "API Update: Order and Execution API Changes\nMon, 25 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/order-and-execute-api-update\nAPI Update: Order and Execution API Changes\n\nAPI"
-    },
-    "https://www.bitmex.com/blog/p_powellk26_settlement": {
-      "title": "Now Live: P_POWELLK26 Contract Settled at 0%",
-      "hash": "1167896db93f2111f5abea2dcd199c880fa94816e874578addb9140910148a1c",
-      "last_checked": "2026-06-01T08:10:09.957442",
-      "content": "Now Live: P_POWELLK26 Contract Settled at 0%\nSun, 17 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/p_powellk26_settlement\nBy the terms stated in the P_POWELLK26 Settlement Event, P_POWELLK26 contract was settled at 0% at 02:00 UTC on 18 May 2026. As Jerome Powell did not resign and held his position as Chairman of the Board of Governors of the Federal Reserve until the end of his term on 15 May 2026, the P_POWELLK26 contract should payout at 0%. In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/xbt-2026-lot-size-change": {
       "title": "Now Live: Lot Size Changes for XBT_USDT ",
       "hash": "0b4f7b2121a4e7e46bccdff0e1f6465ebc3a9c3de4d5638a5c0d090acaee165e",
-      "last_checked": "2026-06-01T08:10:10.259675",
+      "last_checked": "2026-06-02T08:12:11.286667",
       "content": "Now Live: Lot Size Changes for XBT_USDT \nSun, 31 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xbt-2026-lot-size-change\nChanges to Lot Size for XBT_USDT implemented on 1 Jun 2026, 04:00:00 UTC\n\nSite Announcements"
     },
     "https://www.bitmex.com/blog/xbtn26-now-live": {
       "title": "Now Live: XBTN26 Futures Contract",
       "hash": "30a62d6c3655b9f0ee3c4f98540e9eddb265e69c10c7e734c17430d4b5b572ef",
-      "last_checked": "2026-06-01T08:10:10.560103",
+      "last_checked": "2026-06-02T08:12:11.590167",
       "content": "Now Live: XBTN26 Futures Contract\nMon, 25 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xbtn26-now-live\nOur new monthly Bitcoin futures contract - XBTN26 - is now live. It began trading at 04:00 UTC on 26 May 2026 and is available to trade here . More details can be found on our blog .\nSite Announcements"
     }
   }
