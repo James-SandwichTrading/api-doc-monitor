@@ -1,41 +1,41 @@
 {
-  "timestamp": "2026-06-05T08:20:14.840793",
+  "timestamp": "2026-06-08T08:10:44.813496",
   "sections": {
     "https://www.bitmex.com/blog/banxa-now-live": {
       "title": "Now Live: Buy and Sell Crypto on BitMEX with Banxa",
       "hash": "3ade4abd38cc8809c580bcf9d15ac924ab9c8528aff2f515dd163678d579d00b",
-      "last_checked": "2026-06-05T08:20:14.840793",
+      "last_checked": "2026-06-08T08:10:44.813496",
       "content": "Now Live: Buy and Sell Crypto on BitMEX with Banxa\nWed, 03 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/banxa-now-live\nBitMEX now supports the full fiat-to-crypto cycle, powered by Banxa. Deposit and earn up to $110 by funding your account (19 May \u2013 9 June 2026) to earn rewards. Learn more here . For full details and step-by-step guides, read our blog . In the meantime, if you have any questions please contact our 24/7 Support team.\nSite Announcements"
     },
     "https://www.bitmex.com/blog/buy-sell-crypto-banxa": {
       "title": "Now Live: Buy and Sell Crypto on BitMEX with Banxa",
       "hash": "7626b0613a50d18059ef24e4002dd4487ca5ee84f91f990c04217c0c872508bc",
-      "last_checked": "2026-06-05T08:20:15.143739",
+      "last_checked": "2026-06-08T08:10:45.115205",
       "content": "Now Live: Buy and Sell Crypto on BitMEX with Banxa\nThu, 04 Jun 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/buy-sell-crypto-banxa\nBuy crypto with credit card, Apple Pay, or bank transfer on BitMEX via Banxa. Sell and cash out crypto to your bank. No repeated KYC for verified users.\nProduct Updates"
     },
     "https://www.bitmex.com/blog/hassonline-now-live": {
       "title": "Now Live: BitMEX x HaasOnline Trading Campaign",
       "hash": "3ba61edd60958e9762a97e61d2f120c2c0d1dd35e3cfbf9d869155b128433544",
-      "last_checked": "2026-06-05T08:20:15.452404",
+      "last_checked": "2026-06-08T08:10:45.431585",
       "content": "Now Live: BitMEX x HaasOnline Trading Campaign\nSun, 31 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/hassonline-now-live\nJoin the BitMEX x HaasOnline trading campaign and unlock 10 premium trading bots (5 Spot / 5 Futures) completely free for six months, in addition to fee rebates of 0.0025% on all derivatives volume, for trades placed on BitMEX via HaasOnline bots. Unlock the mentioned rewards by joining the campaign here . More details can be found on our blog . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
-    "https://www.bitmex.com/blog/order-and-execute-api-update": {
-      "title": "API Update: Order and Execution API Changes",
-      "hash": "611098fe0a5a3e66316a317c1a74f737654615f359e0f0d9d63fce4da27677bc",
-      "last_checked": "2026-06-05T08:20:15.756026",
-      "content": "API Update: Order and Execution API Changes\nMon, 25 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/order-and-execute-api-update\nAPI Update: Order and Execution API Changes\n\nAPI"
+    "https://www.bitmex.com/blog/spcx-now-live": {
+      "title": "Now Live: New SPCX Pre-IPO Perp Contract with 5x Leverage",
+      "hash": "0ea88c590f420acb77b9c4b82dadfd71f5c38500951c86869506831a6bde71fe",
+      "last_checked": "2026-06-08T08:10:45.732390",
+      "content": "Now Live: New SPCX Pre-IPO Perp Contract with 5x Leverage\nThu, 04 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/spcx-now-live\nSPCX, the native token of native token of SpaceX, is now available to trade on BitMEX via a new listing \u2013 SPCXUSDT - with up to 2x leverage. Trading for SPCXUSDT started here on 5 June 2026 at 04:00 UTC. You can view the full specs for this new futures listing here . Please see our blog for further information. If you have any questions please contact Support .\nSite Announcements"
+    },
+    "https://www.bitmex.com/blog/spcxusdt": {
+      "title": "Now Live Pre-IPO Perpetual Contract for SPCX with 5x Leverage",
+      "hash": "095ee040936c0e99d72f514fe59363d45c9349b2b60ebdd13f5c9b91f77d0e52",
+      "last_checked": "2026-06-08T08:10:46.034410",
+      "content": "Now Live Pre-IPO Perpetual Contract for SPCX with 5x Leverage\nThu, 04 Jun 2026 04:00:00 GMT\nhttps://www.bitmex.com/blog/spcxusdt\nAt 04:00 5 June 2026, the new pre-IPO perp contract for SPCX (SpaceX) will be avaliable for trade with up to 5x leverage.\nListing"
     },
     "https://www.bitmex.com/blog/xbt-2026-lot-size-change": {
       "title": "Now Live: Lot Size Changes for XBT_USDT ",
       "hash": "0b4f7b2121a4e7e46bccdff0e1f6465ebc3a9c3de4d5638a5c0d090acaee165e",
-      "last_checked": "2026-06-05T08:20:16.058291",
+      "last_checked": "2026-06-08T08:10:46.350927",
       "content": "Now Live: Lot Size Changes for XBT_USDT \nSun, 31 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xbt-2026-lot-size-change\nChanges to Lot Size for XBT_USDT implemented on 1 Jun 2026, 04:00:00 UTC\n\nSite Announcements"
-    },
-    "https://www.bitmex.com/blog/xbtn26-now-live": {
-      "title": "Now Live: XBTN26 Futures Contract",
-      "hash": "30a62d6c3655b9f0ee3c4f98540e9eddb265e69c10c7e734c17430d4b5b572ef",
-      "last_checked": "2026-06-05T08:20:16.370669",
-      "content": "Now Live: XBTN26 Futures Contract\nMon, 25 May 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/xbtn26-now-live\nOur new monthly Bitcoin futures contract - XBTN26 - is now live. It began trading at 04:00 UTC on 26 May 2026 and is available to trade here . More details can be found on our blog .\nSite Announcements"
     }
   }
 }
