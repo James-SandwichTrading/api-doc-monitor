@@ -1,35 +1,35 @@
 {
-  "timestamp": "2026-06-15T08:08:00.180082",
+  "timestamp": "2026-06-17T08:16:01.095741",
   "sections": {
     "https://www.bitmex.com/blog/api-update-csa-endpoint": {
       "title": "API Update: Modifications to the CSA endpoint",
       "hash": "124a6f806f7bdad14e8d5b3de2f98332dd9a1c571d0c530cdbb95a7a64e50429",
-      "last_checked": "2026-06-15T08:08:00.180082",
+      "last_checked": "2026-06-17T08:16:01.095741",
       "content": "API Update: Modifications to the CSA endpoint\nMon, 08 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/api-update-csa-endpoint\nOn 11 June 2026, 06:00 UTC, the GET /api/v1/user/csa endpoint will be updated to return all active CSA loans held against an account.\nAPI"
-    },
-    "https://www.bitmex.com/blog/buy-sell-crypto-banxa": {
-      "title": "Now Live: Buy and Sell Crypto on BitMEX with Banxa",
-      "hash": "7626b0613a50d18059ef24e4002dd4487ca5ee84f91f990c04217c0c872508bc",
-      "last_checked": "2026-06-15T08:08:00.483729",
-      "content": "Now Live: Buy and Sell Crypto on BitMEX with Banxa\nThu, 04 Jun 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/buy-sell-crypto-banxa\nBuy crypto with credit card, Apple Pay, or bank transfer on BitMEX via Banxa. Sell and cash out crypto to your bank. No repeated KYC for verified users.\nProduct Updates"
     },
     "https://www.bitmex.com/blog/q3-listing-now-live": {
       "title": "Now Live: Q3 2026 Quarterly Futures Listing",
       "hash": "4c0a6e3af050061b8203b45239e87c8a7b539a223f4a2bf1c1c99d450b7698a2",
-      "last_checked": "2026-06-15T08:08:00.789707",
+      "last_checked": "2026-06-17T08:16:01.402133",
       "content": "Now Live: Q3 2026 Quarterly Futures Listing\nMon, 08 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/q3-listing-now-live\nAs of 9 Jun at 04:00 UTC, our new Quarterly Futures are available to trade on BitMEX. For the full contract list, please refer to our blog article, Q3 2026 Quarterly Futures Listings . If you have any questions, please contact Support .\nSite Announcements"
     },
-    "https://www.bitmex.com/blog/spcx-now-live": {
-      "title": "Now Live: New SPCX Pre-IPO Perp Contract with 5x Leverage",
-      "hash": "0ea88c590f420acb77b9c4b82dadfd71f5c38500951c86869506831a6bde71fe",
-      "last_checked": "2026-06-15T08:08:01.090898",
-      "content": "Now Live: New SPCX Pre-IPO Perp Contract with 5x Leverage\nThu, 04 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/spcx-now-live\nSPCX, the native token of native token of SpaceX, is now available to trade on BitMEX via a new listing \u2013 SPCXUSDT - with up to 2x leverage. Trading for SPCXUSDT started here on 5 June 2026 at 04:00 UTC. You can view the full specs for this new futures listing here . Please see our blog for further information. If you have any questions please contact Support .\nSite Announcements"
+    "https://www.bitmex.com/blog/request-correlation-api": {
+      "title": "API Update: Introducing Request Correlation Fields to the Binary WebSocket Trading API",
+      "hash": "44a39d6b6d918d1960399a4722ce538ab627f5f6c67b310855f631c7f9e3254e",
+      "last_checked": "2026-06-17T08:16:01.704678",
+      "content": "API Update: Introducing Request Correlation Fields to the Binary WebSocket Trading API\nMon, 15 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/request-correlation-api\nFrom 17 June 2026, new fields will be added to the ErrorMessage (template ID 106) and TradeExecution (template ID 105) messages in the binary WebSocket Trading API.\nAPI"
     },
-    "https://www.bitmex.com/blog/spcxusdt": {
-      "title": "Now Live Pre-IPO Perpetual Contract for SPCX with 5x Leverage",
-      "hash": "095ee040936c0e99d72f514fe59363d45c9349b2b60ebdd13f5c9b91f77d0e52",
-      "last_checked": "2026-06-15T08:08:01.406124",
-      "content": "Now Live Pre-IPO Perpetual Contract for SPCX with 5x Leverage\nThu, 04 Jun 2026 04:00:00 GMT\nhttps://www.bitmex.com/blog/spcxusdt\nAt 04:00 5 June 2026, the new pre-IPO perp contract for SPCX (SpaceX) will be avaliable for trade with up to 5x leverage.\nListing"
+    "https://www.bitmex.com/blog/spcxusdt-conversion": {
+      "title": "Now Live: SPCXUSDT Converting to a Regular Equity Perpetual",
+      "hash": "8698e096e1584a9abec9f400146171827b68d3130e7941b042cea971fa3a5fc3",
+      "last_checked": "2026-06-17T08:16:02.006365",
+      "content": "Now Live: SPCXUSDT Converting to a Regular Equity Perpetual\nMon, 15 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/spcxusdt-conversion\nFollowing the listing of SpaceX (SPCX) on Nasdaq, we have converted the SPCXUSDT pre-IPO perpetual contract into a standard equity perpetual contract on 16 June 2026 at 12:00 UTC. Read on for full details on what's changing. The following contract specifications will change at the point of conversion: Index and Mark Prices Upon conversion, the .BSPCXT index will be constructed using real-time spot prices sourced from the following exchanges and oracles: For more information about how mark prices\nListing"
+    },
+    "https://www.bitmex.com/blog/spcxusdt-conversion-now-live": {
+      "title": "Now Live: SPCXUSDT Converted to a Regular Equity Perpetual",
+      "hash": "a5e8664953d27c8230613c0de7a467ddd267629353120020bae1d7126e4b6e55",
+      "last_checked": "2026-06-17T08:16:02.309803",
+      "content": "Now Live: SPCXUSDT Converted to a Regular Equity Perpetual\nMon, 15 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/spcxusdt-conversion-now-live\nSPCXUSDT was converted from a pre-IPO perp to a standard equity perpetual as of 16 June 2026 at 12:00 UTC. Mark pricing is now FairPriceStox and funding rates are active. The first period for funding calculation will be from 16 June 2026 at 12:00 UTC to 16 June 2026 (+8h) at 20:00 UTC and the first funding payment will be at 17 June 2026 at 04:00 (+16h) UTC You can trade SPCXUSDT here or view the full updated contract specs here . Please see our blog for further information. If you have any ques\nSite Announcements"
     }
   }
 }
