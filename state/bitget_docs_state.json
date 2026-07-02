@@ -1,856 +1,862 @@
 {
-  "timestamp": "2026-07-01T08:14:14.240955",
+  "timestamp": "2026-07-02T08:12:59.635519",
   "sections": {
     "https://www.bitget.com/api-doc/common/changelog#august-11-2025-agent-commission-api-query-supports-fee-deduction": {
       "title": "August 11, 2025: Agent Commission Api Query Supports Fee Deduction",
       "hash": "696d2881a0e4658d85185cecb5ecb44309bb65c63a4dbc1a08489ef4eab40c36",
-      "last_checked": "2026-07-01T08:14:14.309800",
+      "last_checked": "2026-07-02T08:12:59.695446",
       "content": "[August 11, 2025]Agent commission API query supports fee deduction\u200b\nInterface\uff1a/api/broker/v1/agent/commission-distribution;/api/broker/v1/agent/customer-commissions; Changes\uff1a\nAgent commission API query supports fee deduction details"
     },
     "https://www.bitget.com/api-doc/common/changelog#august-11-2025-api-global-rate-limit-adjustment": {
       "title": "August 11, 2025: Api Global Rate Limit Adjustment",
       "hash": "89f4ef371f63e9d309f42aa74301c39e7e771be2ebd0168f24aa4054e453f964",
-      "last_checked": "2026-07-01T08:14:14.659553",
+      "last_checked": "2026-07-02T08:13:00.055495",
       "content": "[August 11, 2025]API Global rate Limit Adjustment\u200b\nChanges\uff1a\nThere is an overall rate limit rule of 6,000 times per IP per minute. After the rate limit is triggered, the recovery time is adjusted from 1 minute to 5 minutes."
     },
     "https://www.bitget.com/api-doc/common/changelog#august-28-2025-notice-optimization-of-push-frequency-for-websocket-order-book-channel-books1--in-classic-account-v2": {
       "title": "August 28, 2025: Notice Optimization Of Push Frequency For Websocket Order...",
       "hash": "bd26e6de1d7da4c18e19b4bd56e36d6781dab3ad55569190b490b4d74be4969f",
-      "last_checked": "2026-07-01T08:14:15.007825",
+      "last_checked": "2026-07-02T08:13:00.407917",
       "content": "[August 28, 2025]Notice: Optimization of Push Frequency for Websocket Order Book Channel (books1)  in Classic Account (v2)\u200b\nWebsocket: Order Book Channel Adjustment Content: The push frequency of the order book channel (books1) is optimized to 20ms. The symbols for this optimization are: BTCUSDT, ETHUSDT, XRPUSDT, SOLUSDT, SUIUSDT, DOGEUSDT, ADAUSDT, PEPEUSDT, LINKUSDT, HBARUSDT"
     },
     "https://www.bitget.com/api-doc/common/changelog#august-4-2025-delisting-of-futures-demo-pairs": {
       "title": "August 4, 2025: Delisting Of Futures Demo Pairs",
       "hash": "b4caf47346821315076bf3b343574f7f7c7c80cb55aa02248fe3d6d5561bab99",
-      "last_checked": "2026-07-01T08:14:15.347434",
+      "last_checked": "2026-07-02T08:13:00.754194",
       "content": "[August 4, 2025]Delisting of Futures Demo Pairs\u200b\nFutures demo pairs have been delisted. Please use the demo trading for simulated trading."
     },
     "https://www.bitget.com/api-doc/common/changelog#august-6-2025-add-margincoin-field-for-historical-transaction-details": {
       "title": "August 6, 2025: Add Margincoin Field For Historical Transaction Details",
       "hash": "7c9b6ae4d3149a79b9923911385f9ce24463aad0c0f113e3b6a040556ffe7d7a",
-      "last_checked": "2026-07-01T08:14:15.683735",
+      "last_checked": "2026-07-02T08:13:01.113156",
       "content": "[August 6, 2025]Add marginCoin field for historical transaction details\u200b\nInterface\uff1a/api/v2/mix/order/fill-history Changes\uff1a\nAdd marginCoin field for historical transaction details"
     },
     "https://www.bitget.com/api-doc/common/changelog#august-6-2025-add-unrealizedpl-field-for-sub-account-futures-asset-info": {
       "title": "August 6, 2025: Add Unrealizedpl Field For Sub Account Futures Asset Info",
       "hash": "c861181acf9618f07b182693785978c4a0e1ba91d4ec6f903714dad7f09c3e39",
-      "last_checked": "2026-07-01T08:14:16.034499",
+      "last_checked": "2026-07-02T08:13:01.464434",
       "content": "[August 6, 2025]Add unrealizedPL field for sub-account futures asset info\u200b\nInterface\uff1a/api/v2/broker/account/subaccount-future-assets Changes\uff1a\nAdd unrealizedPL field for sub-account futures asset info"
     },
     "https://www.bitget.com/api-doc/common/changelog#january-29-2026-transfer-records-enable-idlessthan-pagination-mode": {
       "title": "January 29, 2026: Transfer Records Enable Idlessthan Pagination Mode",
       "hash": "97df8689d26ab6cfe268f31a9552f79da3fd3be6679a5bea942d73d65973eb6e",
-      "last_checked": "2026-07-01T08:14:16.369320",
+      "last_checked": "2026-07-02T08:13:01.812828",
       "content": "[January 29, 2026]Transfer Records Enable idLessThan Pagination Mode\u200b\nInterface:\n/api/v2/spot/account/transferRecords\nChanges\uff1a Enabled idLessThan pagination mode for retrieving transfer records; deprecated pageNum."
     },
     "https://www.bitget.com/api-doc/common/changelog#january-6-2026-added-off_close-delisting-liquidation-to-the-enum-values-of-the-response-parameter-ordersource": {
       "title": "January 6, 2026: Added Off_Close Delisting Liquidation To The Enum Values ...",
       "hash": "0c672783d90d5560fc4fbe100a4f6ca77b81d60336bde1f4a35e972311c2d47a",
-      "last_checked": "2026-07-01T08:14:16.713519",
+      "last_checked": "2026-07-02T08:13:02.153797",
       "content": "[January 6, 2026]Added 'off_close' (Delisting Liquidation) to the enum values of the response parameter 'orderSource'.\u200b\nInterface:\n/api/v2/mix/order/orders-pending, /api/v2/mix/order/orders-history\nChanges\uff1a Added 'off_close' (Delisting Liquidation) to the enum values of the response parameter 'orderSource'."
     },
     "https://www.bitget.com/api-doc/common/changelog#january-7-2026-optimization-of-push-frequency-for-websocket-order-book-channel-books1--in-classic-account-v2": {
       "title": "January 7, 2026: Optimization Of Push Frequency For Websocket Order Book C...",
       "hash": "64a7b1e76b1c1ce7ef779158b0799301e6391fd48f35dc83047b7873d4ead5b1",
-      "last_checked": "2026-07-01T08:14:17.071693",
+      "last_checked": "2026-07-02T08:13:02.507862",
       "content": "[January 7, 2026]Optimization of Push Frequency for Websocket Order Book Channel (books1)  in Classic Account (v2)\u200b\nWebsocket: Order Book Channel Adjustment Content: The push frequency of the order book channel (books1) is optimized to 10ms."
     },
     "https://www.bitget.com/api-doc/common/changelog#july-1-2025-websocket-adds-order-placement-and-cancellation-channels": {
       "title": "July 1, 2025: Websocket Adds Order Placement And Cancellation Channels",
       "hash": "97a80c5b42adb4dfd3ae9bbb22fc2a3474a45146aefa55d66fabcaa08b441ab7",
-      "last_checked": "2026-07-01T08:14:17.409121",
+      "last_checked": "2026-07-02T08:13:02.861324",
       "content": "[July 1, 2025]WebSocket Adds Order Placement and Cancellation Channels\u200b\nChannels: Place Order\uff0cCancel Order\nChanges\uff1a\nAdds Order Placement and Cancellation Channels\n[Jun 17, 2025] Spot merged trading depth, spot trading depth, futures merged depth interfaces: ts field adjustment \u200b\nInterface\uff1a/api/v2/mix/market/merge-depth,/api/v2/spot/market/orderbook,/api/v2/spot/market/merge-depth\nChanges\uff1a\nSpot merged trading depth, spot trading depth, and futures merged depth interfaces: ts field adjusted to matching engine timestamp\n[Jun 16, 2025] The ADL ranking interface has added the position direction. \u200b\nInterface\uff1a/api/v2/mix/position/adlRank Changes\uff1a\nThe ADL ranking interface has added the position direction holdSide field\u3002"
     },
     "https://www.bitget.com/api-doc/common/changelog#july-14-2025--futures-leverage-adjustment-api-supports-setting-longshort-leverage-ratios-separately": {
       "title": "July 14, 2025:  Futures Leverage Adjustment Api Supports Setting Longsho...",
       "hash": "bc7df1a12c867a3ffc5d20c8e19ac1e42ceec203cee50a8a624b2f8681bd2604",
-      "last_checked": "2026-07-01T08:14:17.778119",
+      "last_checked": "2026-07-02T08:13:03.213195",
       "content": "[July 14, 2025]Futures leverage adjustment API supports setting long/short leverage ratios separately.\u200b\nInterface\uff1a /api/v2/mix/account/set-leverage Changes\uff1a\nFutures leverage adjustment API supports setting long/short leverage ratios separately."
     },
     "https://www.bitget.com/api-doc/common/changelog#july-14-2025--position-take-profitstop-loss-api-supports-setting-custom-ids-for-take-profit-and-stop-loss-orders-separately": {
       "title": "July 14, 2025:  Position Take Profitstop Loss Api Supports Setting Custo...",
       "hash": "94e9e8341fd14a2f5d0f035a53f8381ce1903efe43e1bf34c04394568d8696db",
-      "last_checked": "2026-07-01T08:14:18.139062",
+      "last_checked": "2026-07-02T08:13:03.591031",
       "content": "[July 14, 2025]Position take-profit/stop-loss API supports setting custom IDs for take-profit and stop-loss orders separately.\u200b\nInterface\uff1a /api/v2/mix/order/place-pos-tpsl Changes\uff1a\nPosition take-profit/stop-loss API supports setting custom IDs for take-profit and stop-loss orders separately."
     },
     "https://www.bitget.com/api-doc/common/changelog#july-14-2025--the-interface-for-obtaining-the-list-of-historical-contract-positions-has-added-a-position-mode-field": {
       "title": "July 14, 2025:  The Interface For Obtaining The List Of Historical Contr...",
       "hash": "c731a200c43d97f6793f5a154f5c6c0061a1da5ca2fada35bb95670958b34f60",
-      "last_checked": "2026-07-01T08:14:18.477020",
+      "last_checked": "2026-07-02T08:13:03.949833",
       "content": "[July 14, 2025]The interface for obtaining the list of historical contract positions has added a position mode field.\u200b\nInterface\uff1a /api/v2/mix/position/history-position Changes\uff1a\nThe interface return parameters have added posMode (position mode), with enumeration values including one_way_mode (one-way position) and hedge_mode (hedge mode/two-way position)."
     },
     "https://www.bitget.com/api-doc/common/changelog#july-16-2025-add-new-account-mode-switching-api": {
       "title": "July 16, 2025: Add New Account Mode Switching Api",
       "hash": "8b864d1e4c7c648cd079d3242c6c870801c74fd93f156398dcd7fb382ec6acd4",
-      "last_checked": "2026-07-01T08:14:18.830053",
+      "last_checked": "2026-07-02T08:13:04.302268",
       "content": "[July 16, 2025]Add New Account Mode Switching API\u200b\nInterface\uff1a/api/v2/spot/account/upgrade, /api/v2/spot/account/upgrade-status\nAdjustment:\nAdd New Account Mode Switching API"
     },
     "https://www.bitget.com/api-doc/common/changelog#july-29-2025-optimize-adl-api-ranking-logic": {
       "title": "July 29, 2025: Optimize Adl Api Ranking Logic",
       "hash": "735af51af94460cfc84929ded1522e2ebe5ab9f48e0038013f02f1f310bf7f24",
-      "last_checked": "2026-07-01T08:14:19.183223",
+      "last_checked": "2026-07-02T08:13:04.651560",
       "content": "[July 29, 2025]Optimize ADL API ranking logic.\u200b\nInterface\uff1a/api/v2/mix/position/adlRank\nChanges\uff1a\nOptimize the ranking logic of the ADL API on the server side.Add a new field \"rank\" and deprecated the field \"adlRank\"."
     },
     "https://www.bitget.com/api-doc/common/changelog#july-31-2025-optimization-of-the-futures-order-placement-interface-logic": {
       "title": "July 31, 2025: Optimization Of The Futures Order Placement Interface Logic",
       "hash": "912511d2a823cc05a1d8d04ee9082dffe4dbd371ea02481ad6a04ce61c92b46d",
-      "last_checked": "2026-07-01T08:14:19.535797",
+      "last_checked": "2026-07-02T08:13:05.009586",
       "content": "[July 31, 2025]Optimization of the futures order placement interface logic\u200b\nInterface\uff1a /api/v2/mix/order/place-order\nChanges\uff1a\nbefore: In hedge mode, if the existing quantity is equal to the limit close order of the position, a newly added market close order will report an error due to insufficient position and will not automatically cancel the limit order that has occupied the position. after: In hedge mode, if the existing quantity is equal to the limit close order of the position, a newly added market close order will automatically cancel the limit order that has occupied the position (consistent with Web/APP)."
     },
     "https://www.bitget.com/api-doc/common/changelog#july-8-2025-websocket-futures-position-channel-adds-mark-price-parameter": {
       "title": "July 8, 2025: Websocket Futures Position Channel Adds Mark Price Parameter",
       "hash": "43fdf569a5a9925c47e79304e10e2604b5da6d90d6a0a85fffd0f95d09417ebc",
-      "last_checked": "2026-07-01T08:14:19.887991",
+      "last_checked": "2026-07-02T08:13:05.359086",
       "content": "[July 8, 2025]WebSocket futures position channel adds mark price parameter\u200b\nChannels: futures position channel\nChanges\uff1a\nWebSocket futures position channel adds mark price parameter"
     },
     "https://www.bitget.com/api-doc/common/changelog#june-09-2025-get-contract-information-adds-maximum-order-quantity-fields": {
       "title": "June 09, 2025: Get Contract Information Adds Maximum Order Quantity Fields",
       "hash": "671db6dfc799d2e221401a4144553b53c58c70b0ce3f9bdba97227c11797294d",
-      "last_checked": "2026-07-01T08:14:20.239185",
+      "last_checked": "2026-07-02T08:13:05.711812",
       "content": "[June 09, 2025]Get Contract Information Adds Maximum Order Quantity Fields\u200b\nInterface\uff1a/api/v2/mix/market/contracts Changes\uff1a\nAdded maxMarketOrderQty field for the maximum quantity of a single market order. Added maxOrderQty field for the maximum quantity of a single limit order."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-08-2025-add-preset-stop---profit-and-stop---loss-execution-prices-for-contract-orders": {
       "title": "May 08, 2025: Add Preset Stop   Profit And Stop   Loss Execution Prices...",
       "hash": "3aa6efa617a1e73d2130378686e2b63f356efd6aab96a85cc86cc6053b190ab0",
-      "last_checked": "2026-07-01T08:14:20.591142",
+      "last_checked": "2026-07-02T08:13:06.059546",
       "content": "[May 08, 2025]Add preset stop - profit and stop - loss execution prices for contract orders.\u200b\nInterface\uff1a /api/v2/mix/order/place-order\nChanges\uff1a\nAdd request parameters presetStopSurplusExecutePrice Preset stop-profit execution price presetStopLossExecutePrice Preset stop-loss execution price"
     },
     "https://www.bitget.com/api-doc/common/changelog#may-08-2025-add-utime-to-the-websocket-push-for-cross-marginisolated-margin-leverage-order-channels": {
       "title": "May 08, 2025: Add Utime To The Websocket Push For Cross Marginisolated ...",
       "hash": "a3948830d2b823eeaa5b31b33605c5bd92488873358064f47d027dee1cab04be",
-      "last_checked": "2026-07-01T08:14:20.948885",
+      "last_checked": "2026-07-02T08:13:06.411789",
       "content": "[May 08, 2025]Add \"utime\" to the WebSocket push for cross-margin/isolated-margin leverage order channels.\u200b\nChannels: Cross-margin Leverage Order Channel, Isolated-margin Leverage Order Channel\nChanges\uff1a\nAdd to the push data utime\n[Apr 30,2025] For the trading details of the WS futures, push fields are added to the spot/futures depth channels. \u200b\nChannels: futures Trading Details Channel, Spot Depth Channel, Contract Depth Channel\nChanges:\nAdd the clientOid field to the pushed information of the futures Trading Details Channel. Add the seq field to the pushed information of the Spot Depth Channel and the futures Depth Channel.\n[Apr 23, 2025] Added groupType enumeration for get account bills. \u200b\nInterface\uff1a/api/v2/spot/account/bills\nChanges\uff1a\nAdded a new bill type enumeration groupType for input parameters and return values when fetching bill transaction details.\n[Apr 21,2025] Delete error code 40882 \u200b\nRemoved content:\nRemoved error code code 40882 :\"You are currently a trader and you cannot switch to the full position mode|400|\"\n[Apr 14,2025] Add New Endpoint: Get ND Broker Sub-accounts Deposit and Withdrawal Records \u200b\nInterface\uff1a/api/v2/broker/all-sub-deposit-withdrawal\nChanges\uff1a\nAdding new endpoint to get ND Broker sub-accounts deposit and withdrawal records within 90 days\n[Apr 10,2025] Adjustment to virtual sub-account API key related endpoints \u200b\nInterface\uff1a/api/v2/user/create-virtual-subaccount-apikey\uff0c/api/v2/user/modify-virtual-subaccount-apikey\uff0c/api/v2/user/virtual-subaccount-apikey-list\nChanges\uff1a\nThe permList parameter in the create, modify, and query sub-account API key interfaces now includes the transfer : wallet transfer permission. The modify and query sub-account API key interfaces now support regular sub-accounts\n[Apr 10,2025] Added new field offTime in the response of Get Spot Symbol Info interface \u200b\nInterface\uff1a/api/v2/spot/public/symbols\nChanges:\nAdded new field offTime in the response The response parameter \"maxTradeAmount\" is fixed to return 900000000000000000000 ; please disregard this response parameter.\n[Apr 09, 2025] Added ADL ranking interface. \u200b\nEndpoints\uff1a/api/v2/mix/position/adlRank Additional content\uff1a\nSupports obtaining ADL rankings for users across various trading pairs.\n[Apr 08, 2025] Added APIs for new order initiator key creation & follower order setup. \u200b\nEndpoints\uff1a/api/v2/copy/mix-trader/create-copy-api Additional content\uff1a\nNew version interface for order initiators to create order API keys.\nEndpoints\uff1a/api/v2/copy/mix-follower/copy-settings Additional content\uff1a\nNew version interface for follower order-following setup.\n[Apr 02, 2025] Adjustment of input parameters for estimated interest and loanable amount \u200b\nEndpoints\uff1a/api/v2/earn/loan/public/hour-interest, /api/v2/earn/loan/borrow\nAdditional content\uff1a\nAdjust the input parameter for the daily to SEVEN : 7 days THIRTY : 30 days FLEXIBLE : Flexible\n[Mar 27, 2025] Updates include new fields in futures contract & funding rate interfaces' return values, and adjusted input params for spot transaction details. \u200b\nEndpoints\uff1a/api/v2/mix/account/accounts Additional content\uff1a\nThe return value of the futures contract account interface has been updated with a new field available , which represents the maximum transferable amount of combined margin in the current currency.\nEndpoints\uff1a/api/v2/mix/market/current-fund-rate Additional content\uff1a\nThe return value of the interface for obtaining the current funding rate has been updated with new parameters, including fundingRateInterval, upper and lower limits of funding rate, and next update time.\nEndpoints\uff1a/api/v2/spot/trade/fills Changes content\uff1a\nThe symbol in the request parameters has been changed from required to optional.\n[Mar 22, 2025] New Response Fields in Futures Account Channel \u200b\nChannel: Futures - Private Channel - Account Channel Change: Add \"crossedRiskRate\"(Risk ratio in cross margin mode) and \"unrealizedPL\"(Unrealized PnL) in push data\n[Mar 20,2025] For Spot get order information endpoints, it is adjusted to only support to get the order data within 2 hours when queried by clientOid \u200b\nEndpoints: Spot get order info interfaces Change: Querying order information based on ClientOid only supports to get the data within last 2 hours.\n[Mar 18,2025] Adjust the input parameter instructions for modifying the ApiKey permissions of a sub-account. \u200b\nEndpoints: \uff1a/api/v2/broker/manage/modify-subaccount-apikey Changes content\uff1a\nModify the sub-account ApiKey permissions: The input parameter permType (permission type) has been changed to a required field.\n[Mar 12,2025] Adjustment to the period input parameter for obtaining contract initiative buying and selling volume information. \u200b\nEndpoints: \uff1a/api/v2/mix/market/long-short Changes content\uff1a\nChange the input parameter period field from 1d to 1Dutc .\n[Mar 11,2025] API for new OI position limit information in contracts \u200b\nEndpoints: \uff1a/api/v2/mix/market/oi-limit Additional content\uff1a\nAPI for new OI position limit information in contracts\n[Feb 19,2025] Add a description for instId in the public channel for Margin. \u200b\nChanges content\uff1a\nAdd a description for instId in the public channel for Margin. Only supports\uff1a default\n[Feb 18,2025] Add the userId response field to the broker sub-account recharge records. \u200b\nEndpoints: \uff1a/api/v2/broker/subaccount-deposit Changes content\uff1a\nAdd the userId response field to the broker sub-account recharge records.\n[Feb 07,2025] Add instructions for using the classic account simulation environment. \u200b\nAdditional content\uff1a\nInstructions for subscribing to simulation environment messages via Websocket. Instructions for using RestApi to conduct API trading in the simulation environment.\n[Feb 03,2025] New addition to futures error codes: \u200b\nAdditional content:\nNew contract error code 22067 has been added, meaning: \"Operations are prohibited during ADL processing.\"\n[Jan 16,2025] The futures contract financial record has added an enumeration for the futureTaxType parameter. \u200b\nEndpoints: \uff1a/api/v2/tax/future-record Additional content:\nAdd the enumeration type and description for the return value parameter futureTaxType\n[Jan 15,2025] Bitget to adjust the calculation of USDC-M perpetual futures index price from USD to USDC \u200b\nKey adjustments\nIndex price and mark price: The index price and mark price of USDC-M perpetual futures will now be denominated in USDC. Order book prices: Order book prices for USDC-M perpetual futures will also be denominated in USDC.\nFor more details, please refer to: https://www.bitget.com/support/articles/12560603820643\n[Dec 24,2024] The rate limit change on Convert endpoint \u200b\n/api/v2/convert/trade, The rate limit is changed from 10 req/sec/UID to 5 req/sec/UID\n[Dec 16,2024] Get Spot TransferRecords endpoint adjust parameters \u200b\nEndpoints: Get Account Transfer Records\nChange: The \"idLessThan\" parameter for the spot account transfer record interface has been deprecated, and a new \"pageNum\" parameter has been added.\n[Nov 22,2024] Websocket connection limit update \u200b\nConnection instructions : Connection limit : 300 connection requests/IP/5min, Max 100 connections/IP Subscription limit : 240 subscription requests/Hour/connection, Max 1000 channel subscription/connection\nIf there\u2019s a network problem, the system will automatically disconnect the connection.\nTo keep the connection stable:\nWebsocket will be forcibly disconnected every 24 hours, please add the reconnection mechanism in your code Users set a 30 seconds timer to a send string \"ping\", and expect a string \"pong\" as response. If no string \"pong\" received, please reconnect Websocket server will disconnect the connection if there is no string \"ping\" received for 2 min The Websocket server accepts up to 10 messages per second. The message includes:\nString \"ping\" JSON message, such as subscribe, unsubscribe.\nIf the user sends more messages than the limit, the connection will be disconnected. The IP which is repeatedly disconnected may be blocked by the server We highly recommend you to subscribe less than 50 channels in one connection . The connections with less channel subscriptions will be more stable.\n[Oct 17,2024] The update on calculation method for the change24h field in the Futrues and SPOT ticker interfaces \u200b\nEndpoints:\n/api/v2/spot/market/tickers, SPOT Get Ticker Information /api/v2/mix/market/ticker, Futures Get Single Ticker /api/v2/mix/market/tickers, Futures Get All Tickers\nChange: The calculation of the change24h field in the API response will change from the price fluctuation from 00:00 in the UTC+8 time zone to the current time, to the price fluctuation over the past 24 hours from the current time.\n[Sep 24,2024] The APIs for USDT-M Futures Multi-assets Mode requirements have been launched. \u200b\nEndpoints: APIs for USDT-M Futures Multi-assets Mode\n[Aug 28,2024] Get Merchant Advertisement List endpoint Adjust the maximum value of the 'limit' parameter to 20 \u200b\nEndpoints: Get Merchant Advertisement List\nChange: Adjust the maximum value of the 'limit' parameter to 20\n[Aug 15,2024] API rate limit adjustment \u200b\nEndpoints Old rate limit New rate limit /api/v2/copy/mix-trader/order-close-positions 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/order-current-track 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/query-current-orders 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/query-history-orders 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/order-history-track 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/profits-group-coin-date 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/profit-history-summarys 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/profit-history-details 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/profit-details 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/order-modify-tpsl 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/order-total-detail 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-broker/query-traders 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/settings 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/close-positions 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/setting-tpsl 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/query-settings 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/cancel-trader 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/config-settings-base 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-follower/query-traders 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/config-query-followers 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/config-remove-follower 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/config-query-symbols 20 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-trader/config-setting-symbols 10 req/sec/UID 5 req/sec/UID /api/v2/copy/mix-broker/query-history-traces 10 req/sec/UID 5 req/sec/UID /api/v2/spot/trade/batch-cancel-plan-order 10 req/sec/UID 5 req/sec/UID /api/v2/spot/account/deduct-info 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-follower/query-current-orders 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-follower/query-settings 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-follower/query-history-orders 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-follower/query-traders 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-trader/config-query-settings 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-trader/order-history-track 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-trader/profit-summarys 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-trader/profit-history-details 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-trader/profit-details 10 req/sec/UID 5 req/sec/UID /api/v2/copy/spot-trader/order-total-detail 10 req/sec/UID 5 req/sec/UID /api/v2/user/virtual-subaccount-apikey-list 10 req/sec/UID 5 req/sec/UID /api/v2/broker/account/subaccount-withdrawal 10 req/sec/UID 1 req/sec/UID /api/v2/spot/account/switch-deduct 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-follower/order-close-tracking 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-follower/cancel-trader 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-follower/stop-order 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-follower/settings 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-follower/setting-tpsl 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-trader/order-close-tracking 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-trader/config-setting-symbols 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-trader/config-remove-follower 10 req/sec/UID 1 req/sec/UID /api/v2/copy/spot-trader/order-modify-tpsl 10 req/sec/UID 1 req/sec/UID\n[Jul 03,2024] Withdrawal and get deposit addresses supports Bitcoin Lightning Network \u200b\nEndpoints: Withdraw, Get Deposit Address, Get SubAccount Deposit Address\nChange: Get the deposit address to support obtaining the Bitcoin Lightning Network invoice address, and the withdrawal endpoint supports withdrawal from the Bitcoin Lightning Network invoice address\n[Jun 25,2024] Adjustment on Get P2P Merchant List Interface \u200b\nParameter merchantId has been removed from Get P2P Merchant List Interface\n[Mar 15,2024] Adjustment on the time range for Get History Trigger Order \u200b\nEndpoint: Get History Trigger Order\nThe interval between startTime and endTime has been limited to 90 days Only historical records within the past 90 days are supported.\n[Feb 6,2023] Add newSize field in the push parameters of Spot Order Channel for Websocket \u200b\nThe spot order channel push now includes a new parameter newSize , which will gradually replace the existing parameter size in subsequent updates.\nnewSize represents the order quantity, following the specified rules:\nwhen orderType=limit , newSize represents the quantity of base coin, when orderType=market and side=buy , newSize represents the quantity of quote coin, when orderType=market and side=sell , newSize represents the quantity of base coin.\n[Jan 19,2024] Adjustment on the time range for tax endpoints per request \u200b\nEndpoints: Spot Transaction Records, Futures Transaction Records, Margin Transaction Records, P2P Transaction Records\nChange: The interval between startTime and endTime has been adjusted from one year to 30 days\n[Dec 27,2023] Adjustment for the withdrawal of Broker's sub-account \u200b\nThe request param dest no longer supports the input internal_transfer . The request param toType has been removed.\n[Nov 16,2023] Add 'errorCode' field in batch-cancel-orders response \u200b\nAdded a new response parameter, errorCode, to the batch cancel order endpoint."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-08-2025-interface-for-adding-leverage-interest-rate-records": {
       "title": "May 08, 2025: Interface For Adding Leverage Interest Rate Records",
       "hash": "a624be34701c9ea889937ee9e381ddf953ed8768595d9a40c0ecc51070e4330f",
-      "last_checked": "2026-07-01T08:14:21.311691",
+      "last_checked": "2026-07-02T08:13:06.748003",
       "content": "[May 08, 2025]Interface for adding leverage interest rate records\u200b\nInterface\uff1a /api/v2/margin/interest-rate-record\nChanges\uff1a\nThe interface for adding leverage interest rate records supports users to query the interest rate record data based on the trading pairs."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-08-2025-optimization-of-the-query-range-for-public-transaction-details-of-spotcontract": {
       "title": "May 08, 2025: Optimization Of The Query Range For Public Transaction De...",
       "hash": "cadc76b1cb64dbe86b48af14508d3a77bd9d50488e1f50bc46e33acc0f5d997f",
-      "last_checked": "2026-07-01T08:14:21.678908",
+      "last_checked": "2026-07-02T08:13:07.122477",
       "content": "[May 08, 2025]Optimization of the query range for public transaction details of spot/contract.\u200b\nInterface\uff1a /api/v2/spot/market/fills-history; /api/v2/mix/market/fills-history\uff1b\nChanges\uff1a\nAdjust the time span from 7 days to 90 days, which means it supports querying public transaction data from the past three months."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-09-2025-obtain-the-adjustment-of-the-input-parameters-for-the-current-funding-rate": {
       "title": "May 09, 2025: Obtain The Adjustment Of The Input Parameters For The Cur...",
       "hash": "f834566ed8f51db37ae1d6878a7e4373f24a9bb08822b9d6e5e9c41b495a1799",
-      "last_checked": "2026-07-01T08:14:22.024538",
+      "last_checked": "2026-07-02T08:13:07.486743",
       "content": "[May 09, 2025]Obtain the adjustment of the input parameters for the current funding rate.\u200b\nInterface\uff1a/api/v2/mix/market/current-fund-rate\nChanges\uff1a\nObtain that the request parameter symbol of the current funding rate is changed to be non-mandatory."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-09-2025-optimized-the-api-for-querying-announcements": {
       "title": "May 09, 2025: Optimized The Api For Querying Announcements",
       "hash": "450e3bc4a9b8968d17248070346c16151b1308fa63f17eead973537f4500cdf8",
-      "last_checked": "2026-07-01T08:14:22.381590",
+      "last_checked": "2026-07-02T08:13:07.838196",
       "content": "[May 09, 2025]Optimized the API for querying announcements.\u200b\nInterface\uff1a/api/v2/public/annoucements\nChanges\uff1a\nNew announcement types added product_updates : Product Updates security : Security api_trading : API Trading Added pagination parameters: cursor (pagination cursor ID) and limit (items per page). Deprecated announcement type: trading_competitions_promotions (Trading Competitions and Promotions) The return field annDesc (Announcement Description) is deprecated."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-09-2025-optimized-the-api-for-retrieving-spot-assets-of-sub-accounts": {
       "title": "May 09, 2025: Optimized The Api For Retrieving Spot Assets Of Sub Accounts",
       "hash": "195d8e4803b2595736eca5ef43dc5f926b44e005bbf85a8dbceeb935cc944481",
-      "last_checked": "2026-07-01T08:14:22.734458",
+      "last_checked": "2026-07-02T08:13:08.189990",
       "content": "[May 09, 2025]Optimized the API for retrieving spot assets of sub-accounts.\u200b\nInterface\uff1a/api/v2/spot/account/subaccount-assets\nChanges\uff1a\nAdded pagination parameters: idLessThan (pagination cursor) and limit (items per page). Added return field: id (cursor ID)"
     },
     "https://www.bitget.com/api-doc/common/changelog#may-14-2025-new-version-order-taking-staff-api-key-creation-interface-adds-currency-pair-range-description": {
       "title": "May 14, 2025: New Version Order Taking Staff Api Key Creation Interface...",
       "hash": "de7c899dc50e6c42f4f68e3248b7c5f56ee8f25a0fab8408e205226f275ab6bd",
-      "last_checked": "2026-07-01T08:14:23.089029",
+      "last_checked": "2026-07-02T08:13:08.542402",
       "content": "[May 14, 2025]New version: Order-taking staff API Key creation interface adds currency pair range description.\u200b\nInterface\uff1a/api/v2/copy/mix-trader/create-copy-api Changes\uff1a\nNew: Added description for order-taking currency pair range."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-19-2025-update-on-regular-release-date": {
       "title": "May 19, 2025: Update On Regular Release Date",
       "hash": "3d1366e3c1670215bb07b981984d3bb4c306027cba6064df05608cc412ef3906",
-      "last_checked": "2026-07-01T08:14:23.441253",
+      "last_checked": "2026-07-02T08:13:08.895206",
       "content": "[May 19, 2025]Update on Regular Release Date\u200b\nThe current fixed regular release date for backend is every Tuesday, Wednesday, and Thursday from 14:00 PM to 17:00 PM (UTC +8) (Except for emergency upgrade). During the regular release time window, the RestAPI may return 45001, 40725, or 40808 error responses. Users can retry after receiving these error responses. WebSocket connections may be disconnected during the release period. WebSocket users are advised to implement a reconnection mechanism in their code."
     },
     "https://www.bitget.com/api-doc/common/changelog#may-192025-adjustment-of-the-spot-place-plan-order-api": {
       "title": "May 192025 Adjustment Of The Spot Place Plan Order Api",
       "hash": "863cf69cf3109a555ed9c40b4a74c8bfb3f0dfc7c9c7823a6f54fcca9e94739d",
-      "last_checked": "2026-07-01T08:14:23.791686",
+      "last_checked": "2026-07-02T08:13:09.247409",
       "content": "[May 19,2025]Adjustment of the Spot place-plan-order API\u200b\nInterface\uff1a/api/v2/spot/trade/place-plan-order\nChanges\uff1a\nThe force field was invalid when placing an order and has been deleted."
     },
     "https://www.bitget.com/api-doc/common/changelog#november-19-2025-new-isrwa-field-added-to-get-contract-information-api-response": {
       "title": "November 19, 2025: New Isrwa Field Added To Get Contract Information Api Res...",
       "hash": "1f495f27bc4140a355e32175eb583b245fd756fe68cb5e59f745dd2550c0fb41",
-      "last_checked": "2026-07-01T08:14:24.141781",
+      "last_checked": "2026-07-02T08:13:09.600207",
       "content": "[November 19, 2025]New isRwa Field Added to Get Contract Information API Response\u200b\nInterface:\n/api/v2/mix/market/contracts\nChanges\uff1a\nNew isRwa Field Added to Get Contract Information API Response"
     },
     "https://www.bitget.com/api-doc/common/changelog#november-26-2025-add-new-faq-q15": {
       "title": "November 26, 2025: Add New Faq Q15",
       "hash": "7d90e7979be2c3ba959a90060377fbe9fce328a1bfc681a76774ba6cab93d0fd",
-      "last_checked": "2026-07-01T08:14:24.489899",
+      "last_checked": "2026-07-02T08:13:09.952747",
       "content": "[November 26, 2025]Add new FAQ Q15\u200b\nChanges:Add new FAQ Q15"
     },
     "https://www.bitget.com/api-doc/common/changelog#november-26-2025-websocket-added-new-adl-notification-channel": {
       "title": "November 26, 2025: Websocket Added New Adl Notification Channel",
       "hash": "101e826c19a10bad5f7182bf5c1574f5308be1f498aea06a98a4bcb7ce0ced88",
-      "last_checked": "2026-07-01T08:14:24.828562",
+      "last_checked": "2026-07-02T08:13:10.289644",
       "content": "[November 26, 2025]Websocket Added new ADL notification channel\u200b\nWebsocket: ADL notification channel Changes: Websocket Added new ADL notification channel"
     },
     "https://www.bitget.com/api-doc/common/changelog#november-27-2025-a-new-return-field-liqprice-has-been-added-to-the-futures-historical-order": {
       "title": "November 27, 2025: A New Return Field Liqprice Has Been Added To The Futures...",
       "hash": "08cc03a52c392fa809c29aad707df6fa82d3fdab09299d50941deb66f80d56cc",
-      "last_checked": "2026-07-01T08:14:25.164205",
+      "last_checked": "2026-07-02T08:13:10.639683",
       "content": "[November 27, 2025]A new return field, 'liqPrice', has been added to the futures historical order.\u200b\nInterface:\n/api/v2/mix/order/orders-history\nChanges\uff1a A new return field, 'liqPrice', has been added to the futures historical order."
     },
     "https://www.bitget.com/api-doc/common/changelog#november-6-2025-new-broker-commission-inquiry-interface-added": {
       "title": "November 6, 2025: New Broker Commission Inquiry Interface Added",
       "hash": "3cbcd6cf5f4d837cce96480f7caaf3fb332aaa31b422b7d4c87164599c0127d1",
-      "last_checked": "2026-07-01T08:14:25.530105",
+      "last_checked": "2026-07-02T08:13:11.011880",
       "content": "[November 6, 2025]New broker commission inquiry interface added\u200b\nInterface:\n/api/v2/broker/total-commission /api/v2/broker/order-commission /api/v2/broker/rebate-info\nChanges\uff1a\nNew broker commission inquiry interface added"
     },
     "https://www.bitget.com/api-doc/common/changelog#november-7-2025-add-estimated-liquidation-price-api": {
       "title": "November 7, 2025: Add Estimated Liquidation Price Api",
       "hash": "520191fedca303403e842574024071022ed81fb270e4ef2e04c91f6275cf4ef7",
-      "last_checked": "2026-07-01T08:14:25.882275",
+      "last_checked": "2026-07-02T08:13:11.364619",
       "content": "[November 7, 2025]Add Estimated Liquidation Price API\u200b\nInterface:\n/api/v2/mix/account/liq-price\nChanges\uff1a\nAdd Estimated Liquidation Price API"
     },
     "https://www.bitget.com/api-doc/common/changelog#november-7-2025-add-maximum-openable-quantity-api": {
       "title": "November 7, 2025: Add Maximum Openable Quantity Api",
       "hash": "9eb97dce2b11f59cc745fb027c62e59252edb5d8e54d6d01c81a02cabf0274ad",
-      "last_checked": "2026-07-01T08:14:26.238794",
+      "last_checked": "2026-07-02T08:13:11.711763",
       "content": "[November 7, 2025]Add Maximum Openable Quantity API\u200b\nInterface:\n/api/v2/mix/account/max-open\nChanges\uff1a\nAdd Maximum Openable Quantity API"
     },
     "https://www.bitget.com/api-doc/common/changelog#november-8-2025-websocket-has-added-a-new-futures-equity-channel": {
       "title": "November 8, 2025: Websocket Has Added A New Futures Equity Channel",
       "hash": "124eed3bcba6984a78a1a509eeee56f7678cf6aba3e0e5259a140a3cb6c6d6f9",
-      "last_checked": "2026-07-01T08:14:26.594045",
+      "last_checked": "2026-07-02T08:13:12.071294",
       "content": "[November 8, 2025]WebSocket has added a new futures equity channel.\u200b\nWebsocket: futures equity channel Changes: WebSocket has added a new futures equity channel."
     },
     "https://www.bitget.com/api-doc/common/changelog#november-8-2025-websocket-supports-broker-api-code": {
       "title": "November 8, 2025: Websocket Supports Broker Api Code",
       "hash": "f74cd1a186486260ec8b8048600e380cb36ae11c0cb9b91d36aec65658654211",
-      "last_checked": "2026-07-01T08:14:26.931307",
+      "last_checked": "2026-07-02T08:13:12.403831",
       "content": "[November 8, 2025]WebSocket Supports Broker API Code\u200b\nWebsocket: place order channel Changes: The order placement channel supports passing the Broker API Code to receive rebates."
     },
     "https://www.bitget.com/api-doc/common/changelog#october-14-2025-notice-classic-account-error-code-optimization": {
       "title": "October 14, 2025: Notice Classic Account Error Code Optimization",
       "hash": "624d2fb9d8355c81cd6352f5c94c1ef62aa61073c9479e9e617f5b01f303d7ce",
-      "last_checked": "2026-07-01T08:14:27.279801",
+      "last_checked": "2026-07-02T08:13:12.757132",
       "content": "[October 14, 2025]Notice: Classic Account Error Code Optimization\u200b\nScope of Impact: Classic Account v2-related APIs Optimization Content:\nUnified error code mapping: Resolves the issue where \"different error codes correspond to the same error message\", ensuring one code maps to one message and reducing recognition confusion. Standardized error message matching: Fixes the problem where \"different error messages correspond to the same error code\", enabling accurate matching between messages and codes and improving troubleshooting efficiency."
     },
     "https://www.bitget.com/api-doc/common/changelog#october-21-2025-add-an-endpoint-for-querying-symbol-with-isolated-margin-mode-in-futures": {
       "title": "October 21, 2025: Add An Endpoint For Querying Symbol With Isolated Margin ...",
       "hash": "2803c43ab46acb90e852139d605d62602c2601e13eb1fbd97e01f52a88d5db92",
-      "last_checked": "2026-07-01T08:14:27.634228",
+      "last_checked": "2026-07-02T08:13:13.108728",
       "content": "[October 21, 2025]Add an endpoint for querying symbol with isolated margin mode in futures.\u200b\nInterface: /api/v2/mix/account/isolated-symbols Changes\uff1a\nAdd an endpoint for querying symbol with isolated margin mode in futures."
     },
     "https://www.bitget.com/api-doc/common/changelog#october-21-2025-optimization-of-the-spot-historical-plan-order-endpoint": {
       "title": "October 21, 2025: Optimization Of The Spot Historical Plan Order Endpoint",
       "hash": "0cc307e39fda96a6c93e5128e5f292520e70b98b01ba72d72acdc4026d32bc1c",
-      "last_checked": "2026-07-01T08:14:27.986724",
+      "last_checked": "2026-07-02T08:13:13.466011",
       "content": "[October 21, 2025]Optimization of the spot historical plan order endpoint\u200b\nInterface: /api/v2/spot/trade/history-plan-order Changes\uff1a\n-The request parameters symbol , startTime , and endTime are changed to optional."
     },
     "https://www.bitget.com/api-doc/common/changelog#september-11-2025-newly-added-interfaces-related-to-union-margin": {
       "title": "September 11, 2025: Newly Added Interfaces Related To Union Margin",
       "hash": "00bc868b5f9d4ef350a3aafd07f81696ae5647924ca4b8eb322e48bfc581a887",
-      "last_checked": "2026-07-01T08:14:28.331944",
+      "last_checked": "2026-07-02T08:13:13.812766",
       "content": "[September 11, 2025]Newly Added Interfaces Related to union Margin\u200b\nChanges\uff1a\nNewly Added \u2014 Query the USDT amount required for switching from union margin to single-currency margin /api/v2/mix/account/switch-union-usdt Newly Added \u2014 union Margin Conversion and Repayment API /api/v2/mix/account/union-convert Newly Added \u2014 union Margin Configuration Parameter API /api/v2/mix/account/union-config Newly Added \u2014 union Margin Currency Transfer Limit API /api/v2/mix/account/transfer-limits Newly Added \u2014 New union margin parameters in the WS Account Channel: unionTotalMargin (Margin Amount), unionAvailable (Available Margin), unionMm (Maintenance Margin), assetMode (Account Mode) Newly Added \u2014 New assetMode (Account Mode) parameter in the WS Position Channel"
     },
     "https://www.bitget.com/api-doc/common/changelog#september-2-2025-add-reason-field-for-get-upgrade-status": {
       "title": "September 2, 2025: Add Reason Field For Get Upgrade Status",
       "hash": "9c152c554ae5880c9c550128d58bf43e706c4c8d62744c3dcbc5c996fdd12bb8",
-      "last_checked": "2026-07-01T08:14:28.689970",
+      "last_checked": "2026-07-02T08:13:14.165857",
       "content": "[September 2, 2025]Add reason field for Get Upgrade Status\u200b\nInterface: /api/v2/spot/account/upgrade-status Changes\uff1a\nAdd reason field for Get Upgrade Status"
     },
     "https://www.bitget.com/api-doc/common/changelog#september-4-2025-notice-adjustment-to-the-transferid-field-in-the-sub-main-account-transfer-records-retrieval-function-the-transferid-will-be-updated-to-the-one-returned-during-sub-main-account-transfers": {
       "title": "September 4, 2025: Notice Adjustment To The Transferid Field In The Sub Main...",
       "hash": "f5713c5ae6c9d76d1cd4b84a020af12d7828a2f48b8ac129ab12347c39e94c58",
-      "last_checked": "2026-07-01T08:14:29.043017",
+      "last_checked": "2026-07-02T08:13:14.514668",
       "content": "[September 4, 2025]Notice: Adjustment to the transferId field in the sub-main account transfer records retrieval function. The transferId will be updated to the one returned during sub-main account transfers.\u200b\nInterface: /api/v2/spot/account/sub-main-trans-record Changes\uff1a\nPrevious generation rule: for transferId: Auto-incrementing ID New generation rule: for transferId: Snowflake algorithm"
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-14-2026-backend-system-optimization-announcement": {
       "title": "April 14, 2026: Backend System Optimization Announcement",
       "hash": "55b1f0ebfe29ab6c828c1084c4ff90202eb30e413a1f223acbcfaa9636fd4c21",
-      "last_checked": "2026-07-01T08:14:29.447845",
+      "last_checked": "2026-07-02T08:13:14.919254",
       "content": "[April 14, 2026]Backend System Optimization Announcement\u200b\nTo continuously improve the trading experience, we will be performing a backend system technical upgrade on April 14(UTC+8). After the upgrade, users will experience lower latency in order processing.\nAll optimizations will be completed on the server side. No client-side changes are required."
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-14-2026-unified-account--market-instruments-api-adds-symboltype-field": {
       "title": "April 14, 2026: Unified Account  Market Instruments Api Adds Symboltype F...",
       "hash": "21c6bdf73f74a77e182e24098eec32bc524fe5d11793fe5448f73492d30c424f",
-      "last_checked": "2026-07-01T08:14:29.811838",
+      "last_checked": "2026-07-02T08:13:15.286051",
       "content": "[April 14, 2026]Unified Account \u2013 Market Instruments API Adds symbolType Field\u200b\nInterface:\n/api/v3/market/instruments Changes: Added symbolType field: crypto cryptocurrency metal precious metals stock stocks commodity commodities"
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-14-2026-unified-account-adds-api-to-get-all-current-risk-reserves": {
       "title": "April 14, 2026: Unified Account Adds Api To Get All Current Risk Reserves",
       "hash": "a01540c1ccaf54cf59cb326dd71579bbaa2ab692faad14abdcb41b1559dadab5",
-      "last_checked": "2026-07-01T08:14:30.178229",
+      "last_checked": "2026-07-02T08:13:15.653718",
       "content": "[April 14, 2026]Unified Account Adds API to Get All Current Risk Reserves\u200b\nInterface:\n/api/v3/market/risk-reserve-all Changes: Added an API to get all current risk reserves for Unified Account"
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-2-2026-added-risk-reserve-fund-hourly-api": {
       "title": "April 2, 2026: Added Risk Reserve Fund Hourly Api",
       "hash": "1433b851f73dc8357738f36ae73d78a333eff19c4eb516240465072302c7a87e",
-      "last_checked": "2026-07-01T08:14:30.556187",
+      "last_checked": "2026-07-02T08:13:16.022390",
       "content": "[April 2, 2026]Added Risk Reserve Fund (Hourly) API\u200b\nNew API:\n/api/v3/market/risk-reserve-hour\nChanges:\nSupports querying the risk reserve fund on an hourly basis."
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-2-2026-new-unified-account-uta-futures-public-copy-trading-apis": {
       "title": "April 2, 2026: New Unified Account Uta Futures Public Copy Trading Apis",
       "hash": "dfe7321627e37d7f6259e36e653228c206a718b082c49276b88aa0d6072c74b1",
-      "last_checked": "2026-07-01T08:14:30.938710",
+      "last_checked": "2026-07-02T08:13:16.388036",
       "content": "[April 2, 2026]New Unified Account (UTA) Futures Public Copy-Trading APIs\u200b\nNew API:\n/api/v3/copy/futures/trading-pairs  Get copy-trading trading pair information /api/v3/copy/futures/position-summary Get position summary"
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-21-2026-spot-trading-prespax-pre-ipo-spacex-trading-pair-now-available": {
       "title": "April 21, 2026: Spot Trading Prespax Pre Ipo Spacex Trading Pair Now Avai...",
       "hash": "df53672b86357795f85adbfa200fd7c0a16469b8b9275f200a8012214941c812",
-      "last_checked": "2026-07-01T08:14:31.316164",
+      "last_checked": "2026-07-02T08:13:16.771838",
       "content": "[April 21, 2026]Spot Trading: preSPAX (Pre-IPO SpaceX) Trading Pair Now Available\u200b\nDear API Developers,\nThe Spot Trading module officially launched preSPAX on April 21, 2026. To ensure your trading programs (e.g., market data retrieval, order placement, and asset management) operate correctly, please note the following field definitions:\nsymbol (trading pair name) \u2014 all uppercase , e.g. PRESPAXUSDT coin / baseCoin (currency name) \u2014 mixed case , e.g. preSPAX\nExamples:\nWhen retrieving market data (e.g. GET /api/v3/market/ticker ) or placing orders (e.g. POST /api/v3/trade/place-order ), the symbol parameter must be PRESPAXUSDT . When querying account balance or asset details, the coin field must be passed in or returned as the mixed-case preSPAX ."
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-21-2026-unified-account-websocket-sbe-public-channels-now-available": {
       "title": "April 21, 2026: Unified Account Websocket Sbe Public Channels Now Available",
       "hash": "462723792d72a9e724aa541e23173214ff40d382f07311dccaa59832d219aa9a",
-      "last_checked": "2026-07-01T08:14:31.691456",
+      "last_checked": "2026-07-02T08:13:17.140831",
       "content": "[April 21, 2026]Unified Account WebSocket SBE Public Channels Now Available\u200b\nWebSocket: New Channels:\nSBE BBO Channel ( books1 , templateId=1002): Real-time best bid/ask price (BBO) push, triggered on every BBO change, with microsecond-precision timestamps and sequence number ( seq ) for message ordering and packet loss detection SBE 50-Level Order Book Channel ( books50 , templateId=1001): Full 50-level bid/ask order book snapshot pushed every 20ms, with sequence number for out-of-order detection SBE Public Trade Channel ( publicTrade , templateId=1003): Real-time public trade records, supports batch push (multiple trades per frame)\nAll channels use SBE binary format (WebSocket opCode=2, little-endian). Subscription/control phase uses JSON text frames."
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-23-2026-websocket-unified-account-v3-demo-trading-depth-channel-push-frequency-adjustment": {
       "title": "April 23, 2026: Websocket Unified Account V3 Demo Trading Depth Channel P...",
       "hash": "48e21293ee44e0fb3256f4dc3e75c0e8d92363276e75c23e90e89a9560b82984",
-      "last_checked": "2026-07-01T08:14:32.100903",
+      "last_checked": "2026-07-02T08:13:17.546166",
       "content": "[April 23, 2026]WebSocket Unified Account (v3) demo trading depth channel push frequency adjustment.\u200b\nwebsocket \u200b\nDepth channel push frequency changes: books5 - 10ms; books50 - 20ms; books - 50ms"
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-27-2026-added-get-account-info-api": {
       "title": "April 27, 2026: Added Get Account Info Api",
       "hash": "e05fdb8b46e15ff941e4608556aebd8c0421489006e5783195dbc9bb71317ed3",
-      "last_checked": "2026-07-01T08:14:32.467641",
+      "last_checked": "2026-07-02T08:13:17.922956",
       "content": "[April 27, 2026]Added Get Account Info API\u200b\nNew API:\nGET /api/v3/account/info Query account information, including UID, inviter, parent account, channel, IP whitelist, permission type and permissions list."
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-29-2026-strategy-orders-added-trigger-order-support-and-strategy-order-websocket-channel": {
       "title": "April 29, 2026: Strategy Orders Added Trigger Order Support And Strategy ...",
       "hash": "464d74a82f9221f1ba5ad7b55770eba80b6d116e59429d18dc40d65e274a464e",
-      "last_checked": "2026-07-01T08:14:32.846162",
+      "last_checked": "2026-07-02T08:13:18.289580",
       "content": "[April 29, 2026]Strategy Orders: Added trigger order support and strategy-order WebSocket channel\u200b\nstrategy \u200b\nInterface:\nPOST /api/v3/trade/place-strategy-order POST /api/v3/trade/modify-strategy-order GET /api/v3/trade/unfilled-strategy-orders GET /api/v3/trade/history-strategy-orders\nChanges:\nplace-strategy-order : Added trigger enum to type request parameter; changed qty to optional; added request parameters side , reduceOnly , triggerBy , triggerPrice , triggerOrderType , triggerOrderPrice ; changed posSide to optional modify-strategy-order : Added request parameters triggerBy , triggerPrice , triggerOrderType , triggerOrderPrice unfilled-strategy-orders / history-strategy-orders : Added trigger enum to type request parameter; added response parameters status , triggerBy , triggerPrice , triggerOrderType , triggerOrderPrice\nwebsocket \u200b\nNew channel:\nstrategy-order : Strategy order push channel (private). Pushes when a strategy order is placed, status changes, or is cancelled."
     },
     "https://www.bitget.com/api-doc/uta/changelog#april-9-2026-unified-account-websocket-private-order-channel-to-stop-pushing-order-status-live": {
       "title": "April 9, 2026: Unified Account Websocket Private Order Channel To Stop P...",
       "hash": "62edcd801d8d98cceea4ba7f72ede11c7dd9ba8e18f29336918dde997f8cc3cd",
-      "last_checked": "2026-07-01T08:14:33.227632",
+      "last_checked": "2026-07-02T08:13:18.660401",
       "content": "[April 9, 2026]Unified Account WebSocket: Private Order Channel to Stop Pushing Order Status \"live\"\u200b\nWebSocket \u200b\nTo improve platform system performance, the private order channel (\"topic\": \"order\") will stop pushing the live status."
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-1-2025-add-a-new-api-for-retrieving-position-adl-ranking": {
       "title": "August 1, 2025: Add A New Api For Retrieving Position Adl Ranking",
       "hash": "aaa2af7ebc3ca461921f4d56e3fa835f656a3866cea9daf99cfece58f8d981d5",
-      "last_checked": "2026-07-01T08:14:33.608017",
+      "last_checked": "2026-07-02T08:13:19.052692",
       "content": "[August 1, 2025]Add a new API for retrieving position ADL ranking\u200b\nInterface\uff1a/api/v3/position/adlRank Changes\uff1a\nAdd a new API for retrieving position ADL ranking"
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-12-2025-the-unified-account-execution-api-has-added-the-execution-correlation-id": {
       "title": "August 12, 2025: The Unified Account Execution Api Has Added The Execution...",
       "hash": "5c1565255673b4d154c719d7530ad1ff975e0b631d1c84dfc694305e5b988390",
-      "last_checked": "2026-07-01T08:14:33.983402",
+      "last_checked": "2026-07-02T08:13:19.421360",
       "content": "[August 12, 2025]The unified account execution API has added the Execution Correlation ID.\u200b\nWebsocket: publicTrade channel\u3001 fill channel Interface: /api/v3/trade/fills\u3001/api/v3/market/fills Adjustment: The unified account execution API has added the Execution Correlation ID."
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-12-2025-websocket-futures-market-data-channel-adds-nextfundingtime-field": {
       "title": "August 12, 2025: Websocket Futures Market Data Channel Adds Nextfundingtim...",
       "hash": "e532882257c2432873aa2488e099ff0044e66c02a38217cbe27370c6f253b7ba",
-      "last_checked": "2026-07-01T08:14:34.364462",
+      "last_checked": "2026-07-02T08:13:19.790359",
       "content": "[August 12, 2025]WebSocket futures market data channel adds nextFundingTime field.\u200b\nWebsocket: futures ticker channel Adjustment: A new field nextFundingTime has been added to the WebSocket futures market data channel."
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-12-2025-websocket-order-channel-response-adds-amount": {
       "title": "August 12, 2025: Websocket Order Channel Response Adds Amount",
       "hash": "b133d2d29869da2712e40bf7a55145b1285f1ff587c163a837a6f7654a331f53",
-      "last_checked": "2026-07-01T08:14:34.775215",
+      "last_checked": "2026-07-02T08:13:20.200110",
       "content": "[August 12, 2025]WebSocket order channel response adds \"amount\".\u200b\nWebsocket: order channel Adjustment: The response parameters of the WebSocket order channel have added \"amount\""
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-26-2025-announcement-new-scheduled-push-mechanism-for-websocket-account-and-position-channels": {
       "title": "August 26, 2025: Announcement New Scheduled Push Mechanism For Websocket A...",
       "hash": "57bf8f5c44df2eebc095dbc59e8ab738c0d22e51f8c45f019c8505d9786e7f34",
-      "last_checked": "2026-07-01T08:14:35.158487",
+      "last_checked": "2026-07-02T08:13:20.585883",
       "content": "[August 26, 2025]Announcement: New Scheduled Push Mechanism for WebSocket Account and Position Channels\u200b\nWebsocket: account channel\u3001 position channel Adjustment: A new scheduled push mechanism has been added to the WebSocket Account and Position channels, with pushes at\na fixed 5-second interval."
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-28-2025-notice-optimization-of-push-frequency-for-websocket-order-book-channel-books1-in-unified-account-v3": {
       "title": "August 28, 2025: Notice Optimization Of Push Frequency For Websocket Order...",
       "hash": "ee58bab3a837139e5faa5719beadb6bf29c2ec659e7b3bf78515c3e444f0f135",
-      "last_checked": "2026-07-01T08:14:35.534012",
+      "last_checked": "2026-07-02T08:13:20.961720",
       "content": "[August 28, 2025]Notice: Optimization of Push Frequency for Websocket Order Book Channel (books1) in Unified Account (v3)\u200b\nWebsocket: Order Book Channel Adjustment Content: The push frequency of the order book channel (books1) is optimized to 20ms. The symbols for this\noptimization are: BTCUSDT, ETHUSDT, XRPUSDT, SOLUSDT, SUIUSDT, DOGEUSDT, ADAUSDT, PEPEUSDT, LINKUSDT, HBARUSDT"
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-7-2025-the-depth-channel-push-parameters-have-newly-added-the-pseq-parameter": {
       "title": "August 7, 2025: The Depth Channel Push Parameters Have Newly Added The Ps...",
       "hash": "21c7bad964991e498920a272258ac4a6a626d7a5310b7d447b44f7a293728f5c",
-      "last_checked": "2026-07-01T08:14:35.917852",
+      "last_checked": "2026-07-02T08:13:21.327793",
       "content": "[August 7, 2025]The depth channel push parameters have newly added the pseq parameter.\u200b\nWebsocket: Depth Channel Adjustment:The depth channel push parameters have newly added the pseq parameter."
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-8-2025-account-settings-api-adds-uid-and-account-mode-response": {
       "title": "August 8, 2025: Account Settings Api Adds Uid And Account Mode Response",
       "hash": "b5327461a4b556932e358ee08d21de9e6434ea2095740dca5d02d6fa1398636e",
-      "last_checked": "2026-07-01T08:14:36.300176",
+      "last_checked": "2026-07-02T08:13:21.697190",
       "content": "[August 8, 2025]Account settings API adds UID and account mode response.\u200b\nInterface\uff1a/api/v3/account/settings Adjustment\uff1a\nAccount settings API adds UID and account mode response."
     },
     "https://www.bitget.com/api-doc/uta/changelog#august-8-2025-transaction-details-api-adds-category-input-and-clientoid-response": {
       "title": "August 8, 2025: Transaction Details Api Adds Category Input And Clientoid...",
       "hash": "3248d89d4629af9cfd2b1397cdbc227ba3537165572104706e50c2972749cdd7",
-      "last_checked": "2026-07-01T08:14:36.685936",
+      "last_checked": "2026-07-02T08:13:22.065337",
       "content": "[August 8, 2025]Transaction details API adds category input and clientOid response.\u200b\nInterface\uff1a/api/v3/trade/fills Adjustment\uff1a\nTransaction details API adds category input and clientOid response."
     },
     "https://www.bitget.com/api-doc/uta/changelog#december-11-2025get-trade-symbols-endpoint-adds-field-for-maximum-allowable-borrowable-leverage-for-spot-margin": {
       "title": "December 11 2025Get Trade Symbols Endpoint Adds Field For Maximum Allowable Borrowable Leverage For Spot Margin",
       "hash": "f1af470268ee2db601b6cdc2c01cf021e116d87a6f426e6709fbc62a1ca1ba7f",
-      "last_checked": "2026-07-01T08:14:37.068917",
+      "last_checked": "2026-07-02T08:13:22.433522",
       "content": "[December 11, 2025]Get trade symbols endpoint adds field for maximum allowable borrowable leverage for spot margin\u200b\nInterface:\n/api/v3/ins-loan/symbols\nChanges\uff1a Get trade symbols endpoint adds field for maximum allowable borrowable leverage for spot margin."
     },
     "https://www.bitget.com/api-doc/uta/changelog#december-29-2025place-order-interface-request-parameters-added-new-coin-margined-enum-for-product-type-currently-supports-demo-trading-only": {
       "title": "December 29 2025Place Order Interface Request Parameters Added New Coin Margined Enum For Product Type Currently Supports Demo Trading Only",
       "hash": "0ef84389b50d4f0302abd26a7b4a36c8893b3633d0b556cba946904b3cf03d24",
-      "last_checked": "2026-07-01T08:14:37.478623",
+      "last_checked": "2026-07-02T08:13:22.834017",
       "content": "[December 29, 2025]Place order interface request parameters: added new Coin-Margined enum for product type (Currently supports demo trading only)\u200b\nInterface:\n/api/v3/trade/place-order\nChanges\uff1a In the request parameters for the order placement interface, a new enum value COIN-FUTURES has been added to the\nproduct type category ."
     },
     "https://www.bitget.com/api-doc/uta/changelog#january-6-2026-add-index-component-interface--direct-client-commission-and-direct-client-authentication-interface-optimization--perpetual-currenthistorical-open-orders-and-order-channel-optimization": {
       "title": "January 6, 2026: Add Index Component Interface  Direct Client Commission A...",
       "hash": "6b4edeb676123bb868e9a87cc30b5712a4cf8b59510a848e6058a2fc43865781",
-      "last_checked": "2026-07-01T08:14:37.849972",
+      "last_checked": "2026-07-02T08:13:23.203178",
       "content": "[January 6, 2026]Add Index Component Interface & Direct Client Commission and Direct Client Authentication Interface Optimization & Perpetual Current/Historical Open Orders and Order Channel Optimization\u200b\nInterface:\n/api/v3/market/index-components /api/broker/v1/agent/customer-commissions /api/broker/v1/agent/customer-kyc-result /api/v3/trade/unfilled-orders, /api/v3/trade/history-orders, order channel Changes\uff1a Add index component interface Added productType field to return parameters of the Agent Direct Client Commission interface The return of the direct client authentication interface must include KYB verification information, specifically that\nthe status of direct clients who have passed KYB verification, as obtained by the agent through this interface, is \"\npassed\" Added delegateType field to the perpetual current/historical open orders interface and order channel."
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-02-2025-websocket-order-cancel-batch-order-batch-cancel-channels-launched": {
       "title": "July 02, 2025: Websocket Order Cancel Batch Order Batch Cancel Channels ...",
       "hash": "b80141e99cfd824d29a9e312f2e7f7a33df9ecbba53067c4dfa24d155f1c8c5f",
-      "last_checked": "2026-07-01T08:14:38.218144",
+      "last_checked": "2026-07-02T08:13:23.581994",
       "content": "[July 02, 2025]WebSocket order, cancel, batch order, batch cancel channels launched\u200b\nChange: WebSocket order, cancel, batch order, batch cancel channels launched"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-1-2025-add-new-deposit-and-withdrawal-apisadd-bgb-deduction-api": {
       "title": "July 1, 2025: Add New Deposit And Withdrawal Apisadd Bgb Deduction Api",
       "hash": "93fe1c3b1ac865f6c39bf39ec7ac038d95f3abc1674ce04f461afeaa37d3598e",
-      "last_checked": "2026-07-01T08:14:38.596766",
+      "last_checked": "2026-07-02T08:13:23.955333",
       "content": "[July 1, 2025]Add New deposit and withdrawal APIs\uff0cadd BGB deduction API.\u200b\nInterface\uff1a/api/v3/account/deposit-address, /api/v3/account/deposit-records, etc\nAdjustment:\nAdd New deposit and withdrawal APIs Add BGB deduction API."
+    },
+    "https://www.bitget.com/api-doc/uta/changelog#july-1-2026-get-market-maker-fee-group-added-takerfeerate-response-parameter-updated-group-and-level-enumerations": {
+      "title": "July 1, 2026: Get Market Maker Fee Group Added Takerfeerate Response Pa...",
+      "hash": "37d3b52b87fc86d1c8fd6294f56c59b4d5e5ba4dbb5a67c4b18edf01f5db4083",
+      "last_checked": "2026-07-02T08:13:24.324349",
+      "content": "[July 1, 2026]Get Market Maker Fee Group: Added takerFeeRate response parameter; Updated group and level enumerations\u200b\nInterface:\n/api/v3/market/fee-group\nChanges\uff1a\nAdded takerFeeRate String response parameter: Taker fee rate in decimal form; only applicable to PRO levels (PRO1~PRO6) Updated group request/response parameter: Added DEFAULT ; GROUP_C is only applicable to Futures (stock tokens / metals), not Spot Updated level response parameter: Added PRO1/PRO2/PRO3/PRO4/PRO5/PRO6 enumeration values"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-16-2025-add-new-account-mode-switching-api": {
       "title": "July 16, 2025: Add New Account Mode Switching Api",
       "hash": "5ecf13e85d5291b10fc22aa0ba29adf6c21216daaa6fefaaeb0b3d71c47da27f",
-      "last_checked": "2026-07-01T08:14:38.982866",
+      "last_checked": "2026-07-02T08:13:24.708978",
       "content": "[July 16, 2025]Add New Account Mode Switching API\u200b\nInterface\uff1a/api/v3/account/switch, /api/v3/account/upgrade\nAdjustment:\nAdd New Account Mode Switching API"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-2-2025-get-the-transfer-records-of-main-sub-account-api-adjustment": {
       "title": "July 2, 2025: Get The Transfer Records Of Main Sub Account Api Adjustment",
       "hash": "a0fc58015815dc9985635d1a8805341c6b9d4145dac0206b95d8d62f7b6dec24",
-      "last_checked": "2026-07-01T08:14:39.356292",
+      "last_checked": "2026-07-02T08:13:25.088262",
       "content": "[July 2, 2025]Get the transfer records of Main-Sub account. API adjustment.\u200b\nInterface\uff1a/api/v3/account/sub-transfer-record\nAdjustment:\nResponse parameters now include oldTransferId."
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-24-2025-position-tier-return-unit-changed-to-quete-coin": {
       "title": "July 24, 2025: Position Tier Return Unit Changed To Quete Coin",
       "hash": "c86128ed7ce87a95f4d43516abd7e2ef000e6064f535c78a8c7073f205bda0f5",
-      "last_checked": "2026-07-01T08:14:39.733760",
+      "last_checked": "2026-07-02T08:13:25.495526",
       "content": "[July 24, 2025]Position tier return unit changed to quete coin.\u200b\nInterface\uff1a/api/v3/market/position-tier\nChanges\uff1a\nPosition tier return unit changed to quete coin."
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-30-2025-new-api-for-obtaining-reserve-certificates": {
       "title": "July 30, 2025: New Api For Obtaining Reserve Certificates",
       "hash": "f4d606a846ac8917f4676b90bc9129cb89241673c681355b530b7d04611372b4",
-      "last_checked": "2026-07-01T08:14:40.141083",
+      "last_checked": "2026-07-02T08:13:25.860388",
       "content": "[July 30, 2025]New API for obtaining reserve certificates\u200b\nInterface\uff1a/api/v3/market/proof-of-reserves Changes\uff1a\nNew API for obtaining reserve certificates"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-30-2025-new-api-for-setting-deposit-accounts": {
       "title": "July 30, 2025: New Api For Setting Deposit Accounts",
       "hash": "0b7746dc7581e284810bd0debc378d79be8bf9d490f324cb7321b772f78660ed",
-      "last_checked": "2026-07-01T08:14:40.510266",
+      "last_checked": "2026-07-02T08:13:26.256039",
       "content": "[July 30, 2025]New API for setting deposit accounts\u200b\nInterface\uff1a/api/v3/account/deposit-account Changes\uff1a\nNew API for setting deposit accounts"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-30-2025-risk-reserve-api-optimization": {
       "title": "July 30, 2025: Risk Reserve Api Optimization",
       "hash": "0e4453a1f0844868696196549c5fcb41aeda23fd2d1a02e11556dc75f99faf7d",
-      "last_checked": "2026-07-01T08:14:40.879393",
+      "last_checked": "2026-07-02T08:13:26.631864",
       "content": "[July 30, 2025]Risk reserve API optimization\u200b\nInterface\uff1a/api/v3/market/risk-reserve Changes\uff1a\nDeprecate totalBalance and type fields; add balance field"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-31-2025-account-channel-positions-channel-push-logic-optimization": {
       "title": "July 31, 2025: Account Channel Positions Channel Push Logic Optimization",
       "hash": "e6d954af74375546392064cdae77a4cec30f07aa44ad1b06b893978e732c0142",
-      "last_checked": "2026-07-01T08:14:41.251209",
+      "last_checked": "2026-07-02T08:13:27.013518",
       "content": "[July 31, 2025]Account Channel, Positions Channel Push Logic Optimization\u200b\nWebsocket: Private Channels - Account Channel, Positions Channel Adjustment:\nAccount Channel: Pushes the latest asset results; if there's a backlog of messages in the push queue, only the newest\none will be pushed. Positions Channel: Order placement, modification, and cancellation operations for futures contracts will no longer be\npushed."
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-8-2025-add-get-sub-account-unified-account-assets": {
       "title": "July 8, 2025: Add Get Sub Account Unified Account Assets",
       "hash": "88bf8b14cd3939365f86b54a78ef093007df334ad6fa2fb7487a50b70791d318",
-      "last_checked": "2026-07-01T08:14:41.616633",
+      "last_checked": "2026-07-02T08:13:27.388487",
       "content": "[July 8, 2025]Add: Get sub-account unified account assets\u200b\nAPI: /api/v3/account/sub-unified-assets Changes:\nAdd function to get sub-account unified account assets"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-8-2025-add-get-trading-fee-api": {
       "title": "July 8, 2025: Add Get Trading Fee Api",
       "hash": "a8e401819af30d7dbaaa1003c85e38e21a9869757be27cedda816ef2373bc284",
-      "last_checked": "2026-07-01T08:14:41.991284",
+      "last_checked": "2026-07-02T08:13:27.772814",
       "content": "[July 8, 2025]Add: Get trading fee API\u200b\nAPI: /api/v3/account/fee-rate Changes:\nAdd function to get trading fees"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-8-2025-batch-cancel-orders-supports-partial-successfailure": {
       "title": "July 8, 2025: Batch Cancel Orders Supports Partial Successfailure",
       "hash": "c4d9b332aa3ddf19835debe7b6004c8d4d34edac3ce4bec88713ecc1cf623673",
-      "last_checked": "2026-07-01T08:14:42.378098",
+      "last_checked": "2026-07-02T08:13:28.141914",
       "content": "[July 8, 2025]Batch cancel orders supports partial success/failure\u200b\nAPIs: RestAPI batch cancel orders & WebSocket batch cancel channel Changes: Batch cancel verification logic updated\nCurrent: If one order fails verification, all fail. Only success if all pass. Optimized: Each order verified separately. Supports partial success and failure."
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-8-2025-rest-get-order-info-api--websocket-order-channel-add-cancelreason-enum": {
       "title": "July 8, 2025: Rest Get Order Info Api  Websocket Order Channel Add Canc...",
       "hash": "0b14a7a359e5df59d507017e3ba8d5583c898dbdb81703fbb5c067c6a31749d1",
-      "last_checked": "2026-07-01T08:14:42.784906",
+      "last_checked": "2026-07-02T08:13:28.509969",
       "content": "[July 8, 2025]REST Get Order Info API & WebSocket Order Channel add cancelReason enum\u200b\nAPIs: RestAPI Get Order Info & WebSocket Order Channel Changes:\nAdd cancelReason enum to the above API and channel"
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-9-2025-the-get-risk-reserve-interface-has-deprecated-the-totalbalance-field": {
       "title": "July 9, 2025: The Get Risk Reserve Interface Has Deprecated The Totalba...",
       "hash": "6435f32e02efed5f3fa3047a57b5a48212f3d96f1b0ef3247525b6554ff7e9e2",
-      "last_checked": "2026-07-01T08:14:43.150006",
+      "last_checked": "2026-07-02T08:13:28.877437",
       "content": "[July 9, 2025]The Get Risk Reserve interface has deprecated the totalBalance field.\u200b\nInterface\uff1a/api/v3/market/risk-reserve\nAdjustment:\nThe totalBalance field is deprecated in the response."
     },
     "https://www.bitget.com/api-doc/uta/changelog#july-9-2025-unified-account-responsepush-new-tradeside-parameter-enumeration": {
       "title": "July 9, 2025: Unified Account Responsepush New Tradeside Parameter Enum...",
       "hash": "07d66955fd9190eb53fff940f858b47ad6bfc246ef1f3f0487a907f6a2c2cff0",
-      "last_checked": "2026-07-01T08:14:43.520709",
+      "last_checked": "2026-07-02T08:13:29.253657",
       "content": "[July 9, 2025]Unified Account Response/Push: New tradeSide Parameter Enumeration\u200b\nAPIs\uff1a/api/v3/trade/fills;/api/v3/trade/order-info Channels: fill\uff0corder\nChanges\uff1a\nUnified Account Response/Push: New tradeSide Parameter Enumeration"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-052025-added-stpmode-field-to-order-endpoints-get-order-info-get-open-orders-get-order-history": {
       "title": "June 052025 Added Stpmode Field To Order Endpoints Get Order Info Get Open Orders Get Order History",
       "hash": "3a375134e3d577d6cc3eb4667f2bb1dd0d81e26fc1cd539297061d6e5395d13f",
-      "last_checked": "2026-07-01T08:14:43.889615",
+      "last_checked": "2026-07-02T08:13:29.624126",
       "content": "[June 05,2025]Added stpMode Field to Order Endpoints (Get Order Info, Get Open Orders, Get Order History)\u200b\nInterface: /api/v3/trade/order-info;/api/v3/trade/unfilled-orders;/api/v3/trade/history-orders;\nAdjustment:The stpMode field has been added to the API response payloads for the following endpoints: Get Order Info;\nGet Open Orders; Get Order History;"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-09-2025-get-contract-information-adds-maximum-order-quantity-fields": {
       "title": "June 09, 2025: Get Contract Information Adds Maximum Order Quantity Fields",
       "hash": "57bb5daa90d21fb3d3b252aac0421e66ac93b5d417e25b6d6a8156ccdbf7dcb8",
-      "last_checked": "2026-07-01T08:14:44.270021",
+      "last_checked": "2026-07-02T08:13:29.990936",
       "content": "[June 09, 2025]Get Contract Information Adds Maximum Order Quantity Fields\u200b\nInterface\uff1a/api/v3/market/instruments Adjustment:\nAdded maxMarketOrderQty field for the maximum quantity of a single market order."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-11-2025-new-take-profit-and-stop-loss-fields-added-to-place-order-interface": {
       "title": "June 11, 2025: New Take Profit And Stop Loss Fields Added To Place Order...",
       "hash": "b0791b4f1ad4be9aaa2c4174fc975b1fefad8e5741a82e988ec3d19705e7b5c3",
-      "last_checked": "2026-07-01T08:14:44.643970",
+      "last_checked": "2026-07-02T08:13:30.390026",
       "content": "[June 11, 2025]New Take-Profit and Stop-Loss Fields Added to Place Order Interface\u200b\nInterface\uff1a/api/v3/trade/place-order Adjustment:\nNew take-profit and stop-loss fields added to request parameters."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-11-2026-get-instruments-added-isreality-response-parameter": {
       "title": "June 11, 2026: Get Instruments Added Isreality Response Parameter",
       "hash": "31bbff401a18e9d7e912fa8095eb9662549367983af3bdca86c7e2a5828e9e74",
-      "last_checked": "2026-07-01T08:14:45.018524",
+      "last_checked": "2026-07-02T08:13:30.756231",
       "content": "[June 11, 2026]Get Instruments: Added isReality response parameter\u200b\nInterface:\n/api/v3/market/instruments\nChanges\uff1a\nAdded isReality String response parameter: Reality identifier. yes Reality stock token, no Non-Reality stock token"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-16-2026-added-get-max-withdrawal-api-get-withdrawal-records--get-deposit-records-updated-chain-field-description": {
       "title": "June 16, 2026: Added Get Max Withdrawal Api Get Withdrawal Records  Get ...",
       "hash": "8b5a4a059290aee1552f1d90364b6eb8518bcd7be36208ae9d27252762da982c",
-      "last_checked": "2026-07-01T08:14:45.426964",
+      "last_checked": "2026-07-02T08:13:31.122919",
       "content": "[June 16, 2026]Added Get Max Withdrawal API; Get Withdrawal Records / Get Deposit Records: Updated chain field description\u200b\nNew API:\n/api/v3/account/max-withdrawal Get the maximum withdrawable amount for the specified coin in the unified account"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-16-2026-get-current-funding-rate-added-category-request-parameter-transfer-added-clientoid-request-and-response-parameter-added-10-trading-data-apis-for-uta": {
       "title": "June 16, 2026: Get Current Funding Rate Added Category Request Parameter...",
       "hash": "9d1bff2b5f44ee8cfdfddeba4c01e151dec1ecee6c03783d9068685b32e5ee0c",
-      "last_checked": "2026-07-01T08:14:45.796930",
+      "last_checked": "2026-07-02T08:13:31.489708",
       "content": "[June 16, 2026]Get Current Funding Rate: Added category request parameter; Transfer: Added clientOid request and response parameter; Added 10 Trading Data APIs for UTA\u200b\nInterface:\n/api/v3/market/current-fund-rate /api/v3/account/transfer\nChanges\uff1a\nAdded category String request parameter to current-fund-rate : Product type. USDT-FUTURES USDT futures, COIN-FUTURES Coin-M futures, USDC-FUTURES USDC futures Modified symbol request parameter in current-fund-rate : Changed from required to optional Added clientOid String request parameter to transfer : Client-defined ID Added clientOid String response parameter to transfer : Client-defined ID\nNew APIs:\n/api/v3/market/spot-whale-flow Get spot whale net flow data /api/v3/market/spot-fund-flow Get spot fund flow data /api/v3/market/spot-net-flow Get spot 24H net capital inflow data /api/v3/market/margin-long-short Get margin long short ratio data /api/v3/market/margin-loan-growth Get margin loan growth rate data /api/v3/market/margin-isolated-borrow Get isolated margin borrowing ratio data /api/v3/market/futures-active-buy-sell Get futures active buy sell volume data /api/v3/market/futures-long-short Get futures long short ratio data /api/v3/market/futures-position-long-short Get futures active long short position data /api/v3/market/futures-account-long-short Get futures active long short account data"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-17-2025-get-transaction-details-and-financial-records-api-adjustment": {
       "title": "June 17, 2025: Get Transaction Details And Financial Records Api Adjustment",
       "hash": "12d58de5f04f4335bb3759da3d965eb77b1ae6ee2caaf3ad0555426746c211b2",
-      "last_checked": "2026-07-01T08:14:46.183178",
+      "last_checked": "2026-07-02T08:13:31.856635",
       "content": "[June 17, 2025]Get transaction details and financial records. API adjustment.\u200b\nInterface\uff1a/api/v3/trade/fills\nChanges\uff1aAdd the execPnl field for trading profit and loss to the return values.\nInterface\uff1a/api/v3/account/financial-records\nChanges\uff1aAdd the other type to the category enumeration in request parameters, and add a new request parameter type for account transaction types."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-17-2026-added-get-rpi-symbols-api": {
       "title": "June 17, 2026: Added Get Rpi Symbols Api",
       "hash": "13a12bf7be452fc4a2692135988763379b91a48d6c6f19efb8babcb29254e360",
-      "last_checked": "2026-07-01T08:14:46.551790",
+      "last_checked": "2026-07-02T08:13:32.228626",
       "content": "[June 17, 2026]Added Get RPI Symbols API\u200b\nNew API:\n/api/v3/market/rpi-symbols Get the list of trading pairs that support RPI (Retail Price Improvement)"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-18-2026-withdrawal-added-accounttype-request-parameter": {
       "title": "June 18, 2026: Withdrawal Added Accounttype Request Parameter",
       "hash": "724fa8be53760add4344bec8dac79f96e9a8f51375027ad1a584ee7303733881",
-      "last_checked": "2026-07-01T08:14:46.927276",
+      "last_checked": "2026-07-02T08:13:32.600873",
       "content": "[June 18, 2026]Withdrawal: Added accountType request parameter\u200b\nInterface:\n/api/v3/account/withdrawal\nChanges\uff1a\nAdded accountType String request parameter: Account type to deduct from. funding Funding account, uta Unified trading account, otc OTC account. Multiple values supported, separated by comma. Deduction order: funding \u2192 otc \u2192 uta"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-182025-order-modification-api--batch-order-modification-api-launched": {
       "title": "June 182025 Order Modification Api  Batch Order Modification Api Launched",
       "hash": "fa2875d0e5b78752a71d289e1800a9d1c03177807ff68f1c4f1fbd99cdc36f80",
-      "last_checked": "2026-07-01T08:14:47.303779",
+      "last_checked": "2026-07-02T08:13:33.009800",
       "content": "[June 18,2025]Order Modification API & Batch Order Modification API Launched.\u200b\nInterface\uff1a/api/v3/trade/modify-order , /api/v3/trade/batch-modify-order\nChanges\uff1aOrder Modification API & Batch Order Modification API Launched."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-202025-new-api-fund-account-asset-query": {
       "title": "June 202025 New Api Fund Account Asset Query",
       "hash": "9c9ae655996cba1735029337064c4d80bdd4a64c70e257c55cb5f46dd70d776e",
-      "last_checked": "2026-07-01T08:14:47.680491",
+      "last_checked": "2026-07-02T08:13:33.376460",
       "content": "[June 20,2025]New API: Fund Account Asset Query.\u200b\nInterface\uff1a/api/v3/account/funding-assets\nChanges\uff1aNew API: Fund Account Asset Query."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-23-2026-liquidation-channel-push-data-range-and-frequency-update": {
       "title": "June 23, 2026: Liquidation Channel Push Data Range And Frequency Update",
       "hash": "6cd7b868d14d8a292ecbe0c58edb27dba322a01459d271bd0616e66ae8746370",
-      "last_checked": "2026-07-01T08:14:48.094782",
+      "last_checked": "2026-07-02T08:13:33.745680",
       "content": "[June 23, 2026]Liquidation Channel: Push data range and frequency update\u200b\nInterface:\nliquidation WebSocket public channel\nChanges:\nPush data range updated: Previously pushed all platform liquidation data. Going forward, only the record with the highest liquidation quantity for long and short positions respectively per trading pair per second will be pushed. Both Unified Trading Account and Classic Account liquidation data are still included. For any given trading pair within a single second, at most 2 records are delivered (1 for long, 1 for short). Push frequency updated: Previously triggered once every 20 seconds or when 10,000 records were accumulated (20s/interval or 10,000 records/interval). Going forward, data is pushed once per second (1s/interval), containing the aggregated liquidation data for the previous second."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-232025-add-affiliate-related-apis": {
       "title": "June 232025 Add Affiliate Related Apis",
       "hash": "4370fb01e8b026cefd7ffd7ce4fd7a089e5eefca06b92acc8c0ec57438474572",
-      "last_checked": "2026-07-01T08:14:48.481905",
+      "last_checked": "2026-07-02T08:13:34.125280",
       "content": "[June 23,2025]Add affiliate-related APIs\u200b\nInterface\uff1a\n/api/broker/v1/agent/commission-distribution /api/broker/v1/agent/customerAccountAssetsList /api/broker/v1/agent/customerDepositList /api/broker/v1/agent/customer-kyc-result /api/broker/v1/agent/customerList /api/broker/v1/agent/customerTradeVolumnList /api/broker/v1/agent/customer-commissions\nChanges\uff1aAdd affiliate-related APIs"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-25-2025-add-countdown-cancel-all-interface": {
       "title": "June 25, 2025: Add Countdown Cancel All Interface",
       "hash": "a09c5fc0a89e86d5c3c0bf1c293c16e99e1ce1fddada965b4ee0e420f3b3740b",
-      "last_checked": "2026-07-01T08:14:48.854210",
+      "last_checked": "2026-07-02T08:13:34.509263",
       "content": "[June 25, 2025]Add CountDown Cancel All Interface\u200b\nInterface\uff1a/api/v3/trade/countdown-cancel-all Adjustment:\nAdd set CountDown Cancel All interface\n[Jun 25, 2025] The order status will add the \"new\" status \u200b\nAPI Interface\uff1aGet Open Orders, Get Order History Websocket: Private Channel - Order Channel Change: \"orderStatus\" field will add new status \"new\", that means the order has been accepted by match engine"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-25-2026-added-4-unified-account-collateral--leverage-pre-set-apis": {
       "title": "June 25, 2026: Added 4 Unified Account Collateral  Leverage Pre Set Apis",
       "hash": "ac99e08af7ef77f6e29b7cf90626276ffd43e1d99e2f101eea1f0688918e957d",
-      "last_checked": "2026-07-01T08:14:49.222371",
+      "last_checked": "2026-07-02T08:13:34.888822",
       "content": "[June 25, 2026]Added 4 Unified Account Collateral & Leverage Pre-Set APIs\u200b\nNew APIs:\n/api/v3/account/collateral-type Get the collateral type configuration of the unified trading account /api/v3/account/set-collateral-type Set the collateral type for the unified trading account /api/v3/account/custom-collateral-coins Get the list of coins supported as custom collateral on the platform /api/v3/account/pre-set-leverage Preview the impact of adjusting the leverage of a specified symbol"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-25-2026-added-get-liquidations-history-api": {
       "title": "June 25, 2026: Added Get Liquidations History Api",
       "hash": "56a84e6a0ede86fd7764e51f84caa6190b2de52808096e89a82782975eb1ec68",
-      "last_checked": "2026-07-01T08:14:49.587851",
+      "last_checked": "2026-07-02T08:13:35.260913",
       "content": "[June 25, 2026]Added Get Liquidations History API\u200b\nNew API:\n/api/v3/market/liquidations Query historical liquidation order data"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-25-2026-broker-subaccount-withdrawal-updated-supported-coin-list-rpi-orderbook-removed-permission-restriction-note": {
       "title": "June 25, 2026: Broker Subaccount Withdrawal Updated Supported Coin List ...",
       "hash": "30fd9be5c4298645681e87b09d9c6afa401996a94e46bc8f4e20bacd4fc56b7e",
-      "last_checked": "2026-07-01T08:14:49.954127",
+      "last_checked": "2026-07-02T08:13:35.645043",
       "content": "[June 25, 2026]Broker Subaccount Withdrawal: Updated supported coin list; RPI OrderBook: Removed permission restriction note\u200b\nInterface:\n/api/v3/broker/sub-withdrawal /api/v3/market/rpi-orderbook\nChanges\uff1a\nUpdated supported coin list of coin request parameter in sub-withdrawal : Replaced TON with GRAM Removed the note that RPI OrderBook is restricted to RPI market makers only"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-25-2026-strategy-orders-added-spot-and-margin-business-line-support": {
       "title": "June 25, 2026: Strategy Orders Added Spot And Margin Business Line Support",
       "hash": "b3fad11893b5c6baca88a7d5731ba8bd70314998ebe3714156c7f3a5a688d9b2",
-      "last_checked": "2026-07-01T08:14:50.320330",
+      "last_checked": "2026-07-02T08:13:36.013300",
       "content": "[June 25, 2026]Strategy Orders: AddedSPOTandMARGINbusiness line support\u200b\nInterface:\n/api/v3/trade/place-strategy-order /api/v3/trade/unfilled-strategy-orders /api/v3/trade/history-strategy-orders strategy-order WebSocket private channel\nChanges:\nAdded SPOT (Spot) and MARGIN (Margin) enums to category request parameter of place-strategy-order , unfilled-strategy-orders , history-strategy-orders Added spot (Spot) and margin (Margin) enums to category push parameter of strategy-order WebSocket private channel"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-26-2026-added-place-reality-order-and-cancel-reality-order-apis": {
       "title": "June 26, 2026: Added Place Reality Order And Cancel Reality Order Apis",
       "hash": "c1e2e01b044e094b57b6b87e02cada83bf9756d6ea0ee912040d7dc41dbeff63",
-      "last_checked": "2026-07-01T08:14:50.703648",
+      "last_checked": "2026-07-02T08:13:36.383444",
       "content": "[June 26, 2026]Added Place Reality Order and Cancel Reality Order APIs\u200b\nNew APIs:\n/api/v3/trade/place-reality-order Place a limit or market order for Reality stock trading pairs /api/v3/trade/cancel-reality-order Cancel an unfilled or partially filled Reality stock order"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-30-2026-get-account-assets-added-positionvalue-and-leverage-modify-order-added-preset-tpsl-parameters-get-financial-records-added-positiontype-positionamount-positionbalance-get-convert-records-fromcoin-and-tocoin-changed-to-optional-get-order-details-added-delegatetype-added-get-all-symbol-fee-rates-and-get-loan-data-apis": {
       "title": "June 30, 2026: Get Account Assets Added Positionvalue And Leverage Modif...",
       "hash": "22b04506153ebd55e2883298df8fd4050b3c66d8ac6f07d7db51848593f80760",
-      "last_checked": "2026-07-01T08:14:51.070808",
+      "last_checked": "2026-07-02T08:13:36.751825",
       "content": "[June 30, 2026]Get Account Assets: Added positionValue and leverage; Modify Order: Added preset TP/SL parameters; Get Financial Records: Added positionType, positionAmount, positionBalance; Get Convert Records: fromCoin and toCoin changed to optional; Get Order Details: Added delegateType; Added Get All Symbol Fee Rates and Get Loan Data APIs\u200b\nInterface:\n/api/v3/account/assets /api/v3/trade/modify-order /api/v3/account/financial-records /api/v3/account/convert-records /api/v3/trade/order-info\nChanges:\nAdded positionValue String response parameter to assets : Position value (USD) Added leverage String response parameter to assets : Account leverage (non-negative) Added tpTriggerBy , slTriggerBy , takeProfit , stopLoss , tpOrderType , slOrderType , tpLimitPrice , slLimitPrice request parameters to modify-order : Preset take-profit/stop-loss support Added positionType String response parameter to financial-records : Position type ( crossed / isolated ) Added positionAmount String response parameter to financial-records : Position change amount Added positionBalance String response parameter to financial-records : Position balance Updated fromCoin and toCoin in convert-records from required to optional Added delegateType String response parameter to order-info : Delegate type\nNew APIs:\n/api/v3/account/all-fee-rate Query fee rates for all trading pairs under a specified product type /api/v3/trade/loan-data Query current loan data for the unified trading account\nLaunched \u200b"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-4-2026-rest-api-error-code-added-p2p-error-codes-6005060072-modify-order--batch-modify-orders-updated-autocancel-field-description": {
       "title": "June 4, 2026: Rest Api Error Code Added P2P Error Codes 6005060072 Modi...",
       "hash": "9f4395344275f0c25f2ac580cf34fd0fc50f8151982bc3a6c774b24274d55a74",
-      "last_checked": "2026-07-01T08:14:51.435989",
+      "last_checked": "2026-07-02T08:13:37.119279",
       "content": "[June 4, 2026]Rest API Error Code: Added P2P error codes 60050\u201360072; Modify Order / Batch Modify Orders: Updated autoCancel field description\u200b\nInterface:\n/api/v3/p2p/* /api/v3/trade/modify-order /api/v3/trade/batch-modify-orders WS: modify-order / batch-modify-order\nChanges\uff1a\nAdded P2P error codes 60050\u201360072 to the Rest API Error Code list Updated autoCancel field description: when set to yes , if the matching engine fails to modify the order, the order is cancelled immediately; after cancellation, the counter will reject any further modification requests for that order (including in-flight and new requests)."
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-9-2026-added-get-cash-dividend-records-api-get-current-funding-rate-added-cashdividend-and-cashdividendnextupdate-response-parameters-get-financial-records-added-rwa-cash-dividend-funding-fee-enum-values": {
       "title": "June 9, 2026: Added Get Cash Dividend Records Api Get Current Funding R...",
       "hash": "1f6a4e62ec868af11e832a9b86b6b52a099d76d2e0ae8050ba6e59d391943689",
-      "last_checked": "2026-07-01T08:14:51.803687",
+      "last_checked": "2026-07-02T08:13:37.494981",
       "content": "[June 9, 2026]Added Get Cash Dividend Records API; Get Current Funding Rate: Added cashDividend and cashDividendNextUpdate response parameters; Get Financial Records: Added RWA cash dividend funding fee enum values\u200b\nNew API:\n/api/v3/market/cash-dividend-records Get cash dividend records for RWA stock futures contracts\nInterface:\n/api/v3/market/current-fund-rate /api/v3/account/financial-records\nChanges\uff1a\nAdded cashDividend String response parameter to current-fund-rate : Cash dividend, unit: USDT Added cashDividendNextUpdate String response parameter to current-fund-rate : Next update time for cash dividend, Unix timestamp in milliseconds Added 4 enum values to type response parameter in financial-records : RWA_CROSS_SETTLE_FEE_USER_IN RWA cash dividend cross margin funding fee - user credit; RWA_CROSS_SETTLE_FEE_USER_OUT RWA cash dividend cross margin funding fee - user debit; RWA_FIXED_SETTLE_FEE_USER_IN RWA cash dividend isolated margin funding fee - user credit; RWA_FIXED_SETTLE_FEE_USER_OUT RWA cash dividend isolated margin funding fee - user debit"
     },
     "https://www.bitget.com/api-doc/uta/changelog#june-9-2026-set-leverage-added-marginmode-longleverage-shortleverage-request-parameters-added-set-margin-api": {
       "title": "June 9, 2026: Set Leverage Added Marginmode Longleverage Shortleverage ...",
       "hash": "ee92012c4a6fd91f7c49509d7e668f488100db33a5f5ea107961c091e4f1d166",
-      "last_checked": "2026-07-01T08:14:52.170729",
+      "last_checked": "2026-07-02T08:13:37.870959",
       "content": "[June 9, 2026]Set Leverage: Added marginMode, longLeverage, shortLeverage request parameters; Added Set Margin API\u200b\nNew API:\n/api/v3/account/set-margin Adjust the margin amount for an isolated margin position\nInterface:\n/api/v3/account/set-leverage\nChanges\uff1a\nAdded marginMode String request parameter: Margin mode. crossed Cross margin, isolated Isolated margin. Defaults to cross margin if not specified. Only futures product lines support isolated margin leverage adjustment in this update. Added longLeverage String request parameter: Long position leverage. Only applicable in isolated margin two-way position mode with different leverage per direction. If both leverage and longLeverage are passed in two-way position mode, longLeverage takes effect and leverage is ignored. Added shortLeverage String request parameter: Short position leverage. Only applicable in isolated margin two-way position mode with different leverage per direction. If both leverage and shortLeverage are passed in two-way position mode, shortLeverage takes effect and leverage is ignored."
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-11-2026-fee-sign-adjustment-for-the-get-trade-fills-api": {
       "title": "March 11, 2026: Fee Sign Adjustment For The Get Trade Fills Api",
       "hash": "20ae0ffcd8bab159b9221d8342f52bf672a07c476f795abf6e52d32bebbf7055",
-      "last_checked": "2026-07-01T08:14:52.541172",
+      "last_checked": "2026-07-02T08:13:38.418456",
       "content": "[March 11, 2026]Fee Sign Adjustment for the \u201cGet Trade Fills\u201d API\u200b\nAPI:\n/api/v3/trade/fills\nChanges: To align with the WebSocket trade-fill channel pushes, we have unified the sign convention for fees in trade fills. The\ncurrent fee sign convention in the trade-fill REST API is:\nfee < 0: The platform pays the user (the user receives a rebate). fee > 0: The user pays the platform (the user pays a trading fee)."
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-12-2026-retail-price-improvement-rpi-orders-are-now-available-on-unified-trading-account-uta": {
       "title": "March 12, 2026: Retail Price Improvement Rpi Orders Are Now Available On ...",
       "hash": "4023ba28b1647b956a5d9ffcf11fdcf9d71c0ec640ad96ec540033c3747c8f7f",
-      "last_checked": "2026-07-01T08:14:52.917459",
+      "last_checked": "2026-07-02T08:13:38.792374",
       "content": "[March 12, 2026]Retail Price Improvement (RPI) orders are now available on Unified Trading Account (UTA).\u200b\nnew API: /api/v3/market/rpi-orderbook new channel: rpi order book\nPlease refer to Bitget Retail Price Improvement (RPI)\nOrders for more details."
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-12-2026-support-querying-basicadvanced-account-mode-information": {
       "title": "March 12, 2026: Support Querying Basicadvanced Account Mode Information",
       "hash": "7f933b0adf39f5ab3a6f7de77e272be45126f4bb313cfff92d9a9ebb1157a47c",
-      "last_checked": "2026-07-01T08:14:53.317440",
+      "last_checked": "2026-07-02T08:13:39.168635",
       "content": "[March 12, 2026]Support querying basic/advanced account mode information\u200b\nAPI:\n/api/v3/account/settings\nChanges: A new field accountLevel has been added to indicate the account level: basic (Basic mode) and advanced (Advanced\nmode)."
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-16-2026--added-fast-fill-websocket-channel": {
       "title": "March 16, 2026:  Added Fast Fill Websocket Channel",
       "hash": "edfda2558609a86f503157f89a1cf48f08f99a66329b863f43a9ac846c748873",
-      "last_checked": "2026-07-01T08:14:53.695728",
+      "last_checked": "2026-07-02T08:13:39.565792",
       "content": "[March 16, 2026]Added Fast Fill WebSocket Channel\u200b\nWebSocket: Changes\uff1a\nAdded Fast Fill Channel (fast-fill) - A streamlined version of the private fill channel with fewer parameters and\nlower latency. Pushed directly from the matching engine rather than through the counter. Only pushes order fill data\nfor users in UTA mode. Does not currently push strategy and copy trading fill data."
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-27-2026-added-unified-account-on-chain-elite-earn-apis": {
       "title": "March 27, 2026: Added Unified Account On Chain Elite Earn Apis",
       "hash": "0f56518fdb75f3ae44ee76c9d8792d018de95620e63674c7795cc31a25ca9279",
-      "last_checked": "2026-07-01T08:14:54.065219",
+      "last_checked": "2026-07-02T08:13:39.957113",
       "content": "[March 27, 2026]Added Unified Account On-Chain Elite Earn APIs\u200b\nAPI:\n/api/v3/earn/elite-product Get On-Chain Elite product list /api/v3/earn/elite-assets Get On-Chain Elite asset information /api/v3/earn/elite-subscribe-info Get On-Chain Elite subscription details /api/v3/earn/elite-records Get On-Chain Elite historical records /api/v3/earn/elite-subscribe On-Chain Elite subscription /api/v3/earn/elite-subscribe-result Get On-Chain Elite subscription result /api/v3/earn/elite-redeem-info Get On-Chain Elite redemption information /api/v3/earn/elite-redeem On-Chain Elite redemption\n[Mar 26, 2026] Update on the regular release schedule \u200b\nTo improve system stability, our backend\u2019s regular release window has been adjusted to Tuesdays and Thursdays, 14:\n00\u201318:00 (excluding emergency releases). During the regular release window, the REST API may return error responses such as 45001, 40725, 40808 . Please retry after receiving these errors. WebSocket connections may be disconnected during the release. Please add a reconnection mechanism in your\ncode. Before disconnecting, WebSocket will send an error message (error code: 30033 , error message: \u201cService\nupgrade in progress. Connection reset imminent. Please reconnect\u201d ) to notify the client that the connection is about\nto be reset. After receiving this message, the client should reconnect."
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-3-2026--launch-of-market-maker-fee-rate-api-query": {
       "title": "March 3, 2026:  Launch Of Market Maker Fee Rate Api Query",
       "hash": "16bd529f177b956eeca2264fa43ca07fc0106f4b47f8a674304f1e51dae0e023",
-      "last_checked": "2026-07-01T08:14:54.440349",
+      "last_checked": "2026-07-02T08:13:40.416528",
       "content": "[March 3, 2026]Launch of Market Maker Fee Rate API Query\u200b\nAPI:\n/api/v3/market/fee-group Get market maker fee rate groups /api/v3/market/score-weights Get market maker score weights\n[Feb 8, 2026] API supports borrowing for transfers & Trading product information adds launchTime field \u200b\nAPI:\n/api/v3/account/transfer: Added allowBorrow parameter to support automatic borrowing through margin when account\nbalance is insufficient /api/v3/account/sub-transfer: Added allowBorrow parameter to support borrowing transfers between main and\nsub-accounts /api/v3/market/instruments: Added launchTime field in response parameters to indicate the launch time of trading\npairs\nChanges:\nTransfer endpoints now support automatic margin borrowing when balance is insufficient by setting allowBorrow to yes Trading product information now includes launch time (Unix millisecond timestamp) for better tracking of new listings\n[Feb 5, 2026] Unified Account Staking & Lending API is now live. \u200b\nAPI:\n/api/v3/loan/borrow: Query supported collateral currencies /api/v3/loan/interest: Query estimated interest and borrowable amount /api/v3/loan/borrow: Borrow /api/v3/loan/borrow-ongoing: Query current borrowings /api/v3/loan/borrow-history: Query borrowing history /api/v3/loan/repay: Repay /api/v3/loan/repay-history: Query repayment history /api/v3/loan/revise-pledge: Adjust collateral ratio /api/v3/loan/pledge-rate-history: Query collateral ratio history /api/v3/loan/debts: Query assets and liabilities /api/v3/loan/reduces: Query liquidation records\n[Feb 5, 2026] Adjustment to the response of institution loan Get Margin Coin Info endpiont \u200b\nRestAPI : /api/v3/ins-loan/ensure-coins-convert\nAdjustment\uff1a\nWhen the margin mode is enabled as \"Tiered Discount Rate Model\", the response of institution loan Get Margin Coin Info\nendpiont will add ladder (ladder) and margin coin conversion rate (convertRatio) parameters;\n[Feb 4, 2026] WebSocket sends error message before disconnection during service upgrade \u200b\nWebSocket: Changes\uff1a\nWithin 60 seconds before disconnecting during service upgrades, WebSocket will now send an error message (error code:\n30033, error message: \"Service upgrade in progress. Connection reset imminent. Please reconnect.\") to notify clients\nthat the connection will be reset. Clients should reconnect upon receiving this message.\n[Jan 27, 2026] The unit for public trade volume in UTA Coin-M futures has been changed to the quote coin \u200b\nAPI:\n/api/v3/market/fills\u3001Public Trades Channel\nChanges\uff1a The unit for public trade volume in UTA Coin-M futures has been changed to the quote coin\n[Jan 23, 2026] Added an API for switching account modes \u200b\nAPI:\n/api/v3/account/adjust-account-mode\nChanges\uff1a Added an API for switching account modes, supporting switching between Basic Mode and Advanced Mode under a unified\naccount.\n[Jan 22, 2026] Adjustment to the books1 depth channel push frequency for WebSocket Unified Account (v3). \u200b\nWebsocket: Order Book Channel Adjustment: The books1 depth channel push frequency has been adjusted to 1 ms.\n[Jan 6, 2026] Agent Broker API endpoints migrated to v2: \u200b\nAPI:\nGet Agent Direct commissions Before\uff1a/api/broker/v1/agent/customer-commissions After\uff1a/api/v2/broker/customer-commissions Get Agent Customer Trade Volume List Before\uff1a/api/broker/v1/agent/customerTradeVolumnList After\uff1a/api/v2/broker/customer-trade-volume Get Agent Customer List Before\uff1a/api/broker/v1/agent/customerList After\uff1a/api/v2/broker/customer-list Get Agent Customer Kyc Result Before\uff1a/api/broker/v1/agent/customer-kyc-result After\uff1a/api/v2/broker/customer-kyc-result Get Agent Customer Deposit List Before\uff1a/api/broker/v1/agent/customerDepositList After\uff1a/api/v2/broker/customer-deposit Get Agent Customer Assets List Before\uff1a/api/broker/v1/agent/customerAccountAssetsList After\uff1a/api/v2/broker/customer-asset Get Agent Commission Detail Before\uff1a/api/broker/v1/agent/commission-distribution After\uff1a/api/v2/broker/agent-commission\n[Jan 6, 2026] New Broker API endpoints added: \u200b\nAPI:\n/api/v3/broker/create-sub Create broker sub-account /api/v3/broker/sub-list Get broker sub-account list /api/v3/broker/modify-sub Modify broker sub-account /api/v3/broker/sub-withdrawal Withdraw from broker sub-account /api/v3/broker/sub-deposit-address Create deposit address for broker sub-account /api/v3/broker/all-sub-deposit-withdrawal Get sub-account deposit/withdrawal records /api/v3/broker/commission Get broker sub-account commission records /api/v3/broker/create-sub-apikey Create API key for broker sub-account /api/v3/broker/modify-sub-apikey Modify API key for broker sub-account /api/v3/broker/delete-sub-apikey Delete API key for broker sub-account /api/v3/broker/query-sub-apikey Query API keys for broker sub-account"
     },
     "https://www.bitget.com/api-doc/uta/changelog#march-31-2026-move-positions-api-is-now-available-on-unified-trading-account": {
       "title": "March 31, 2026: Move Positions Api Is Now Available On Unified Trading Ac...",
       "hash": "5a574daf1d4323a61251b00d1d925cfa39988c4a0187093fbcf94ee5ecd2745e",
-      "last_checked": "2026-07-01T08:14:54.821416",
+      "last_checked": "2026-07-02T08:13:40.882700",
       "content": "[March 31, 2026]Move Positions API is now available on Unified Trading Account\u200b\nNew API:\n/api/v3/account/move-positions: Move positions between accounts within the same master-sub account system /api/v3/account/move-position-history: Query move position history\nThis feature allows whitelisted users to transfer futures positions (USDT/USDC futures, cross-margin mode only) between\nmaster and sub-accounts without going through the matching engine. The move price defaults to mark price, no trading\nfees are charged, and the trades will not appear in public market data."
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-12-2026-close-all-positions-added-x-channel-api-code-support": {
       "title": "May 12, 2026: Close All Positions Added X Channel Api Code Support",
       "hash": "7563e6c1831cd2b003fdc8172b16ca0deb2b84c9ce299e397a174eedbe5faedf",
-      "last_checked": "2026-07-01T08:14:55.202135",
+      "last_checked": "2026-07-02T08:13:41.398763",
       "content": "[May 12, 2026]Close All Positions: Added X-CHANNEL-API-CODE Support\u200b\nInterface:\n/api/v3/trade/close-positions\nChanges:\nThis interface now supports the X-CHANNEL-API-CODE HTTP request header for broker rebate tracking."
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-12-2026-delta-neutral-mode-account-mode-switch-and-new-delta-info-api": {
       "title": "May 12, 2026: Delta Neutral Mode Account Mode Switch And New Delta Info...",
       "hash": "64ab051c24089ec8b75f78e1634fc0bcd3b7e80681e239f6f0da75d89f32ed29",
-      "last_checked": "2026-07-01T08:14:55.582735",
+      "last_checked": "2026-07-02T08:13:41.848254",
       "content": "[May 12, 2026]Delta-Neutral Mode: Account Mode Switch and New Delta Info API\u200b\nInterface:\n/api/v3/account/adjust-account-mode /api/v3/account/settings /api/v3/account/delta-info (new)\nChanges:\nadjust-account-mode : Added delta enum to mode request parameter: Delta-neutral mode settings : Added isolated and delta enums to accountLevel response field: Isolated margin mode / Delta-neutral mode Added new API /api/v3/account/delta-info : Get delta equity ratio, thresholds, and per-coin net position ratios for Delta-neutral mode accounts"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-14-2026-added-p2p-merchant-apis": {
       "title": "May 14, 2026: Added P2P Merchant Apis",
       "hash": "1d24a9f257ba63c36560218aee7ff39d60760390ef51b68c6ffc0d415b222168",
-      "last_checked": "2026-07-01T08:14:55.973961",
+      "last_checked": "2026-07-02T08:13:42.226421",
       "content": "[May 14, 2026]Added P2P Merchant APIs\u200b\nNew APIs:\nGET /api/v3/p2p/ad-list Get public ad list GET /api/v3/p2p/exchange-rate Get exchange rate POST /api/v3/p2p/fee-simulate Fee simulate (pre-check fees) GET /api/v3/p2p/ad-limit Get ad limit info POST /api/v3/p2p/ad-create Create ad POST /api/v3/p2p/ad-update Update ad POST /api/v3/p2p/ad-operate Operate ad (publish / delist / remove) GET /api/v3/p2p/ad-info Get ad info GET /api/v3/p2p/my-ads Get my ads GET /api/v3/p2p/pending-orders Get pending orders GET /api/v3/p2p/all-orders Get all orders GET /api/v3/p2p/order-info Get order info POST /api/v3/p2p/order-pay Confirm payment POST /api/v3/p2p/order-release Release asset GET /api/v3/p2p/user-info Get user info GET /api/v3/p2p/currencies Get currencies GET /api/v3/p2p/pay-method Get pay methods GET /api/v3/p2p/balance Get balance"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-142025-adding-new-interface-get-margin-loan": {
       "title": "May 142025 Adding New Interface Get Margin Loan",
       "hash": "cb62cba59d8c7d7f526bdc585d5b844df9a054bbafd9c56530b88da2dc285a26",
-      "last_checked": "2026-07-01T08:14:56.345863",
+      "last_checked": "2026-07-02T08:13:42.611994",
       "content": "[May 14,2025]Adding new interface: Get Margin Loan\u200b\nInterface: /api/v3/market/margin-loans\nAdjustment: Adding new interface to query interest rates for margin loans"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-142025-adding-new-interface-get-open-interest": {
       "title": "May 142025 Adding New Interface Get Open Interest",
       "hash": "8e1acd41eeeabc9d3fabe26157543c83009d7a4bf1e2227de446bed1d0b279d5",
-      "last_checked": "2026-07-01T08:14:56.717395",
+      "last_checked": "2026-07-02T08:13:42.999866",
       "content": "[May 14,2025]Adding new interface: Get Open Interest\u200b\nInterface: /api/v3/market/open-interest\nAdjustment: Adding new interface to query the total number of unsettled or open futures"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-142025-adjustment-for-websocket-depth-channel": {
       "title": "May 142025 Adjustment For Websocket Depth Channel",
       "hash": "f48ae79f831851b9eda9adb16e88206808e2adc3051ef24dc3dd412ffa55d07a",
-      "last_checked": "2026-07-01T08:14:57.095221",
+      "last_checked": "2026-07-02T08:13:43.393537",
       "content": "[May 14,2025]Adjustment for Websocket Depth Channel\u200b\nChannel: Depth Channel\nAdjustment: Adding seq in push data. It increments when the order book is updated and can be used to determine whether\nthere is out-of-order packets."
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-19-2026-sbe-channels-added-sts-and-category-fields": {
       "title": "May 19, 2026: Sbe Channels Added Sts And Category Fields",
       "hash": "ee2883d887edcbd2dd28500639f27e14d65accdff1e63c88044a111b5200e46e",
-      "last_checked": "2026-07-01T08:14:57.462430",
+      "last_checked": "2026-07-02T08:13:43.850849",
       "content": "[May 19, 2026]SBE Channels: Added sts and category Fields\u200b\nwebsocket (SBE) \u200b\nInterface:\nSBE Depth50 ( books50 ) SBE BBO ( books1 ) SBE Public Trade ( publicTrade )\nChanges:\nAdded sts uint64 push field: Stream service push timestamp (\u00b5s) Added category uint8 push field: Product line ( spot / usdt-futures / coin-futures / usdc-futures )\nDemo trading launch date: April 30, 2026. Live trading launch date: May 19, 2026."
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-19-2026-uta-isolated-margin-support-added-marginmode-parameter-across-trade-position-and-websocket-interfaces": {
       "title": "May 19, 2026: Uta Isolated Margin Support Added Marginmode Parameter Ac...",
       "hash": "d09fbe9cb216d20e51939b5993f45f2cc11a30b2d95b5f6d1fdad72d7fae83d8",
-      "last_checked": "2026-07-01T08:14:57.834465",
+      "last_checked": "2026-07-02T08:13:44.342020",
       "content": "[May 19, 2026]UTA Isolated Margin Support: Added marginMode Parameter Across Trade, Position, and WebSocket Interfaces\u200b\nREST \u200b\nInterface:\n/api/v3/trade/place-order /api/v3/position/current-position /api/v3/account/adjust-account-mode\nChanges:\nAdded marginMode String request parameter to place-order : Margin mode ( crossed / isolated ). Defaults to crossed if not provided. Available for futures only. Updated positionBalance and unrealisedPnl response parameter descriptions in current-position : In isolated margin mode, these fields reflect isolated position-level values. Added isolated enum value to mode request parameter in adjust-account-mode : Enables switching to isolated margin mode.\nWebSocket \u200b\nChannels:\nplace-order (UTA) position (UTA)\nChanges:\nAdded marginMode String request parameter to place-order channel: Margin mode ( crossed / isolated ). Defaults to crossed if not provided. Available for futures only. Added enum description for marginMode push parameter in position channel: crossed / isolated ."
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-19-2026-websocket-depth-channels-checksum-field-removed": {
       "title": "May 19, 2026: Websocket Depth Channels Checksum Field Removed",
       "hash": "5008f4724fe8786ea0bb93fcd118de353437d508264b42332b63c329fce1cc25",
-      "last_checked": "2026-07-01T08:14:58.205666",
+      "last_checked": "2026-07-02T08:13:44.755813",
       "content": "[May 19, 2026]WebSocket Depth Channels: checksum Field Removed\u200b\nwebsocket \u200b\nChannels affected:\nDepth: books / books1 / books5 / books50 RPI Depth: rpi-books / rpi-books1 / rpi-books5 / rpi-books50\nChanges:\nThe checksum push parameter has been removed from the above depth channels. Please use seq and pseq for order book consistency verification instead."
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-21-2026-get-sub-account-list-updated-type-field-enum-values": {
       "title": "May 21, 2026: Get Sub Account List Updated Type Field Enum Values",
       "hash": "1eb367f4e6c33b2678faa1b2d6b1118d5b1248b9ab7226a46e016529244e70b6",
-      "last_checked": "2026-07-01T08:14:58.601134",
+      "last_checked": "2026-07-02T08:13:45.147908",
       "content": "[May 21, 2026]Get Sub-account List: Updated type Field Enum Values\u200b\nInterface:\n/api/v3/user/sub-list\nChanges:\nUpdated type response field enum values to lowercase: normal Regular Sub-account / virtual Virtual Sub-account / custodian Custodial Sub-account"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-26-2026-added-withdrawal-address-book-and-cancel-withdrawal-apis": {
       "title": "May 26, 2026: Added Withdrawal Address Book And Cancel Withdrawal Apis",
       "hash": "79eaba5c9a951e9f03c8cd2c366ea5d951d7945da7af8c65ac2d4aa3e8d1eb2f",
-      "last_checked": "2026-07-01T08:14:58.980190",
+      "last_checked": "2026-07-02T08:13:45.588696",
       "content": "[May 26, 2026]Added Withdrawal Address Book and Cancel Withdrawal APIs\u200b\nNew APIs:\n/api/v3/account/withdraw-address Query the withdrawal address book bound to the account /api/v3/account/cancel-withdrawal Cancel a withdrawal request within the cooling-off period"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-26-2026-fill-channel-updated-category-push-field-enum-values-to-lowercase": {
       "title": "May 26, 2026: Fill Channel Updated Category Push Field Enum Values To L...",
       "hash": "105c88746c8666fa4dda590d00abcff486940885cc7156e30f2d06eec4cf7563",
-      "last_checked": "2026-07-01T08:14:59.327881",
+      "last_checked": "2026-07-02T08:13:46.020669",
       "content": "[May 26, 2026]Fill Channel: Updated category Push Field Enum Values to Lowercase\u200b\nwebsocket \u200b\nChannel:\nfill (UTA)\nChanges:\nUpdated category push field enum values to lowercase: spot / margin / usdt-futures / coin-futures / usdc-futures"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-28-2026-added-create-agent-sub-account-api-get-sub-account-list-added-agent-type-enum-value": {
       "title": "May 28, 2026: Added Create Agent Sub Account Api Get Sub Account List A...",
       "hash": "865c9e2e791d3afa4550c7f1ebd16a5e5009a2d12ef23a26628e582a34e55167",
-      "last_checked": "2026-07-01T08:14:59.692527",
+      "last_checked": "2026-07-02T08:13:46.460180",
       "content": "[May 28, 2026]Added Create Agent Sub-account API; Get Sub-account List: Added agent Type Enum Value\u200b\nNew API:\n/api/v3/user/sub-account/agent-create Create a dedicated sub-account for an AI Agent instance\nInterface:\n/api/v3/user/sub-list\nChanges:\nAdded agent enum value to type response parameter: Agent Sub-account"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-6-2026-broker-sub-account-api-key-permtype-enum-values-updated": {
       "title": "May 6, 2026: Broker Sub Account Api Key Permtype Enum Values Updated",
       "hash": "681c158996cf5a6c9c2bdc7db3d584c2be2aa2c48425b2d8e931b8f34d043b30",
-      "last_checked": "2026-07-01T08:15:00.071522",
+      "last_checked": "2026-07-02T08:13:46.896331",
       "content": "[May 6, 2026]Broker Sub-Account API Key: permType Enum Values Updated\u200b\nInterface:\nPOST /api/v3/broker/create-sub-apikey POST /api/v3/broker/modify-sub-apikey GET /api/v3/broker/query-sub-apikey\nChanges:\npermType parameter/response field: enum values changed from Read/Write / Read-only to read_write / read_only"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-7-2026-order-book-channel-added-maxdepth-field-to-push-data": {
       "title": "May 7, 2026: Order Book Channel Added Maxdepth Field To Push Data",
       "hash": "b0443f7b95214d3edd24d57b1b119b239433c1b2f417feb0d4eeaa536ca9e96b",
-      "last_checked": "2026-07-01T08:15:00.436343",
+      "last_checked": "2026-07-02T08:13:47.412181",
       "content": "[May 7, 2026]Order Book Channel: Added maxDepth field to push data\u200b\nwebsocket \u200b\nChanges:\nbooks channel: Added maxDepth field to push data"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-7-2026-websocket-added-connid-to-subscription-and-trade-operation-responses": {
       "title": "May 7, 2026: Websocket Added Connid To Subscription And Trade Operatio...",
       "hash": "dca2b292266376c4c6d70ae9d83c32a828cce5f0508bf90b4ab7238d6b903dc6",
-      "last_checked": "2026-07-01T08:15:00.803834",
+      "last_checked": "2026-07-02T08:13:47.891344",
       "content": "[May 7, 2026]WebSocket: Added connId to subscription and trade operation responses\u200b\nwebsocket \u200b\nChanges:\nAll public channels (subscribe/unsubscribe responses): Added top-level connId (Connection ID) field All private channels (subscribe/unsubscribe responses): Added top-level connId field Trade operation responses ( place-order / cancel-order / batch-place / batch-cancel / modify-order / batch-modify ): Added connId field Note: ping/pong messages and normal data push messages do not carry connId"
     },
     "https://www.bitget.com/api-doc/uta/changelog#may-8-2026-copy-trading-added-max-transferable-transfer-and-transfer-record-apis": {
       "title": "May 8, 2026: Copy Trading Added Max Transferable Transfer And Transfer...",
       "hash": "6ebd87608dc9ed00ee3b99aef276deebd709068e7f8fff61e07511d169aad747",
-      "last_checked": "2026-07-01T08:15:01.184023",
+      "last_checked": "2026-07-02T08:13:48.377268",
       "content": "[May 8, 2026]Copy Trading: Added Max Transferable, Transfer, and Transfer Record APIs\u200b\nNew APIs:\n/api/v3/copy/futures/max-transferable Get maximum transferable amount and available balance for the lead account /api/v3/copy/futures/transfer Transfer funds into or out of the lead account /api/v3/copy/futures/transfer-record Query lead account transfer history"
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-12-2025-websocket-order-modification-channel-adds-request-parameters": {
       "title": "November 12, 2025: Websocket Order Modification Channel Adds Request Parameters",
       "hash": "c28c601ecc25b3ea33b056420fa1f499729b851005580d77e2508a4a69f7891c",
-      "last_checked": "2026-07-01T08:15:01.562013",
+      "last_checked": "2026-07-02T08:13:48.860586",
       "content": "[November 12, 2025]WebSocket Order Modification Channel Adds Request Parameters\u200b\nWebsocket: order modification channel Changes: The order modification channel now includes new request parameters: category and symbol."
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-21-2025-add-new-tax-api": {
       "title": "November 21, 2025: Add New Tax Api",
       "hash": "de95b3f0460cd8dc40cef4d74300f912b4f50d8eb623fb20594415f08d8069dc",
-      "last_checked": "2026-07-01T08:15:01.927191",
+      "last_checked": "2026-07-02T08:13:49.331469",
       "content": "[November 21, 2025]Add new tax API\u200b\nInterface\uff1a/api/v3/tax/records Changes\uff1a\nAdd new tax API"
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-21-2025-the-return-value-of-the-get-instruments-api-has-added-a-new-enumeration-for--status": {
       "title": "November 21, 2025: The Return Value Of The Get Instruments Api Has Added A N...",
       "hash": "8887c917cfc2e69b81a5cebdce9ecc984521821702db59f2ffda61acbad08198",
-      "last_checked": "2026-07-01T08:15:02.298059",
+      "last_checked": "2026-07-02T08:13:49.772335",
       "content": "[November 21, 2025]The return value of the get instruments API has added a new enumeration for  status.\u200b\nInterface\uff1a/api/v3/market/instruments Changes\uff1a\nThe return value of the get instruments API: a new enumeration value limit_close has been added to the status ."
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-26-2025-add-instructions-for-switching-to-advanced-mode-when-creating-a-new-sub-account": {
       "title": "November 26, 2025: Add Instructions For Switching To Advanced Mode When Crea...",
       "hash": "b68dcaccd0248b8b20289f5c1b44a07202f6294aa8a650b8e6e20a03579e1501",
-      "last_checked": "2026-07-01T08:15:02.674936",
+      "last_checked": "2026-07-02T08:13:50.216271",
       "content": "[November 26, 2025]Add instructions for switching to Advanced Mode when creating a new sub-account.\u200b\nInterface\uff1a/api/v3/user/create-sub Changes\uff1a\nAdd instructions for switching to Advanced Mode when creating a new sub-account: Sub-accounts are created in Unified\nAccount - Basic Mode by default. To switch to Advanced Mode, please set it manually on the web page.\n[November 26, 2025] Websocket Added a new platform liquidation push channel\nWebsocket: Liquidation channel Changes: Websocket Added a new platform liquidation push channel"
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-26-2025-websocket-added-new-adl-notification-channel": {
       "title": "November 26, 2025: Websocket Added New Adl Notification Channel",
       "hash": "101e826c19a10bad5f7182bf5c1574f5308be1f498aea06a98a4bcb7ce0ced88",
-      "last_checked": "2026-07-01T08:15:03.057145",
+      "last_checked": "2026-07-02T08:13:50.718844",
       "content": "[November 26, 2025]Websocket Added new ADL notification channel\u200b\nWebsocket: ADL notification channel Changes: Websocket Added new ADL notification channel"
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-28-2025-new-api-for-get-open-interest-limit": {
       "title": "November 28, 2025: New Api For Get Open Interest Limit",
       "hash": "8e17667ba57ceac61b4670bbd0f7f7aaa045665610c16f0b94a64f952f3528b4",
-      "last_checked": "2026-07-01T08:15:03.433569",
+      "last_checked": "2026-07-02T08:13:51.146238",
       "content": "[November 28, 2025]New API for Get Open Interest Limit.\u200b\nInterface\uff1a/api/v3/user/create-sub Changes\uff1a\nNew API for Get Open Interest Limit."
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-28-2025the-maximum-number-of-returned-entries-for-the-candlestick-api-has-been-increased-to-1000": {
       "title": "November 28 2025The Maximum Number Of Returned Entries For The Candlestick Api Has Been Increased To 1000",
       "hash": "b950cccbac7d6104d7996c0f3758f8101bfcd42dd3405d77eee709c3fba2e514",
-      "last_checked": "2026-07-01T08:15:03.842090",
+      "last_checked": "2026-07-02T08:13:51.542221",
       "content": "[November 28, 2025]The maximum number of returned entries for the candlestick API has been increased to 1,000.\u200b\nInterface:\n/api/v3/market/candles\nChanges\uff1a\nThe maximum number of returned entries for the candlestick API has been increased to 1,000."
     },
     "https://www.bitget.com/api-doc/uta/changelog#november-8-2025-websocket-supports-broker-api-code": {
       "title": "November 8, 2025: Websocket Supports Broker Api Code",
       "hash": "f74cd1a186486260ec8b8048600e380cb36ae11c0cb9b91d36aec65658654211",
-      "last_checked": "2026-07-01T08:15:04.211687",
+      "last_checked": "2026-07-02T08:13:52.027330",
       "content": "[November 8, 2025]WebSocket Supports Broker API Code\u200b\nWebsocket: place order channel Changes: The order placement channel supports passing the Broker API Code to receive rebates."
     },
     "https://www.bitget.com/api-doc/uta/changelog#october-29-2025-added-api-for-retrieving-the-maximum-transferable-amount": {
       "title": "October 29, 2025: Added Api For Retrieving The Maximum Transferable Amount",
       "hash": "a611117576863fb26df29c4980fffd62498397a699b2927c1a6b7d2feda8bf1f",
-      "last_checked": "2026-07-01T08:15:04.592868",
+      "last_checked": "2026-07-02T08:13:52.482167",
       "content": "[October 29, 2025]Added API for retrieving the maximum transferable amount.\u200b\nInterface\uff1a/api/v3/account/max-transferable Changes\uff1a\nAdded API for retrieving the maximum transferable amount."
     },
     "https://www.bitget.com/api-doc/uta/changelog#october-9-2025-notice-optimization-of-idempotency-rule-for-clientoid-in-unified-account": {
       "title": "October 9, 2025: Notice Optimization Of Idempotency Rule For Clientoid In ...",
       "hash": "a942e84e50860e995f00cbbb84489c7891b6358123d44dfc2dc7cfbb09cf21bc",
-      "last_checked": "2026-07-01T08:15:04.972008",
+      "last_checked": "2026-07-02T08:13:52.903704",
       "content": "[October 9, 2025]Notice: Optimization of Idempotency Rule for clientOid in Unified Account\u200b\nAffected APIs: REST API: Place Order, Batch Place Order REST API: Order Details WebSocket : Place Order, Batch Place Order Before Optimization: Based on a time limit, the validity period of clientOid does not exceed 2 hours. After Optimization: The time limit is removed, and the rule is optimized to be determined by the current order status.\nSpecifically, clientOid cannot be duplicated during the order pending period; once the order is filled or canceled,\nclientOid can be duplicated."
     },
     "https://www.bitget.com/api-doc/uta/changelog#september-2-2025-add-reason-field-for-get-switch-status": {
       "title": "September 2, 2025: Add Reason Field For Get Switch Status",
       "hash": "28e8808d4377b5d1a89c652de34e2b2cbf2a70193b47ad117f70d4b4cc3b1389",
-      "last_checked": "2026-07-01T08:15:05.347842",
+      "last_checked": "2026-07-02T08:13:53.330525",
       "content": "[September 2, 2025]Add reason field for Get Switch Status\u200b\nInterface: /api/v3/account/switch-status Changes\uff1a\nAdd reason field for Get Switch Status"
     },
     "https://www.bitget.com/api-doc/uta/changelog#september-23-2025-launch-of-websocket-order-modification-and-batch-order-modification-channels": {
       "title": "September 23, 2025: Launch Of Websocket Order Modification And Batch Order Mo...",
       "hash": "f1d4a511065abd6fb450d3ef5eb7d93b53952a5f9c24daa6b6860b96dede2296",
-      "last_checked": "2026-07-01T08:15:05.733103",
+      "last_checked": "2026-07-02T08:13:53.823946",
       "content": "[September 23, 2025]Launch of WebSocket Order Modification and Batch Order Modification Channels\u200b\nWebSocket: Order Modification, Batch Order Modification Channels Changes\uff1a Newly added WebSocket Order Modification Channel and WebSocket Batch Order Modification Channel"
     },
     "https://www.bitget.com/api-doc/uta/changelog#september-25-2025-candlestick-and-historical-candlestick-apis-add-premium-index-get-trading-product-information-api-adds-rwa-identifier-field": {
       "title": "September 25, 2025: Candlestick And Historical Candlestick Apis Add Premium I...",
       "hash": "485c7d0f8914604982e3187809ae290724b49230a8835f4c068308e64f401bc6",
-      "last_checked": "2026-07-01T08:15:06.105959",
+      "last_checked": "2026-07-02T08:13:54.253791",
       "content": "[September 25, 2025]Candlestick and Historical Candlestick APIs Add Premium Index; Get Trading Product Information API Adds RWA Identifier Field\u200b\nInterface: /api/v3/market/candles\u3001/api/v3/market/history-candles\u3001/api/v3/market/instruments Changes\uff1a\nThe K-Line Data and Historical K-Line Data APIs now include the Premium Index. The Get Trading Product Information API now includes the RWA identifier field."
     },
     "https://www.bitget.com/api-doc/uta/changelog#september-26-2025-new-api-for-a-sub-account-initiates-a-transfer-to-the-master-account": {
       "title": "September 26, 2025: New Api For A Sub Account Initiates A Transfer To The Mas...",
       "hash": "47ac444e5fdb37a1b29100b43e2c0059bb594408d9b441460e2653541a9266f4",
-      "last_checked": "2026-07-01T08:15:06.503189",
+      "last_checked": "2026-07-02T08:13:54.683299",
       "content": "[September 26, 2025]New API for a sub-account initiates a transfer to the master account\u200b\nInterface\uff1a/api/v3/account/sub-master-transfer Changes\uff1a\nNew API for a sub-account initiates a transfer to the master account"
     }
   }
