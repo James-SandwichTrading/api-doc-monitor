@@ -1,34 +1,34 @@
 {
-  "timestamp": "2026-07-02T08:13:55.982997",
+  "timestamp": "2026-07-03T08:18:05.653401",
   "sections": {
     "https://www.bitmex.com/blog/changes-to-tick-size-jun-2026": {
       "title": "Now Live: Changes to Minimum Price Increments and Lot Size",
       "hash": "148c84be2c68702edb3bc1b7f3675e08bcb2504f21142af2af51a47e2b5a13ea",
-      "last_checked": "2026-07-02T08:13:55.982997",
+      "last_checked": "2026-07-03T08:18:05.653401",
       "content": "Now Live: Changes to Minimum Price Increments and Lot Size\nWed, 17 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/changes-to-tick-size-jun-2026\nNow Live: Changes to Minimum Price Increments and Lot Size\nListing"
     },
     "https://www.bitmex.com/blog/gramusdt": {
       "title": "Now Live: GRAMUSDT Perpetual Swap Listing with Up to 20x Leverage",
       "hash": "5fd981aedab0622032290b2b7d18ee28bfd5aaaba6beff6cbb5331b2314b4714",
-      "last_checked": "2026-07-02T08:13:56.297182",
+      "last_checked": "2026-07-03T08:18:05.957614",
       "content": "Now Live: GRAMUSDT Perpetual Swap Listing with Up to 20x Leverage\nWed, 01 Jul 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/gramusdt\nAs of 04:00 UTC 2 July 2026, a new listing - GRAMUSDT - the trading bot, is now available to trade on BitMEX, with up to 20x leverage.\nListing"
     },
     "https://www.bitmex.com/blog/gramusdt-now-live": {
       "title": "Now Live: GRAMUSDT Perpetual Swap Listings With Up to 20x Leverage ",
       "hash": "5c94080613c0f7e0efb25b9b10668a26e54bff9ea096ad373aca36ef8a71000e",
-      "last_checked": "2026-07-02T08:13:56.611482",
+      "last_checked": "2026-07-03T08:18:06.273477",
       "content": "Now Live: GRAMUSDT Perpetual Swap Listings With Up to 20x Leverage \nWed, 01 Jul 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/gramusdt-now-live\nOur new GRAM listing - GRAMUSDT - is now available to trade on BitMEX with up to 20x leverage. The listing began trading here today at 04:00 UTC. The full contract specs can be found here . You can also read our blog for further information. In the meantime, if you have any questions please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/index-weights-changes-2026-q3-now-live": {
       "title": "Now Live: Index Weights Update for Q3 2026",
       "hash": "6d8fd7ba3864177017c21914235fa3ae9582179dd584552adca13a97774012c1",
-      "last_checked": "2026-07-02T08:13:56.927584",
+      "last_checked": "2026-07-03T08:18:06.589124",
       "content": "Now Live: Index Weights Update for Q3 2026\nFri, 26 Jun 2026 12:00:00 GMT\nhttps://www.bitmex.com/blog/index-weights-changes-2026-q3-now-live\nA kind reminder that on 26 June 2026 at 12:00 UTC, our index weights were updated at BitMEX. The hypothetical values of indices with their new weights are now published as the \u201cNEXT\u201d index family (e.g. .BXBT_NEXT). Please see our blog for further information. In the meantime, if you have any questions, please contact Support .\nSite Announcements"
     },
     "https://www.bitmex.com/blog/lot-size-changes-now-live-june-2026": {
       "title": "Now Live: Changes to Minimum Price Increments",
       "hash": "25fa5434eeab0e62372e346def1044077a5c38839fc6d5eec5b6a466d8d77eaa",
-      "last_checked": "2026-07-02T08:13:57.239509",
+      "last_checked": "2026-07-03T08:18:06.903646",
       "content": "Now Live: Changes to Minimum Price Increments\nWed, 17 Jun 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/lot-size-changes-now-live-june-2026\nOn 23 Jun 2026 at 04:00 UTC, changes were made to the Minimum Price Increments and Lot Size of several contracts on BitMEX. For the relevant changes and the contracts that will be impacted, please read our blog . In the meantime, if you have any questions please contact Support .\nSite Announcements"
     }
   }
