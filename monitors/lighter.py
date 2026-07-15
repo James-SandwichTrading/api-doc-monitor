@@ -67,7 +67,7 @@ class LighterDocMonitor(BaseDocMonitor):
         # Pattern to match "Updated\nX days/weeks/months/years ago" text
         # This avoids false positives from relative timestamp changes
         self._updated_pattern = re.compile(
-            r"Updated\n\d+\s+(second|minute|hour|day|week|month|year)s?\s+ago",
+            r"Updated\n\d+\s+(second|minute|hour|day|week|month|year)s?\s+ago(?:\nDid this page help you\?\nYes\nNo)?",
             re.IGNORECASE,
         )
 
