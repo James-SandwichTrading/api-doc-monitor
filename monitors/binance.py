@@ -13,6 +13,14 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
 import re
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 from .base_monitor import BaseDocMonitor
 
 
@@ -70,6 +78,62 @@ class BinanceDocMonitor(BaseDocMonitor):
         # Get current year and previous year for filtering
         current_year = datetime.now().year
         self.years_to_monitor = [current_year, current_year - 1]
+        self._page_cache = {}
+
+    def _create_driver(self):
+        """Create a headless Chrome WebDriver."""
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.add_argument(
+            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
+
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        return driver
+
+    def _fetch_rendered_page(self, url: str) -> str:
+        """
+        Fetch a page using Selenium to render JavaScript content.
+
+        Args:
+            url: The URL to fetch
+
+        Returns:
+            Rendered HTML content
+        """
+        if url in self._page_cache:
+            return self._page_cache[url]
+
+        driver = None
+        try:
+            self.logger.info(f"  Rendering page with Selenium: {url}")
+            driver = self._create_driver()
+            driver.get(url)
+
+            # Wait for changelog content to load
+            WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "h2[id], h3[id], [id*='20']"))
+            )
+
+            # Additional wait for dynamic content
+            time.sleep(2)
+
+            html = driver.page_source
+            self._page_cache[url] = html
+            return html
+
+        except Exception as e:
+            self.logger.error(f"  Error rendering page {url}: {e}")
+            return ""
+        finally:
+            if driver:
+                driver.quit()
 
     def _is_recent_section(self, section_id: str, section_title: str) -> bool:
         """
@@ -117,9 +181,11 @@ class BinanceDocMonitor(BaseDocMonitor):
             )
 
             try:
-                response = self.session.get(url, timeout=10)
-                response.raise_for_status()
-                soup = BeautifulSoup(response.text, "html.parser")
+                html = self._fetch_rendered_page(url)
+                if not html:
+                    continue
+
+                soup = BeautifulSoup(html, "html.parser")
 
                 # Find all headings that represent changelog entries
                 # Binance uses h2, h3, or other headings with IDs for date-based sections
@@ -173,10 +239,11 @@ class BinanceDocMonitor(BaseDocMonitor):
         base_url = section_url.split("#")[0]
 
         try:
-            response = self.session.get(base_url, timeout=10)
-            response.raise_for_status()
+            html = self._page_cache.get(base_url) or self._fetch_rendered_page(base_url)
+            if not html:
+                return "", ""
 
-            soup = BeautifulSoup(response.text, "html.parser")
+            soup = BeautifulSoup(html, "html.parser")
 
             # Find the section by ID
             section = soup.find(id=section_id)
