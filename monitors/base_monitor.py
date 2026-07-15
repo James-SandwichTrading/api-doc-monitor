@@ -30,6 +30,9 @@ class BaseDocMonitor(ABC):
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
+        notify_no_sections: bool = True,
+        notify_many_deletions: bool = True,
+        notify_many_deletions_threshold: float = 0.2
     ):
         """
         Initialize the documentation monitor.
@@ -42,7 +45,11 @@ class BaseDocMonitor(ABC):
             notify_additions: Send Telegram notification for new sections (default: True)
             notify_modifications: Send Telegram notification for modified sections (default: True)
             notify_deletions: Send Telegram notification for deleted sections (default: False)
+            notify_no_sections: Send Telegram notification if exchange does not return any sections (default: True)
+            notify_many_deletions: Send Telegram notification if many sections sections have been deleted (default: True)
+            notify_many_deletions_threshold: Threshold for notify_many_deletions (default: 0.2 e.g. 20% of old sections)
         """
+
         self.exchange_name = exchange_name
         self.storage_file = storage_file
         self.telegram_bot_token = telegram_bot_token
@@ -50,6 +57,9 @@ class BaseDocMonitor(ABC):
         self.notify_additions = notify_additions
         self.notify_modifications = notify_modifications
         self.notify_deletions = notify_deletions
+        self.notify_no_sections = notify_no_sections
+        self.notify_many_deletions = notify_many_deletions
+        self.notify_many_deletions_threshold = notify_many_deletions_threshold
         self.logger = setup_logger(exchange_name)
         self.session = requests.Session()
         self.session.headers.update(
@@ -145,6 +155,21 @@ class BaseDocMonitor(ABC):
         sections = self.discover_sections()
         self.logger.info(f"Discovered {len(sections)} sections")
 
+        if(len(sections) == 0 and self.notify_no_sections):
+            try:
+                url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
+                payload = {
+                    "chat_id": self.telegram_chat_id,
+                    "text": f"❌ Failed to find sections for {self.exchange_name}, this is likely indicative of a doc monitoring failure.",
+                    "parse_mode": "Markdown",
+                    "disable_web_page_preview": True,
+                }
+                response = requests.post(url, json=payload, timeout=10)
+                response.raise_for_status()
+                self.logger.info("Telegram notification sent successfully")
+            except Exception as e:
+                self.logger.error(f"Failed to send Telegram notification: {e}")
+
         # Load previous state
         previous_state = self.load_previous_state()
         previous_sections = previous_state.get("sections", {})
@@ -217,6 +242,21 @@ class BaseDocMonitor(ABC):
                         "title": previous_sections[section_id].get("title", "Unknown"),
                     }
                 )
+
+        if(len(changes["deleted_sections"]) > self.notify_many_deletions_threshold * len(previous_sections)and self.notify_many_deletions):
+            try:
+                url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
+                payload = {
+                    "chat_id": self.telegram_chat_id,
+                    "text": f"❌ {self.notify_many_deletions_threshold * 100}% or more of {self.exchange_name} sections have been deleted, this could be indicative of a doc monitoring failure.",
+                    "parse_mode": "Markdown",
+                    "disable_web_page_preview": True,
+                    }
+                response = requests.post(url, json=payload, timeout=10)
+                response.raise_for_status()
+                self.logger.info("Telegram notification sent successfully")
+            except Exception as e:
+                self.logger.error(f"Failed to send Telegram notification: {e}")
 
         # Save current state
         self.save_state(current_state)
@@ -559,6 +599,8 @@ class BaseDocMonitor(ABC):
         config_additions = None
         config_modifications = None
         config_deletions = None
+        config_no_sections = None
+
 
         if os.path.exists(args.config):
             config = BaseDocMonitor.load_config_file(args.config)
@@ -566,9 +608,13 @@ class BaseDocMonitor(ABC):
             config_additions = notifications.get("additions")
             config_modifications = notifications.get("modifications")
             config_deletions = notifications.get("deletions")
+            config_no_sections = notifications.get("no_sections")
+            config_many_deletions = notifications.get("many_deletions")
+            config_many_deletions_threshold = notifications.get("many_deletions_threshold")
+
 
         # CLI args override config, config overrides defaults
-        # Default: additions=True, modifications=True, deletions=False
+        # Default: additions=True, modifications=True, deletions=False, no_sections=True
         notify_additions = (
             args.notify_additions
             if args.notify_additions is not None
@@ -584,5 +630,20 @@ class BaseDocMonitor(ABC):
             if args.notify_deletions is not None
             else (config_deletions if config_deletions is not None else False)
         )
+        notify_no_sections = (
+            args.notify_no_sections
+            if args.notify_no_sections is not None
+            else (config_no_sections if config_no_sections is not None else True)
+        )
+        notify_many_deletions = (
+            args.notify_many_deletions
+            if args.notify_many_deletions is not None
+            else (config_many_deletions if config_many_deletions is not None else True)
+        )
+        notify_many_deletions_threshold = (
+            args.notify_many_deletions_threshold
+            if args.notify_many_deletions_threshold is not None
+            else (config_many_deletions_threshold if config_many_deletions_threshold is not None else 0.2)
+        )
 
-        return notify_additions, notify_modifications, notify_deletions
+        return notify_additions, notify_modifications, notify_deletions, notify_no_sections, notify_many_deletions, notify_many_deletions_threshold

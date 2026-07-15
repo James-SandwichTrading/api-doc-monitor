@@ -127,6 +127,38 @@ def main():
         help="Disable Telegram notifications for deleted sections",
     )
     parser.add_argument(
+        "--notify-no_sections",
+        action="store_true",
+        dest="notify_no_sections",
+        default=None,
+        help="Enable Telegram notifications when no sections are found for an exchange to monitor (default: enabled)",
+    )
+    parser.add_argument(
+        "--no-notify-no_sections",
+        action="store_false",
+        dest="notify_no_sections",
+        help="Disable Telegram notifications when no sections are found for an exchange to monitor",
+    )
+    parser.add_argument(
+        "--notify_many_deletions",
+        action="store_true",
+        dest="notify_many_deletions",
+        default=None,
+        help="Enable Telegram notifications when many sections of an exchanges documentation are deleted (default: enabled)",
+    )
+    parser.add_argument(
+        "--no-notify_many_deletions",
+        action="store_false",
+        dest="notify_many_deletions",
+        help="Disable Telegram notifications when many sections of an exchanges documentation are deleted",
+    )
+    parser.add_argument(
+        "--notify_many_deletions_threshold",
+        dest="notify_many_deletions_threshold",
+        default=0.2,
+        help="Threshold for notify_many_deletions (default: 0.2)",
+    )
+    parser.add_argument(
         "--no-save-content",
         action="store_true",
         help="Don't save full section content (reduces storage)",
@@ -167,6 +199,9 @@ def main():
             notify_additions,
             notify_modifications,
             notify_deletions,
+            notify_no_sections,
+            notify_many_deletions,
+            notify_many_deletions_threshold,
         ):
             self.config = config
             self.telegram_token = telegram_token
@@ -175,6 +210,9 @@ def main():
             self.notify_additions = notify_additions
             self.notify_modifications = notify_modifications
             self.notify_deletions = notify_deletions
+            self.notify_no_sections = notify_no_sections
+            self.notify_many_deletions = notify_many_deletions
+            self.notify_many_deletions_threshold = notify_many_deletions_threshold
 
     dummy_args = DummyArgs(
         args.config,
@@ -184,13 +222,16 @@ def main():
         args.notify_additions,
         args.notify_modifications,
         args.notify_deletions,
+        args.notify_no_sections,
+        args.notify_many_deletions,
+        args.notify_many_deletions_threshold,
     )
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(
         dummy_args
     )
 
     # Get notification settings
-    notify_additions, notify_modifications, notify_deletions = (
+    notify_additions, notify_modifications, notify_deletions, notify_no_sections, notify_many_deletions, notify_many_deletions_threshold = (
         BaseDocMonitor.get_notification_settings(dummy_args)
     )
 
@@ -220,6 +261,9 @@ def main():
         "notify_additions": notify_additions,
         "notify_modifications": notify_modifications,
         "notify_deletions": notify_deletions,
+        "notify_no_sections": notify_no_sections,
+        "notify_many_deletions": notify_many_deletions,
+        "notify_many_deletions_threshold": notify_many_deletions_threshold,
     }
 
     if "binance" in exchanges_to_run:

@@ -22,6 +22,9 @@ class KrakenDocMonitor(BaseDocMonitor):
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
+        notify_no_sections: bool = True,
+        notify_many_deletions: bool = True,
+        notify_many_deletions_threshold: float = 0.2
     ):
         """
         Initialize the documentation monitor.
@@ -33,6 +36,9 @@ class KrakenDocMonitor(BaseDocMonitor):
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
+            notify_no_sections: Send Telegram notification if exchange does not return any sections (default: True)
+            notify_many_deletions: Send Telegram notification if many sections sections have been deleted (default: True)
+            notify_many_deletions_threshold: Threshold for notify_many_deletions (default: 0.2 e.g. 20% of old sections)
         """
         super().__init__(
             exchange_name="Kraken",
@@ -42,6 +48,9 @@ class KrakenDocMonitor(BaseDocMonitor):
             notify_additions=notify_additions,
             notify_modifications=notify_modifications,
             notify_deletions=notify_deletions,
+            notify_no_sections=notify_no_sections,
+            notify_many_deletions=notify_many_deletions,
+            notify_many_deletions_threshold=notify_many_deletions_threshold,
         )
 
         self.changelog_url = "https://docs.kraken.com/api/docs/change-log"
