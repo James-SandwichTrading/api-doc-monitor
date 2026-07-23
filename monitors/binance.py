@@ -172,6 +172,20 @@ class BinanceDocMonitor(BaseDocMonitor):
         # If no year found in section, include it (might be an overview/intro section)
         return True
 
+    def _is_section_containing_all_changes(self, section_id: str) -> bool:
+        """
+        Check if a section is a main changelog section which include all changes, including ones we want to filter out.
+
+        Args:
+            section_id: The section ID
+        Returns:
+            True if section contains specific changes, not all
+        """
+        mainChangelogSections = ["changelog-for-binances-api", "change-log"]
+        if(section_id in mainChangelogSections):
+            return True
+        return False
+
     def discover_sections(self) -> Dict[str, str]:
         """
         Discover documentation sections from all configured Binance documentation pages.
@@ -204,7 +218,7 @@ class BinanceDocMonitor(BaseDocMonitor):
                         section_title = heading.get_text(strip=True)
 
                         # Check if this is a recent section
-                        if self._is_recent_section(section_id, section_title):
+                        if self._is_recent_section(section_id, section_title) and not self._is_section_containing_all_changes(section_id):
                             # Create full URL with fragment
                             full_url = f"{url}#{section_id}"
                             all_sections[full_url] = section_title
