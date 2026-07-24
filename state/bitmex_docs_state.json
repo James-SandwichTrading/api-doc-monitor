@@ -1,29 +1,17 @@
 {
-  "timestamp": "2026-07-23T08:39:55.885147",
+  "timestamp": "2026-07-24T08:19:48.708600",
   "sections": {
     "https://www.bitmex.com/blog/account-hub": {
       "title": "Meet The All New Accounts Hub",
       "hash": "4e3256ed59ec3257d1fe98b43bfe24415b50dc9e93cefea7b477aed8ee77606e",
-      "last_checked": "2026-07-23T08:39:55.885147",
+      "last_checked": "2026-07-24T08:19:48.708600",
       "content": "Meet The All New Accounts Hub\nFri, 03 Jul 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/account-hub\nThe new BitMEX Account Hub is your one-stop place for rewards, account status, and the full product suite \u2014 all in one place the moment you log in.\nProduct Updates"
-    },
-    "https://www.bitmex.com/blog/gramusdt": {
-      "title": "Now Live: GRAMUSDT Perpetual Swap Listing with Up to 20x Leverage",
-      "hash": "5fd981aedab0622032290b2b7d18ee28bfd5aaaba6beff6cbb5331b2314b4714",
-      "last_checked": "2026-07-23T08:39:56.186994",
-      "content": "Now Live: GRAMUSDT Perpetual Swap Listing with Up to 20x Leverage\nWed, 01 Jul 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/gramusdt\nAs of 04:00 UTC 2 July 2026, a new listing - GRAMUSDT - the trading bot, is now available to trade on BitMEX, with up to 20x leverage.\nListing"
     },
     "https://www.bitmex.com/blog/gramusdt-now-live": {
       "title": "Now Live: GRAMUSDT Perpetual Swap Listings With Up to 20x Leverage ",
       "hash": "5c94080613c0f7e0efb25b9b10668a26e54bff9ea096ad373aca36ef8a71000e",
-      "last_checked": "2026-07-23T08:39:56.500608",
+      "last_checked": "2026-07-24T08:19:49.018484",
       "content": "Now Live: GRAMUSDT Perpetual Swap Listings With Up to 20x Leverage \nWed, 01 Jul 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/gramusdt-now-live\nOur new GRAM listing - GRAMUSDT - is now available to trade on BitMEX with up to 20x leverage. The listing began trading here today at 04:00 UTC. The full contract specs can be found here . You can also read our blog for further information. In the meantime, if you have any questions please contact Support .\nSite Announcements"
-    },
-    "https://www.bitmex.com/blog/index-weights-changes-2026-q3-now-live": {
-      "title": "Now Live: Index Weights Update for Q3 2026",
-      "hash": "6d8fd7ba3864177017c21914235fa3ae9582179dd584552adca13a97774012c1",
-      "last_checked": "2026-07-23T08:39:56.815699",
-      "content": "Now Live: Index Weights Update for Q3 2026\nFri, 26 Jun 2026 12:00:00 GMT\nhttps://www.bitmex.com/blog/index-weights-changes-2026-q3-now-live\nA kind reminder that on 26 June 2026 at 12:00 UTC, our index weights were updated at BitMEX. The hypothetical values of indices with their new weights are now published as the \u201cNEXT\u201d index family (e.g. .BXBT_NEXT). Please see our blog for further information. In the meantime, if you have any questions, please contact Support .\nSite Announcements"
     }
   }
 }
