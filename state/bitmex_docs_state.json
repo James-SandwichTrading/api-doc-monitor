@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-07-24T08:19:48.708600",
+  "timestamp": "2026-07-28T08:18:48.924595",
   "sections": {
     "https://www.bitmex.com/blog/account-hub": {
       "title": "Meet The All New Accounts Hub",
       "hash": "4e3256ed59ec3257d1fe98b43bfe24415b50dc9e93cefea7b477aed8ee77606e",
-      "last_checked": "2026-07-24T08:19:48.708600",
+      "last_checked": "2026-07-28T08:18:48.924595",
       "content": "Meet The All New Accounts Hub\nFri, 03 Jul 2026 00:00:00 GMT\nhttps://www.bitmex.com/blog/account-hub\nThe new BitMEX Account Hub is your one-stop place for rewards, account status, and the full product suite \u2014 all in one place the moment you log in.\nProduct Updates"
     },
     "https://www.bitmex.com/blog/gramusdt-now-live": {
       "title": "Now Live: GRAMUSDT Perpetual Swap Listings With Up to 20x Leverage ",
       "hash": "5c94080613c0f7e0efb25b9b10668a26e54bff9ea096ad373aca36ef8a71000e",
-      "last_checked": "2026-07-24T08:19:49.018484",
+      "last_checked": "2026-07-28T08:18:49.229518",
       "content": "Now Live: GRAMUSDT Perpetual Swap Listings With Up to 20x Leverage \nWed, 01 Jul 2026 16:00:00 GMT\nhttps://www.bitmex.com/blog/gramusdt-now-live\nOur new GRAM listing - GRAMUSDT - is now available to trade on BitMEX with up to 20x leverage. The listing began trading here today at 04:00 UTC. The full contract specs can be found here . You can also read our blog for further information. In the meantime, if you have any questions please contact Support .\nSite Announcements"
     }
   }
