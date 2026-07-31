@@ -8,6 +8,7 @@ results. Useful for cron jobs or scheduled monitoring.
 
 import argparse
 import sys
+import json
 from datetime import datetime
 from monitors import (
     BinanceDocMonitor,
@@ -45,7 +46,17 @@ def run_monitor(monitor_class, monitor_name, logger, save_content=True, **kwargs
 
     try:
         monitor = monitor_class(**kwargs)
+        origionalSections = previous_state = monitor.load_previous_state()["sections"] #prev state actually gets current state so we need to call before running the monitor - should rename
         changes = monitor.check_for_changes(save_content=save_content)
+        origionalChangedSections = None
+        changedSections = None
+        if (kwargs["notify_modifications"] == True):
+            modifiedSections=changes["modified_sections"]
+            modifiedSectionIds = [item["id"] for item in modifiedSections]
+            origionalChangedSections = {k: v for k, v in origionalSections.items() if k in modifiedSectionIds}
+            currentSections = previous_state = monitor.load_previous_state()["sections"]
+            changedSections = {k: v for k, v in currentSections.items() if k in modifiedSectionIds}
+
         monitor.print_summary(changes)
         monitor.send_telegram(changes)
 
@@ -53,6 +64,8 @@ def run_monitor(monitor_class, monitor_name, logger, save_content=True, **kwargs
             "success": True,
             "monitor": monitor_name,
             "changes": changes,
+            "origionalChangedSections":origionalChangedSections,
+            "changedSections":changedSections,
             "error": None,
         }
 
@@ -248,7 +261,7 @@ def main():
             "hyperliquid",
             "kraken",
             "lighter",
-            "okx",
+             "okx",
         }
 
     # Monitor configuration
@@ -389,6 +402,8 @@ def main():
     successful_monitors = 0
     failed_monitors = 0
 
+    changedData = []
+    origionalData = []
     for result in results:
         if result["success"]:
             successful_monitors += 1
@@ -400,17 +415,34 @@ def main():
             )
             total_changes += change_count
 
+            if result["changedSections"] != None and result["origionalChangedSections"] != None :
+                changedSections = result["changedSections"]
+                changedData.append(changedSections)
+                origionalChangedSections = result["origionalChangedSections"]
+                origionalData.append(origionalChangedSections)
+
             status = "✅" if change_count == 0 else f"⚠️  {change_count} change(s)"
             logger.info(f"  {result['monitor']}: {status}")
         else:
             failed_monitors += 1
             logger.error(f"  {result['monitor']}: ❌ Failed - {result['error']}")
 
+
+
     logger.info(f"Total monitors run: {len(results)}")
     logger.info(f"Successful: {successful_monitors}")
     logger.info(f"Failed: {failed_monitors}")
     logger.info(f"Total changes detected: {total_changes}")
     logger.info(f"Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
+    with open("changedData.txt", "w", encoding="utf-8") as f:
+        f.write(json.dumps(changedData, indent=2))
+    logger.info(f"Wrote sections that have changed this update to origionalData.txt")
+
+    with open("origionalData.txt", "w", encoding="utf-8") as f:
+        f.write(json.dumps(origionalData, indent=2))
+    logger.info(f"Wrote sections from last update that have been changed this update to origionalData.txt")
+
 
     # Exit with error code if any monitors failed
     if failed_monitors > 0:
