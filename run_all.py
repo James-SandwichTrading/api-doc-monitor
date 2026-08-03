@@ -254,7 +254,7 @@ def main():
         exchanges_to_run = {
             "binance",
             "bitget",
-            "bitmex",
+            #"bitmex",
             "bybit",
             "coinbase",
             "deribit",
