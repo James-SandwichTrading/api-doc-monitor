@@ -5,26 +5,37 @@ Bitget API Documentation Change Monitor with Telegram Notifications
 This script monitors Bitget API changelog documentation and tracks changes
 by storing section hashes for comparison.
 
-Uses Selenium to render JavaScript-heavy pages.
+Bitget publishes its changelog as one page per month:
+    https://www.bitget.com/docs/uta/changelog/YYYY-MM
+    https://www.bitget.com/docs/classic/changelog/YYYY-MM
+plus an "Update Preview" page listing upcoming UTA changes:
+    https://www.bitget.com/docs/uta/update-preview
+
+Classic accounts have no Update Preview page. Months with no entries have no
+page at all (404), which is treated as "nothing to monitor" rather than an error.
+
+The pages are server-rendered, so plain HTTP requests are sufficient (no Selenium).
+To keep the monitored range small, only the Update Preview page and the last few
+months of changelog pages are tracked.
+
 Automatically sends Telegram notifications when changes are detected.
 """
 
 from bs4 import BeautifulSoup
 from datetime import datetime
-from typing import Dict, Tuple
-import re
-import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
+from typing import Dict, List, Optional, Tuple
 from .base_monitor import BaseDocMonitor
 
 
 class BitgetDocMonitor(BaseDocMonitor):
+    BASE_URL = "https://www.bitget.com/docs"
+
+    # Elements ignored when collecting an entry's body. Entry bodies are plain
+    # markdown output (p/ul/ol/table/pre); the docs framework's own blocks
+    # (spacer and prev/next pagination after the last entry) are divs, so
+    # skipping divs keeps navigation churn out of the content hash.
+    SKIP_TAGS = ("div", "script", "style", "nav", "footer", "header", "aside")
+
     def __init__(
         self,
         storage_file: str = "state/bitget_docs_state.json",
@@ -32,6 +43,7 @@ class BitgetDocMonitor(BaseDocMonitor):
         telegram_chat_id: str = None,
         monitor_classic: bool = True,
         monitor_uta: bool = True,
+        months_to_monitor: int = 3,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -48,6 +60,8 @@ class BitgetDocMonitor(BaseDocMonitor):
             telegram_chat_id: Telegram chat ID to send messages to
             monitor_classic: Whether to monitor Classic Account changelog
             monitor_uta: Whether to monitor UTA (Unified Trading Account) changelog
+            months_to_monitor: How many monthly changelog pages to monitor,
+                counting back from the current month (default: 3)
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
@@ -68,191 +82,155 @@ class BitgetDocMonitor(BaseDocMonitor):
             notify_many_deletions_threshold=notify_many_deletions_threshold,
         )
 
-        self.urls = {}
-        if monitor_classic:
-            self.urls["classic"] = "https://www.bitget.com/api-doc/common/changelog"
+        # Pages per API type. "changelog" is the base of the monthly pages
+        # (YYYY-MM is appended); "update_preview" is the upcoming-changes page.
+        self.api_types: Dict[str, Dict[str, str]] = {}
         if monitor_uta:
-            self.urls["uta"] = "https://www.bitget.com/api-doc/uta/changelog"
+            self.api_types["uta"] = {
+                "update_preview": f"{self.BASE_URL}/uta/update-preview",
+                "changelog": f"{self.BASE_URL}/uta/changelog",
+            }
+        if monitor_classic:
+            self.api_types["classic"] = {
+                "changelog": f"{self.BASE_URL}/classic/changelog",
+            }
 
-        # Get current year and previous year for filtering
-        current_year = datetime.now().year
-        self.years_to_monitor = [current_year, current_year - 1]
+        self.months_to_monitor = max(1, int(months_to_monitor))
 
-        # Month names for pattern matching
-        self.months = [
-            "january", "february", "march", "april", "may", "june",
-            "july", "august", "september", "october", "november", "december"
-        ]
+        # Cache of parsed pages (url -> soup, or None if the fetch failed / 404)
+        self._soup_cache: Dict[str, Optional[BeautifulSoup]] = {}
 
-        # Cache for rendered page content
-        self._page_cache = {}
+        # Most recent changelog page that actually exists, per API type
+        # (used for the Telegram footer links)
+        self._latest_changelog_page: Dict[str, str] = {}
 
-    def _create_driver(self):
-        """Create a headless Chrome WebDriver."""
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--window-size=1920,1080")
-        chrome_options.add_argument(
-            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
-
-        service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=service, options=chrome_options)
-        return driver
-
-    def _fetch_rendered_page(self, url: str) -> str:
+    def _months_to_monitor(self) -> List[str]:
         """
-        Fetch a page using Selenium to render JavaScript content.
+        Get the list of months to monitor as YYYY-MM strings, newest first.
+
+        Returns:
+            List of month strings, e.g. ["2026-09", "2026-08", "2026-07"]
+        """
+        today = datetime.now()
+        year, month = today.year, today.month
+        months = []
+        for _ in range(self.months_to_monitor):
+            months.append(f"{year:04d}-{month:02d}")
+            month -= 1
+            if month == 0:
+                month = 12
+                year -= 1
+        return months
+
+    def _pages_to_monitor(self) -> List[Tuple[str, str, str]]:
+        """
+        Build the list of pages to monitor.
+
+        Returns:
+            List of (api_type, page_kind, url) tuples, where page_kind is
+            "update_preview" or "changelog"
+        """
+        pages = []
+        months = self._months_to_monitor()
+        for api_type, urls in self.api_types.items():
+            if "update_preview" in urls:
+                pages.append((api_type, "update_preview", urls["update_preview"]))
+            for month in months:
+                pages.append((api_type, "changelog", f"{urls['changelog']}/{month}"))
+        return pages
+
+    def _fetch_page(self, url: str) -> Optional[BeautifulSoup]:
+        """
+        Fetch and parse a page, caching the result.
+
+        A 404 is expected for months with no changelog entries and is not
+        treated as an error.
 
         Args:
             url: The URL to fetch
 
         Returns:
-            Rendered HTML content
+            Parsed page, or None if the page does not exist or could not be fetched
         """
-        if url in self._page_cache:
-            return self._page_cache[url]
+        if url in self._soup_cache:
+            return self._soup_cache[url]
 
-        driver = None
+        soup = None
         try:
-            self.logger.info(f"  Rendering page with Selenium: {url}")
-            driver = self._create_driver()
-            driver.get(url)
-
-            # Wait for changelog content to load
-            WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "h2[id], h3[id], [id*='20']"))
-            )
-
-            # Additional wait for dynamic content
-            time.sleep(2)
-
-            html = driver.page_source
-            self._page_cache[url] = html
-            return html
-
+            response = self.session.get(url, timeout=15)
+            if response.status_code == 404:
+                self.logger.info(f"  No page at {url} (404) - no entries for this month")
+            else:
+                response.raise_for_status()
+                soup = BeautifulSoup(response.text, "html.parser")
         except Exception as e:
-            self.logger.error(f"  Error rendering page {url}: {e}")
-            return ""
-        finally:
-            if driver:
-                driver.quit()
+            self.logger.error(f"  Error fetching {url}: {e}")
 
-    def _is_recent_section(self, section_id: str) -> bool:
+        self._soup_cache[url] = soup
+        return soup
+
+    @staticmethod
+    def _content_root(soup: BeautifulSoup):
+        """Get the main content element of a docs page (falls back to the whole document)."""
+        return soup.find("main") or soup
+
+    def _find_entry_headings(self, soup: BeautifulSoup) -> List:
         """
-        Check if a section ID represents a recent update (current or previous year).
+        Find the changelog entry headings on a page.
 
-        Section IDs follow the pattern: month-day-year-title
-        e.g., january-7-2026-optimization-of-push-frequency...
+        Each entry is an h2 with an id (e.g. august-31-2026-spot-auto-borrow-...).
 
         Args:
-            section_id: The section ID to check
+            soup: Parsed page
 
         Returns:
-            True if section is from current or previous year
+            List of heading elements
         """
-        # Pattern: month-day-year at the start of the ID
-        pattern = r"^([a-z]+)-(\d+)-(\d{4})-"
-        match = re.match(pattern, section_id.lower())
-
-        if match:
-            year = int(match.group(3))
-            return year in self.years_to_monitor
-
-        # Also check for year anywhere in the ID
-        years_found = re.findall(r"\b(20\d{2})\b", section_id)
-        if years_found:
-            for year_str in years_found:
-                if int(year_str) in self.years_to_monitor:
-                    return True
-            return False
-
-        # If no year pattern found, include it
-        return True
-
-    def _extract_section_title(self, section_id: str) -> str:
-        """
-        Extract a readable title from the section ID.
-
-        Args:
-            section_id: The section ID (e.g., january-7-2026-optimization-of...)
-
-        Returns:
-            Formatted title string
-        """
-        # Pattern: month-day-year-title
-        pattern = r"^([a-z]+)-(\d+)-(\d{4})-(.+)$"
-        match = re.match(pattern, section_id.lower())
-
-        if match:
-            month = match.group(1).capitalize()
-            day = match.group(2)
-            year = match.group(3)
-            title_slug = match.group(4)
-
-            # Convert slug to title
-            title = title_slug.replace("-", " ").title()
-
-            # Truncate if too long
-            if len(title) > 60:
-                title = title[:57] + "..."
-
-            return f"{month} {day}, {year}: {title}"
-
-        # Fallback: just clean up the ID
-        return section_id.replace("-", " ").title()
+        return [
+            heading
+            for heading in self._content_root(soup).find_all("h2", id=True)
+            if heading.get_text(strip=True)
+        ]
 
     def discover_sections(self) -> Dict[str, str]:
         """
-        Discover changelog sections from Bitget documentation pages.
-        Only includes sections from current and previous year.
+        Discover changelog entries from the monitored Bitget documentation pages.
 
         Returns:
             Dict of url -> section_title
         """
         all_sections = {}
-        filtered_count = 0
+        months = self._months_to_monitor()
+        self.logger.info(f"Monitoring changelog months: {', '.join(months)}")
 
-        for api_type, url in self.urls.items():
-            self.logger.info(f"Fetching {api_type.upper()} changelog from {url}...")
-            self.logger.info(
-                f"  Filtering for years: {', '.join(map(str, self.years_to_monitor))}"
-            )
+        for api_type, page_kind, url in self._pages_to_monitor():
+            kind_label = page_kind.replace("_", " ")
+            self.logger.info(f"Fetching {api_type.upper()} {kind_label} from {url}...")
 
             try:
-                html = self._fetch_rendered_page(url)
-                if not html:
+                soup = self._fetch_page(url)
+                if soup is None:
                     continue
 
-                soup = BeautifulSoup(html, "html.parser")
+                # Pages are iterated newest month first, so the first existing
+                # changelog page is the most recent one
+                if page_kind == "changelog" and api_type not in self._latest_changelog_page:
+                    self._latest_changelog_page[api_type] = url
 
-                # Find all elements with IDs that look like changelog entries
-                # Pattern: month-day-year-description
-                for element in soup.find_all(id=True):
-                    section_id = element.get("id", "")
+                headings = self._find_entry_headings(soup)
+                for heading in headings:
+                    section_id = heading["id"]
+                    section_title = heading.get_text(" ", strip=True)
+                    full_url = f"{url}#{section_id}"
+                    all_sections[full_url] = section_title
+                    self.logger.debug(f"  Found section: {section_title} (#{section_id})")
 
-                    # Check if ID matches the changelog pattern (month-day-year-)
-                    if any(section_id.lower().startswith(f"{month}-") for month in self.months):
-                        if self._is_recent_section(section_id):
-                            full_url = f"{url}#{section_id}"
-                            section_title = self._extract_section_title(section_id)
-                            all_sections[full_url] = section_title
-                            self.logger.debug(f"  Found section: {section_title}")
-                        else:
-                            filtered_count += 1
-                            self.logger.debug(f"  Filtered old section: {section_id}")
-
-                section_count = len([k for k in all_sections if k.startswith(url)])
-                self.logger.info(f"  Discovered {section_count} sections for {api_type}")
-                if filtered_count > 0:
-                    self.logger.info(f"  Filtered out {filtered_count} older sections")
+                self.logger.info(
+                    f"  Discovered {len(headings)} sections for {api_type} {kind_label}"
+                )
 
             except Exception as e:
-                self.logger.error(f"  Error fetching {api_type} changelog: {e}")
+                self.logger.error(f"  Error processing {api_type} {kind_label}: {e}")
 
         return all_sections
 
@@ -269,38 +247,25 @@ class BitgetDocMonitor(BaseDocMonitor):
         if "#" not in section_url:
             return "", ""
 
-        section_id = section_url.split("#")[-1]
-        base_url = section_url.split("#")[0]
+        base_url, section_id = section_url.rsplit("#", 1)
 
         try:
-            # Use cached page if available
-            html = self._page_cache.get(base_url) or self._fetch_rendered_page(base_url)
-            if not html:
+            soup = self._fetch_page(base_url)
+            if soup is None:
                 return "", ""
 
-            soup = BeautifulSoup(html, "html.parser")
-
-            # Find the section by ID
-            section = soup.find(id=section_id)
+            section = self._content_root(soup).find(id=section_id)
             if not section:
                 self.logger.warning(f"  Section not found: {section_id}")
                 return "", ""
 
-            # Get the section element and its following content
-            content_parts = []
+            # Heading text, then everything up to the next entry heading
+            content_parts = [section.get_text(" ", strip=True)]
 
-            # Get the heading/title text
-            content_parts.append(section.get_text(strip=True))
-
-            # Get following sibling content until next changelog entry
             for sibling in section.find_next_siblings():
-                # Check if this is another changelog entry (starts with month name)
-                sibling_id = sibling.get("id", "")
-                if any(sibling_id.lower().startswith(f"{month}-") for month in self.months):
+                if sibling.name in ("h1", "h2"):
                     break
-
-                # Skip navigation/script elements
-                if sibling.name in ["script", "style", "nav", "footer", "header"]:
+                if sibling.name in self.SKIP_TAGS:
                     continue
 
                 text = sibling.get_text(separator=" ", strip=True)
@@ -328,6 +293,12 @@ class BitgetDocMonitor(BaseDocMonitor):
         """
         return section_url
 
+    def _changelog_link(self, api_type: str) -> str:
+        """Get the most recent existing changelog page URL for an API type."""
+        return self._latest_changelog_page.get(api_type) or (
+            f"{self.api_types[api_type]['changelog']}/{self._months_to_monitor()[0]}"
+        )
+
     def get_telegram_footer(self) -> str:
         """
         Get the footer for Telegram messages with documentation links.
@@ -335,25 +306,28 @@ class BitgetDocMonitor(BaseDocMonitor):
         Returns:
             Footer string with documentation links
         """
-        message = "\n📚 Documentation:\n"
-        if "classic" in self.urls:
-            message += f"  • [Classic API Changelog]({self.urls['classic']})\n"
-        if "uta" in self.urls:
-            message += f"  • [UTA Changelog]({self.urls['uta']})"
-        return message
+        lines = []
+        for api_type, urls in self.api_types.items():
+            label = api_type.upper()
+            if "update_preview" in urls:
+                lines.append(f"  • [{label} Update Preview]({urls['update_preview']})")
+            lines.append(f"  • [{label} Changelog]({self._changelog_link(api_type)})")
+        return "\n📚 Documentation:\n" + "\n".join(lines)
 
     def get_section_label(self, section_id: str) -> str:
         """Get API type label from URL."""
-        for api_type, api_url in self.urls.items():
-            if section_id.startswith(api_url):
+        for api_type in self.api_types:
+            if section_id.startswith(f"{self.BASE_URL}/{api_type}/"):
                 return api_type.upper()
         return ""
 
     def print_summary_footer(self):
         """Print footer for summary with documentation URLs."""
         self.logger.info("View documentation at:")
-        for api_type, url in self.urls.items():
-            self.logger.info(f"  {api_type.upper()}: {url}")
+        for api_type, urls in self.api_types.items():
+            if "update_preview" in urls:
+                self.logger.info(f"  {api_type.upper()} update preview: {urls['update_preview']}")
+            self.logger.info(f"  {api_type.upper()} changelog: {self._changelog_link(api_type)}")
 
 
 def main():
@@ -373,6 +347,12 @@ def main():
         action="store_true",
         help="Monitor only UTA (Unified Trading Account) changelog",
     )
+    parser.add_argument(
+        "--months",
+        type=int,
+        default=3,
+        help="Number of monthly changelog pages to monitor, counting back from the current month (default: 3)",
+    )
 
     args = parser.parse_args()
 
@@ -384,9 +364,14 @@ def main():
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
 
     # Get notification settings
-    notify_additions, notify_modifications, notify_deletions = (
-        BaseDocMonitor.get_notification_settings(args)
-    )
+    (
+        notify_additions,
+        notify_modifications,
+        notify_deletions,
+        notify_no_sections,
+        notify_many_deletions,
+        notify_many_deletions_threshold,
+    ) = BaseDocMonitor.get_notification_settings(args)
 
     # Create monitor instance
     monitor = BitgetDocMonitor(
@@ -395,9 +380,13 @@ def main():
         telegram_chat_id=telegram_chat_id,
         monitor_classic=monitor_classic,
         monitor_uta=monitor_uta,
+        months_to_monitor=args.months,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,
+        notify_no_sections=notify_no_sections,
+        notify_many_deletions=notify_many_deletions,
+        notify_many_deletions_threshold=notify_many_deletions_threshold,
     )
 
     # Check for changes
