@@ -11,6 +11,7 @@ from .bitmex import BitmexDocMonitor
 from .bybit import BybitDocMonitor
 from .coinbase import CoinbaseDocMonitor
 from .deribit import DeribitDocMonitor
+from .htx import HTXDocMonitor
 from .hyperliquid import HyperliquidDocMonitor
 from .kraken import KrakenDocMonitor
 from .lighter import LighterDocMonitor
@@ -24,6 +25,7 @@ __all__ = [
     "BybitDocMonitor",
     "CoinbaseDocMonitor",
     "DeribitDocMonitor",
+    "HTXDocMonitor",
     "HyperliquidDocMonitor",
     "KrakenDocMonitor",
     "LighterDocMonitor",
