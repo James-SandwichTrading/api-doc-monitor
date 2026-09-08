@@ -13,7 +13,7 @@ import os
 import re
 from datetime import datetime
 import time
-from typing import Dict, Tuple
+from typing import Dict, List, Tuple
 from abc import ABC, abstractmethod
 from logger_config import setup_logger
 
@@ -308,12 +308,111 @@ class BaseDocMonitor(ABC):
             return f"[{label}] {title}"
         return title
 
+    # Telegram rejects messages longer than this
+    TELEGRAM_MAX_MESSAGE_LENGTH = 4096
+
+    def _send_telegram_message(self, text: str) -> bool:
+        """
+        Send a single Telegram message.
+
+        Args:
+            text: Markdown-formatted message text
+
+        Returns:
+            True if the message was accepted by Telegram
+        """
+        try:
+            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
+            payload = {
+                "chat_id": self.telegram_chat_id,
+                "text": text,
+                "parse_mode": "Markdown",
+                "disable_web_page_preview": True,
+            }
+            response = requests.post(url, json=payload, timeout=10)
+            response.raise_for_status()
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to send Telegram notification: {e}")
+            return False
+
+    def _split_telegram_message(
+        self, header: str, blocks: List[str], footer: str
+    ) -> List[str]:
+        """
+        Split a notification into messages that fit Telegram's length limit.
+
+        Blocks are never split, so Markdown links and section headings stay
+        intact. The header goes on the first message, the footer on the last,
+        and continuation messages get a short "continued" heading.
+
+        Args:
+            header: Text placed at the top of the first message
+            blocks: Message body pieces, each kept whole
+            footer: Text placed at the end of the last message
+
+        Returns:
+            List of message texts
+        """
+        continued_header = (
+            f"🔔 *{self.exchange_name} API Documentation Changed* (continued)\n\n"
+        )
+        messages = []
+        current = header
+
+        for block in blocks:
+            if (
+                len(current) + len(block) > self.TELEGRAM_MAX_MESSAGE_LENGTH
+                and current.strip()
+            ):
+                messages.append(current.rstrip())
+                current = continued_header
+            current += block
+
+        if len(current) + len(footer) > self.TELEGRAM_MAX_MESSAGE_LENGTH:
+            messages.append(current.rstrip())
+            current = continued_header
+        current += footer
+
+        messages.append(current.rstrip())
+        return messages
+
+    def _format_section_blocks(
+        self, heading: str, sections: List[Dict], with_links: bool = True
+    ) -> List[str]:
+        """
+        Build the message blocks for one group of sections.
+
+        The heading is merged into the first entry so a message split never
+        leaves a heading dangling at the end of a message.
+
+        Args:
+            heading: Group heading line (e.g. "📄 *NEW SECTIONS (3)*:")
+            sections: Section dictionaries with 'id' and 'title'
+            with_links: Whether to add a [View] link for each section
+
+        Returns:
+            List of blocks
+        """
+        blocks = []
+        for i, section in enumerate(sections):
+            block = f"  • {self.format_section_title(section)}\n"
+            if with_links:
+                block += f"    [View]({section['id']})\n"
+            if i == 0:
+                block = f"{heading}\n" + block
+            blocks.append(block)
+        blocks.append("\n")
+        return blocks
+
     def send_telegram(self, changes: Dict):
         """
         Send Telegram notification if changes were detected.
 
         Only sends notifications for change types that are enabled via
         notify_additions, notify_modifications, and notify_deletions settings.
+        Every changed section is listed; long notifications are sent as
+        several messages rather than truncated.
 
         Args:
             changes: Dictionary with change information
@@ -332,55 +431,44 @@ class BaseDocMonitor(ABC):
             return
 
         # Build message
-        message = f"🔔 *{self.exchange_name} API Documentation Changed*\n\n"
-        message += f"📊 Total Changes: *{total_notifiable}*\n"
-        message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
+        header = f"🔔 *{self.exchange_name} API Documentation Changed*\n\n"
+        header += f"📊 Total Changes: *{total_notifiable}*\n"
+        header += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
 
+        blocks = []
         if self.notify_additions and changes["new_sections"]:
-            message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
-            for section in changes["new_sections"][:10]:  # Limit to 10
-                formatted_title = self.format_section_title(section)
-                message += f"  • {formatted_title}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["new_sections"]) > 10:
-                message += f"  ... and {len(changes['new_sections']) - 10} more\n"
-            message += "\n"
+            blocks += self._format_section_blocks(
+                f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:",
+                changes["new_sections"],
+            )
 
         if self.notify_modifications and changes["modified_sections"]:
-            message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
-            for section in changes["modified_sections"][:10]:  # Limit to 10
-                formatted_title = self.format_section_title(section)
-                message += f"  • {formatted_title}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["modified_sections"]) > 10:
-                message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
-            message += "\n"
+            blocks += self._format_section_blocks(
+                f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:",
+                changes["modified_sections"],
+            )
 
         if self.notify_deletions and changes["deleted_sections"]:
-            message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
-            for section in changes["deleted_sections"][:10]:
-                formatted_title = self.format_section_title(section)
-                message += f"  • {formatted_title}\n"
-            if len(changes["deleted_sections"]) > 10:
-                message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
+            blocks += self._format_section_blocks(
+                f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:",
+                changes["deleted_sections"],
+                with_links=False,
+            )
 
         # Add documentation link(s) - subclasses can override this
-        message += self.get_telegram_footer()
+        footer = self.get_telegram_footer()
 
-        # Send via Telegram
-        try:
-            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
-            payload = {
-                "chat_id": self.telegram_chat_id,
-                "text": message,
-                "parse_mode": "Markdown",
-                "disable_web_page_preview": True,
-            }
-            response = requests.post(url, json=payload, timeout=10)
-            response.raise_for_status()
-            self.logger.info("Telegram notification sent successfully")
-        except Exception as e:
-            self.logger.error(f"Failed to send Telegram notification: {e}")
+        # Send via Telegram, splitting into several messages if needed
+        messages = self._split_telegram_message(header, blocks, footer)
+        sent = sum(1 for message in messages if self._send_telegram_message(message))
+        if sent == len(messages):
+            self.logger.info(
+                f"Telegram notification sent successfully ({sent} message(s))"
+            )
+        else:
+            self.logger.error(
+                f"Telegram notification incomplete: {sent} of {len(messages)} message(s) sent"
+            )
 
     def get_telegram_footer(self) -> str:
         """
