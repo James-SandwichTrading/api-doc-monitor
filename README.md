@@ -7,7 +7,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | Exchange | Monitor Type | Description |
 |----------|--------------|-------------|
 | **Binance** | Changelog | Spot & Derivatives changelog |
-| **Bitget** | Changelog | UTA Update Preview + last few months of UTA & Classic changelog |
+| **Bitget** | Changelog | UTA Update Preview + UTA & Classic changelog (current and previous year) |
 | **BitMEX** | Changelog | API changelog |
 | **Bybit** | Full site | Crawls entire V5 API docs |
 | **Coinbase** | Changelog | API changelog |
@@ -141,7 +141,7 @@ All monitors support:
 | `--no-telegram` | Disable notifications |
 | `--save-content` | Save full page content |
 
-Some monitors have additional options (e.g., `--max-pages` for Bybit, `--months` for Bitget to set how many monthly changelog pages to monitor).
+Some monitors have additional options (e.g., `--max-pages` for Bybit).
 
 ## State Files
 

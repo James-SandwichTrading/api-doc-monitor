@@ -15,8 +15,9 @@ Classic accounts have no Update Preview page. Months with no entries have no
 page at all (404), which is treated as "nothing to monitor" rather than an error.
 
 The pages are server-rendered, so plain HTTP requests are sufficient (no Selenium).
-To keep the monitored range small, only the Update Preview page and the last few
-months of changelog pages are tracked.
+To keep the monitored range small, only the Update Preview page and the changelog
+pages for the current and previous year are tracked (the same range the monitor
+used before Bitget restructured its docs).
 
 Automatically sends Telegram notifications when changes are detected.
 """
@@ -43,7 +44,6 @@ class BitgetDocMonitor(BaseDocMonitor):
         telegram_chat_id: str = None,
         monitor_classic: bool = True,
         monitor_uta: bool = True,
-        months_to_monitor: int = 3,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -60,8 +60,6 @@ class BitgetDocMonitor(BaseDocMonitor):
             telegram_chat_id: Telegram chat ID to send messages to
             monitor_classic: Whether to monitor Classic Account changelog
             monitor_uta: Whether to monitor UTA (Unified Trading Account) changelog
-            months_to_monitor: How many monthly changelog pages to monitor,
-                counting back from the current month (default: 3)
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
@@ -95,7 +93,9 @@ class BitgetDocMonitor(BaseDocMonitor):
                 "changelog": f"{self.BASE_URL}/classic/changelog",
             }
 
-        self.months_to_monitor = max(1, int(months_to_monitor))
+        # Get current year and previous year for filtering
+        current_year = datetime.now().year
+        self.years_to_monitor = [current_year, current_year - 1]
 
         # Cache of parsed pages (url -> soup, or None if the fetch failed / 404)
         self._soup_cache: Dict[str, Optional[BeautifulSoup]] = {}
@@ -106,20 +106,20 @@ class BitgetDocMonitor(BaseDocMonitor):
 
     def _months_to_monitor(self) -> List[str]:
         """
-        Get the list of months to monitor as YYYY-MM strings, newest first.
+        Get the months to monitor as YYYY-MM strings, newest first: every month
+        of the monitored years up to the current month.
 
         Returns:
-            List of month strings, e.g. ["2026-09", "2026-08", "2026-07"]
+            List of month strings, e.g. ["2026-09", "2026-08", ..., "2025-01"]
         """
         today = datetime.now()
-        year, month = today.year, today.month
         months = []
-        for _ in range(self.months_to_monitor):
-            months.append(f"{year:04d}-{month:02d}")
-            month -= 1
-            if month == 0:
-                month = 12
-                year -= 1
+        for year in sorted(self.years_to_monitor, reverse=True):
+            if year > today.year:
+                continue
+            last_month = today.month if year == today.year else 12
+            for month in range(last_month, 0, -1):
+                months.append(f"{year:04d}-{month:02d}")
         return months
 
     def _pages_to_monitor(self) -> List[Tuple[str, str, str]]:
@@ -201,7 +201,10 @@ class BitgetDocMonitor(BaseDocMonitor):
         """
         all_sections = {}
         months = self._months_to_monitor()
-        self.logger.info(f"Monitoring changelog months: {', '.join(months)}")
+        self.logger.info(
+            f"Filtering for years: {', '.join(map(str, self.years_to_monitor))} "
+            f"({len(months)} monthly changelog pages per API type)"
+        )
 
         for api_type, page_kind, url in self._pages_to_monitor():
             kind_label = page_kind.replace("_", " ")
@@ -347,12 +350,6 @@ def main():
         action="store_true",
         help="Monitor only UTA (Unified Trading Account) changelog",
     )
-    parser.add_argument(
-        "--months",
-        type=int,
-        default=3,
-        help="Number of monthly changelog pages to monitor, counting back from the current month (default: 3)",
-    )
 
     args = parser.parse_args()
 
@@ -380,7 +377,6 @@ def main():
         telegram_chat_id=telegram_chat_id,
         monitor_classic=monitor_classic,
         monitor_uta=monitor_uta,
-        months_to_monitor=args.months,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,
