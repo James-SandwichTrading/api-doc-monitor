@@ -8,10 +8,11 @@ This script monitors three Deribit sources:
    reference and subscription pages and tracks each page as a section.
 2. The API changelogs (https://docs.deribit.com/changelogs/{jsonrpc,fix,starbase})
    - each dated release entry is tracked as its own section, limited to the
-   last few months so new releases show up as additions.
+   current and previous year so new releases show up as additions.
 3. Platform announcements from the public API
    (https://www.deribit.com/api/v2/public/get_announcements) - each
-   announcement is tracked as its own section, limited to the last few months.
+   announcement is tracked as its own section, limited to the current and
+   previous year.
 
 Automatically sends Telegram notifications when changes are detected.
 """
@@ -44,8 +45,10 @@ class DeribitDocMonitor(BaseDocMonitor):
 
     ANNOUNCEMENTS_API = "https://www.deribit.com/api/v2/public/get_announcements"
 
-    # Maximum the announcements API returns per request
+    # Maximum the announcements API returns per request, and how many pages
+    # to walk back through at most
     ANNOUNCEMENTS_MAX_COUNT = 50
+    ANNOUNCEMENTS_MAX_PAGES = 20
 
     def __init__(
         self,
@@ -56,7 +59,6 @@ class DeribitDocMonitor(BaseDocMonitor):
         monitor_docs: bool = True,
         monitor_changelogs: bool = True,
         monitor_announcements: bool = True,
-        months_to_monitor: int = 3,
         notify_additions: bool = True,
         notify_modifications: bool = False,
         notify_deletions: bool = False,
@@ -75,8 +77,6 @@ class DeribitDocMonitor(BaseDocMonitor):
             monitor_docs: Whether to crawl the documentation site pages
             monitor_changelogs: Whether to monitor the API changelog entries
             monitor_announcements: Whether to monitor platform announcements
-            months_to_monitor: How many months of changelog entries and
-                announcements to track, counting back from the current month (default: 3)
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
@@ -101,7 +101,11 @@ class DeribitDocMonitor(BaseDocMonitor):
         self.monitor_docs = monitor_docs
         self.monitor_changelogs = monitor_changelogs
         self.monitor_announcements = monitor_announcements
-        self.months_to_monitor = max(1, int(months_to_monitor))
+
+        # Changelog entries and announcements are limited to the current and
+        # previous year, like the other changelog monitors
+        current_year = datetime.now().year
+        self.years_to_monitor = [current_year, current_year - 1]
 
         # Parsed changelog pages (url -> soup, or None if the fetch failed)
         self._changelog_cache: Dict[str, Optional[BeautifulSoup]] = {}
@@ -115,18 +119,12 @@ class DeribitDocMonitor(BaseDocMonitor):
 
     def _cutoff_date(self) -> datetime:
         """
-        Get the earliest date to monitor: the first day of the month
-        (months_to_monitor - 1) months before the current month.
+        Get the earliest date to monitor: 1 January of the earliest monitored year.
 
         Returns:
             Cutoff datetime
         """
-        today = datetime.now()
-        year, month = today.year, today.month - (self.months_to_monitor - 1)
-        while month <= 0:
-            month += 12
-            year -= 1
-        return datetime(year, month, 1)
+        return datetime(min(self.years_to_monitor), 1, 1)
 
     def _changelog_url(self, name: str) -> str:
         """Get the URL of a changelog page."""
@@ -434,17 +432,35 @@ class DeribitDocMonitor(BaseDocMonitor):
         cutoff_ms = int(self._cutoff_date().timestamp() * 1000)
         self.logger.info(f"Fetching announcements from {self.ANNOUNCEMENTS_API}...")
 
+        # The API returns at most 50 announcements per call, newest first, so
+        # page back with start_timestamp until the cutoff is passed
+        announcements = []
+        start_timestamp = None
         try:
-            response = self.session.get(
-                self.ANNOUNCEMENTS_API,
-                params={"count": self.ANNOUNCEMENTS_MAX_COUNT},
-                timeout=15,
-            )
-            response.raise_for_status()
-            announcements = response.json().get("result") or []
+            for page in range(self.ANNOUNCEMENTS_MAX_PAGES):
+                params = {"count": self.ANNOUNCEMENTS_MAX_COUNT}
+                if start_timestamp is not None:
+                    params["start_timestamp"] = start_timestamp
+                response = self.session.get(self.ANNOUNCEMENTS_API, params=params, timeout=15)
+                response.raise_for_status()
+                batch = response.json().get("result") or []
+                announcements.extend(batch)
+
+                if len(batch) < self.ANNOUNCEMENTS_MAX_COUNT:
+                    break
+                oldest_ms = int(batch[-1].get("publication_timestamp") or 0)
+                if oldest_ms < cutoff_ms:
+                    break
+                start_timestamp = oldest_ms
+            else:
+                self.logger.warning(
+                    f"  Stopped after {self.ANNOUNCEMENTS_MAX_PAGES} pages of announcements; "
+                    "older announcements within the monitored range may be missing"
+                )
         except Exception as e:
             self.logger.error(f"  Error fetching announcements: {e}")
-            return sections
+            if not announcements:
+                return sections
 
         skipped = 0
         for announcement in announcements:
@@ -467,12 +483,6 @@ class DeribitDocMonitor(BaseDocMonitor):
             f"  Discovered {len(sections)} recent announcements"
             + (f" ({skipped} older announcements skipped)" if skipped else "")
         )
-        if len(announcements) >= self.ANNOUNCEMENTS_MAX_COUNT and skipped == 0:
-            self.logger.warning(
-                "  Announcements API returned the maximum count with none older than "
-                "the cutoff; some recent announcements may be missing"
-            )
-
         return sections
 
     # ------------------------------------------------------------------
@@ -620,12 +630,6 @@ def main():
         help="Maximum number of pages to discover (default: 1000)",
     )
     parser.add_argument(
-        "--months",
-        type=int,
-        default=3,
-        help="Months of changelog entries and announcements to monitor, counting back from the current month (default: 3)",
-    )
-    parser.add_argument(
         "--no-docs",
         action="store_true",
         help="Do not crawl the documentation site pages",
@@ -664,7 +668,6 @@ def main():
         monitor_docs=not args.no_docs,
         monitor_changelogs=not args.no_changelogs,
         monitor_announcements=not args.no_announcements,
-        months_to_monitor=args.months,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,
