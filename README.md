@@ -12,6 +12,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | **Bybit** | Full site | Crawls entire V5 API docs |
 | **Coinbase** | Changelog | API changelog |
 | **Deribit** | Full site | Crawls API reference |
+| **HTX** | Changelog | API update record (current and previous year) |
 | **Hyperliquid** | Full site | API, Trading, and HyperCore docs |
 | **Kraken** | Changelog | API changelog |
 | **Lighter** | Full site | Crawls API docs |
@@ -30,6 +31,7 @@ scraper/
 │   ├── bybit.py
 │   ├── coinbase.py
 │   ├── deribit.py
+│   ├── htx.py                # API update record (JSON feed)
 │   ├── hyperliquid.py
 │   ├── kraken.py
 │   ├── lighter.py
@@ -41,6 +43,7 @@ scraper/
 │   ├── bybit_docs_state.json
 │   ├── coinbase_docs_state.json
 │   ├── deribit_docs_state.json
+│   ├── htx_docs_state.json
 │   ├── hyperliquid_docs_state.json
 │   ├── kraken_docs_state.json
 │   ├── lighter_docs_state.json
@@ -109,6 +112,7 @@ python -m monitors.bitmex
 python -m monitors.bybit
 python -m monitors.coinbase
 python -m monitors.deribit
+python -m monitors.htx
 python -m monitors.hyperliquid
 python -m monitors.kraken
 python -m monitors.lighter
@@ -126,7 +130,7 @@ python -m monitors.okx
 | `--telegram-chat-id` | Chat ID (overrides config) |
 | `--no-telegram` | Disable Telegram notifications |
 | `--no-save-content` | Don't save page content (reduces storage) |
-| `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `hyperliquid`, `kraken`, `lighter`, `okx`, or `all` |
+| `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `htx`, `hyperliquid`, `kraken`, `lighter`, `okx`, or `all` |
 
 #### Individual Monitors
 
