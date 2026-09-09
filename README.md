@@ -12,7 +12,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | **Bybit** | Full site | Crawls entire V5 API docs |
 | **Coinbase** | Changelog | API changelog |
 | **Deribit** | Full site | Crawls API reference |
-| **HTX** | Changelog | API update record (last few months) |
+| **HTX** | Changelog | API update record (current and previous year) |
 | **Hyperliquid** | Full site | API, Trading, and HyperCore docs |
 | **Kraken** | Changelog | API changelog |
 | **Lighter** | Full site | Crawls API docs |

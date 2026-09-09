@@ -8,8 +8,9 @@ changes by storing section hashes for comparison.
 HTX's API documentation portal (https://www.htx.com/en-us/opend/newApiPages/)
 is a JavaScript app, but its "Updates" page is fed by a JSON endpoint that
 lists every API change with its date, endpoint, business line, update type and
-summary. Each record is tracked as its own section, limited to the last few
-months so new records show up as additions.
+summary. Each record is tracked as its own section, limited to the current and
+previous year (like the other changelog monitors) so new records show up as
+additions.
 
 Automatically sends Telegram notifications when changes are detected.
 """
@@ -40,7 +41,6 @@ class HTXDocMonitor(BaseDocMonitor):
         storage_file: str = "state/htx_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
-        months_to_monitor: int = 3,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -55,8 +55,6 @@ class HTXDocMonitor(BaseDocMonitor):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
-            months_to_monitor: How many months of update records to track,
-                counting back from the current month (default: 3)
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
@@ -77,7 +75,9 @@ class HTXDocMonitor(BaseDocMonitor):
             notify_many_deletions_threshold=notify_many_deletions_threshold,
         )
 
-        self.months_to_monitor = max(1, int(months_to_monitor))
+        # Get current year and previous year for filtering
+        current_year = datetime.now().year
+        self.years_to_monitor = [current_year, current_year - 1]
 
         # Without this the API answers in Chinese
         self.session.headers.update({"Accept-Language": "en-US,en;q=0.9"})
@@ -87,18 +87,13 @@ class HTXDocMonitor(BaseDocMonitor):
 
     def _cutoff_date(self) -> str:
         """
-        Get the earliest update date to monitor as YYYY-MM-DD: the first day of
-        the month (months_to_monitor - 1) months before the current month.
+        Get the earliest update date to monitor as YYYY-MM-DD: 1 January of the
+        earliest monitored year.
 
         Returns:
             Cutoff date string (comparable with the API's update_time values)
         """
-        today = datetime.now()
-        year, month = today.year, today.month - (self.months_to_monitor - 1)
-        while month <= 0:
-            month += 12
-            year -= 1
-        return f"{year:04d}-{month:02d}-01"
+        return f"{min(self.years_to_monitor):04d}-01-01"
 
     def _fetch_update_records(self) -> Optional[List[Dict]]:
         """
@@ -270,13 +265,6 @@ def main():
     parser = BaseDocMonitor.create_argument_parser(
         exchange_name="HTX", default_storage_file="state/htx_docs_state.json"
     )
-    parser.add_argument(
-        "--months",
-        type=int,
-        default=3,
-        help="Months of update records to monitor, counting back from the current month (default: 3)",
-    )
-
     args = parser.parse_args()
 
     # Get Telegram credentials
@@ -297,7 +285,6 @@ def main():
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
-        months_to_monitor=args.months,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,
