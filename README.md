@@ -11,7 +11,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | **BitMEX** | Changelog | API changelog |
 | **Bybit** | Full site | Crawls entire V5 API docs |
 | **Coinbase** | Changelog | API changelog |
-| **Deribit** | Full site | Crawls API reference |
+| **Deribit** | Full site + changelog | Crawls API reference; JSON-RPC, FIX and Starbase changelogs plus announcements (current and previous year) |
 | **Hyperliquid** | Full site | API, Trading, and HyperCore docs |
 | **Kraken** | Changelog | API changelog |
 | **Lighter** | Full site | Crawls API docs |
@@ -141,7 +141,7 @@ All monitors support:
 | `--no-telegram` | Disable notifications |
 | `--save-content` | Save full page content |
 
-Some monitors have additional options (e.g., `--max-pages` for Bybit).
+Some monitors have additional options (e.g., `--max-pages` for Bybit, `--no-docs`, `--no-changelogs` and `--no-announcements` for Deribit).
 
 ## State Files
 
