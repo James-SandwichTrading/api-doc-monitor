@@ -1,76 +1,76 @@
 {
-  "timestamp": "2026-09-10T08:49:35.407518",
+  "timestamp": "2026-09-11T08:44:35.294958",
   "sections": {
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs": {
       "title": "OKX to migrate USD spot trading pairs",
       "hash": "7418aeef19be179ced9ba32a4cfcda1755d1a5f9c2b40185cb992d4066fda0dd",
-      "last_checked": "2026-09-10T08:49:39.159078",
+      "last_checked": "2026-09-11T08:44:39.441532",
       "content": "OKX to migrate USD spot trading pairs\nLast update: September 2, 2026\nOKX will consolidate the USD and USDC spot order books. As part of this change, affected Crypto-USD spot instruments will be delisted and clients must migrate to the corresponding Crypto-USDC instruments. This is a breaking change. For more details, refer to the applicable announcement for your region: USD spot trading pair migration or USD\u24e2 spot trading pair migration , whichever is available in your region.\nUSDC pair availability and parallel trading period\nStarting from 8:00 am UTC on September 23, 2026 , OKX will make the relevant Crypto-USDC spot instruments available. Selected Crypto-USD instruments and their corresponding Crypto-USDC instruments will be available in parallel until the affected Crypto-USD instruments are delisted at 8:00 am UTC on September 30, 2026 .\nAPI clients can use this parallel trading period to migrate to the corresponding Crypto-USDC instrument IDs, adapt tradeQuoteCcy handling, and verify their request, response, and WebSocket subscription logic.\nBreaking change\nRequests that currently use a Crypto-USD instrument ID must use the corresponding Crypto-USDC instrument ID after the change goes live. Before starting to trade a Crypto-USDC instrument, call POST /api/v5/account/activate-feature to activate USDC trading. Accounts already trading USDC instruments are not affected. This applies to REST APIs and WebSocket channels whose request parameters include instId or instIdCode , including trading, order queries, account queries, trading bots, block trading, spread trading, market data requests, and WebSocket subscriptions. Crypto-USD instrument IDs will not be mapped to Crypto-USDC instrument IDs. Requests and subscriptions that continue to use a delisted Crypto-USD instId or instIdCode may fail or return no data. Responses will use the actual Crypto-USDC instrument ID or instrument ID code. Clients must update request construction, response parsing, subscription management, instrument caches, and any logic keyed by instId or instIdCode before the go-live date.\nImportant: specify tradeQuoteCcy when migrating orders\nThe default value of tradeQuoteCcy is the quote currency in instId . Therefore, changing only instId from Crypto-USD to Crypto-USDC changes the default trading quote currency from USD to USDC .\nIf you currently trade a Crypto-USD instrument without specifying tradeQuoteCcy and want to continue trading with USD after migrating to the corresponding Crypto-USDC instrument, you must explicitly set tradeQuoteCcy to USD .\nScenario Before the change After the change Continue trading with USD \"instId\": \"Crypto-USD\" tradeQuoteCcy omitted \"instId\": \"Crypto-USDC\" \"tradeQuoteCcy\": \"USD\" Trade with USDC \"instId\": \"Crypto-USD\" \"tradeQuoteCcy\": \"USDC\" \"instId\": \"Crypto-USDC\" \"tradeQuoteCcy\": \"USDC\" or omit tradeQuoteCcy if USDC is the intended default\nBefore submitting an order, obtain the supported quote currencies from tradeQuoteCcyList through Get instruments (private) . The value of tradeQuoteCcy must be included in tradeQuoteCcyList for the instrument and account.\nThis migration rule also applies to other applicable request parameters used to calculate tradable amounts or place spot orders, including Get maximum available balance/equity , Get maximum order quantity , and Get the maximum loan of instrument .\nNew endpoint: activate USDC trading\nBefore starting to trade a Crypto-USDC instrument, call the following endpoint to activate USDC trading for the account. Accounts already trading USDC instruments are not affected.\nRate Limit: 5 requests per 2 seconds\nRate limit rule: User ID\nHTTP Request\nPOST /api/v5/account/activate-feature\nRequest example\nPOST /api/v5/account/activate-feature\nbody { \"feature\" : \"1\" }\nRequest Parameters\nParameter Type Required Description feature String Yes Feature to activate 1 : USDC order book trading. Activate this feature before starting to trade a Crypto-USDC instrument. Accounts already trading USDC instruments are not affected. Activation is not shared between master accounts and sub-accounts. Each master account and sub-account must call this endpoint separately and only needs to call it once.\nResponse Example\n{ \"code\" : \"0\" , \"msg\" : \"\" , \"data\" : [] }\nResponse Parameters\nNone"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-breaking-change": {
       "title": "Breaking change",
       "hash": "ee45d83b34e9899787fa0f1838934422af0815c9d3694b3b11df3d9fa38e3164",
-      "last_checked": "2026-09-10T08:49:43.112290",
+      "last_checked": "2026-09-11T08:44:44.202080",
       "content": "Breaking change\nRequests that currently use a Crypto-USD instrument ID must use the corresponding Crypto-USDC instrument ID after the change goes live. Before starting to trade a Crypto-USDC instrument, call POST /api/v5/account/activate-feature to activate USDC trading. Accounts already trading USDC instruments are not affected. This applies to REST APIs and WebSocket channels whose request parameters include instId or instIdCode , including trading, order queries, account queries, trading bots, block trading, spread trading, market data requests, and WebSocket subscriptions. Crypto-USD instrument IDs will not be mapped to Crypto-USDC instrument IDs. Requests and subscriptions that continue to use a delisted Crypto-USD instId or instIdCode may fail or return no data. Responses will use the actual Crypto-USDC instrument ID or instrument ID code. Clients must update request construction, response parsing, subscription management, instrument caches, and any logic keyed by instId or instIdCode before the go-live date."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-important-specify-tradequoteccy-when-migrating-orders": {
       "title": "Important: specifytradeQuoteCcywhen migrating orders",
       "hash": "a7b1caafda3610f6acc2e5c51c9c0c1611c9b0a246d39c66c3c0a66979badfeb",
-      "last_checked": "2026-09-10T08:49:46.185648",
+      "last_checked": "2026-09-11T08:44:47.934624",
       "content": "Important: specifytradeQuoteCcywhen migrating orders\nThe default value of tradeQuoteCcy is the quote currency in instId . Therefore, changing only instId from Crypto-USD to Crypto-USDC changes the default trading quote currency from USD to USDC .\nIf you currently trade a Crypto-USD instrument without specifying tradeQuoteCcy and want to continue trading with USD after migrating to the corresponding Crypto-USDC instrument, you must explicitly set tradeQuoteCcy to USD .\nScenario Before the change After the change Continue trading with USD \"instId\": \"Crypto-USD\" tradeQuoteCcy omitted \"instId\": \"Crypto-USDC\" \"tradeQuoteCcy\": \"USD\" Trade with USDC \"instId\": \"Crypto-USD\" \"tradeQuoteCcy\": \"USDC\" \"instId\": \"Crypto-USDC\" \"tradeQuoteCcy\": \"USDC\" or omit tradeQuoteCcy if USDC is the intended default\nBefore submitting an order, obtain the supported quote currencies from tradeQuoteCcyList through Get instruments (private) . The value of tradeQuoteCcy must be included in tradeQuoteCcyList for the instrument and account.\nThis migration rule also applies to other applicable request parameters used to calculate tradable amounts or place spot orders, including Get maximum available balance/equity , Get maximum order quantity , and Get the maximum loan of instrument ."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-new-endpoint-activate-usdc-trading": {
       "title": "New endpoint: activate USDC trading",
       "hash": "84d222c2078d0062b132f16e2b9cb35e71b3bfdd3fda70d51ef29eb4f34e8f45",
-      "last_checked": "2026-09-10T08:49:49.574068",
+      "last_checked": "2026-09-11T08:44:52.193275",
       "content": "New endpoint: activate USDC trading\nBefore starting to trade a Crypto-USDC instrument, call the following endpoint to activate USDC trading for the account. Accounts already trading USDC instruments are not affected.\nRate Limit: 5 requests per 2 seconds\nRate limit rule: User ID\nHTTP Request\nPOST /api/v5/account/activate-feature\nRequest example\nPOST /api/v5/account/activate-feature\nbody { \"feature\" : \"1\" }\nRequest Parameters\nParameter Type Required Description feature String Yes Feature to activate 1 : USDC order book trading. Activate this feature before starting to trade a Crypto-USDC instrument. Accounts already trading USDC instruments are not affected. Activation is not shared between master accounts and sub-accounts. Each master account and sub-account must call this endpoint separately and only needs to call it once.\nResponse Example\n{ \"code\" : \"0\" , \"msg\" : \"\" , \"data\" : [] }\nResponse Parameters\nNone"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-new-endpoint-activate-usdc-trading-http-request": {
       "title": "HTTP Request",
       "hash": "13126d1710bc75be0711d5cef93c44c1a4b357f90064417f0c55515b7977e7a9",
-      "last_checked": "2026-09-10T08:49:52.925199",
+      "last_checked": "2026-09-11T08:44:55.915201",
       "content": "HTTP Request\nPOST /api/v5/account/activate-feature\nRequest example\nPOST /api/v5/account/activate-feature\nbody { \"feature\" : \"1\" }"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-new-endpoint-activate-usdc-trading-rate-limit-5-requests-per-2-seconds": {
       "title": "Rate Limit: 5 requests per 2 seconds",
       "hash": "dd9be98d0c581293fc14cdd9a193a038e0d511e245ede97d7f8d9a30e3d4c6e3",
-      "last_checked": "2026-09-10T08:49:57.043064",
+      "last_checked": "2026-09-11T08:45:01.299303",
       "content": "Rate Limit: 5 requests per 2 seconds"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-new-endpoint-activate-usdc-trading-rate-limit-rule-user-id": {
       "title": "Rate limit rule: User ID",
       "hash": "5733563c7572db249e75d17828f822d1ec9d8166ffdbaaa0ea0c7116fdbe2b5c",
-      "last_checked": "2026-09-10T08:50:00.404083",
+      "last_checked": "2026-09-11T08:45:06.343419",
       "content": "Rate limit rule: User ID"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-new-endpoint-activate-usdc-trading-request-parameters": {
       "title": "Request Parameters",
       "hash": "f70b50d2392648b1036239b49d78f40e88908b60b3f355d36783a62a57bb6ee5",
-      "last_checked": "2026-09-10T08:50:04.748444",
+      "last_checked": "2026-09-11T08:45:10.691487",
       "content": "Request Parameters\nParameter Type Required Description feature String Yes Feature to activate 1 : USDC order book trading. Activate this feature before starting to trade a Crypto-USDC instrument. Accounts already trading USDC instruments are not affected. Activation is not shared between master accounts and sub-accounts. Each master account and sub-account must call this endpoint separately and only needs to call it once.\nResponse Example\n{ \"code\" : \"0\" , \"msg\" : \"\" , \"data\" : [] }"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-new-endpoint-activate-usdc-trading-response-parameters": {
       "title": "Response Parameters",
       "hash": "cc98296fada41276592ed136d5164c88d132c26e0177678241cb943d8eb578c2",
-      "last_checked": "2026-09-10T08:50:08.188129",
+      "last_checked": "2026-09-11T08:45:14.875643",
       "content": "Response Parameters\nNone"
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-okx-to-migrate-usd-spot-trading-pairs-usdc-pair-availability-and-parallel-trading-period": {
       "title": "USDC pair availability and parallel trading period",
       "hash": "e6a43ab566fd4960a33945c8f026621d3386935ae46c78506657104f9009ca3e",
-      "last_checked": "2026-09-10T08:50:12.301431",
+      "last_checked": "2026-09-11T08:45:19.603280",
       "content": "USDC pair availability and parallel trading period\nStarting from 8:00 am UTC on September 23, 2026 , OKX will make the relevant Crypto-USDC spot instruments available. Selected Crypto-USD instruments and their corresponding Crypto-USDC instruments will be available in parallel until the affected Crypto-USD instruments are delisted at 8:00 am UTC on September 30, 2026 .\nAPI clients can use this parallel trading period to migrate to the corresponding Crypto-USDC instrument IDs, adapt tradeQuoteCcy handling, and verify their request, response, and WebSocket subscription logic."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-signal-clone-new-api-endpoint": {
       "title": "Signal Clone \u2014 New API endpoint",
       "hash": "ef0de2a4bf56fc77f9a182d9919a5717a3053ce2610d7d13cf0e504a004d774f",
-      "last_checked": "2026-09-10T08:50:16.162382",
+      "last_checked": "2026-09-11T08:45:23.424424",
       "content": "Signal Clone \u2014 New API endpoint\nLast update: May 14, 2026\nOKX is adding API support for the Signal Clone (Order Sharing) feature. API traders can now generate a universal sharing link programmatically by passing an order ID. The link encodes the order parameters (instrument, side, leverage, price, TP/SL, etc.) server-side. Recipients who open the link will have those parameters prefilled in the OKX App trading panel.\nThis feature is scoped to USDT-margined perpetual contracts. Signal Clone must be enabled for the account.\nCreate signal link\nCreate signal link\nA new endpoint POST /api/v5/copytrade/create-sgl-link is added. Pass orderId and instId in the request body. The order must belong to the requesting account. Only USDT-margined perpetual contracts ( instId ending in -USDT-SWAP ) are supported. Other instrument types will return an error. Returns a shortLink \u2014 a universal OKX App link that can be shared with others to prefill the trading panel with the order parameters. Rate limit: 10 requests per second per user.\nRequest example\nPOST /api/v5/copytrade/create-sgl-link\nbody { \"orderId\" : \"3556007031710728192\" , \"instId\" : \"ADA-USDT-SWAP\" }\nRequest parameters\nParameter Type Required Description orderId String Yes Order ID. Must belong to the requesting account. instId String Yes Instrument ID, e.g. BTC-USDT-SWAP . Only USDT-margined perpetuals are supported.\nResponse example\n{ \"code\" : \"0\" , \"data\" : [ { \"shortLink\" : \"https://www.okx.com/ul/1xJ7nV\" } ], \"msg\" : \"\" }\nResponse parameters\nParameter Type Description shortLink String Universal sharing link. Recipients can open this link in the OKX App to have the order parameters prefilled in the trading panel."
     },
     "https://www.okx.com/docs-v5/log_en#upcoming-changes-signal-clone-new-api-endpoint-create-signal-link": {
       "title": "Create signal link",
       "hash": "06ec5419522e4460ddef8f295eef0e6f6b708a566ec708718d4e3fd3c73a76f1",
-      "last_checked": "2026-09-10T08:50:19.130060",
+      "last_checked": "2026-09-11T08:45:27.690131",
       "content": "Create signal link\nCreate signal link\nA new endpoint POST /api/v5/copytrade/create-sgl-link is added. Pass orderId and instId in the request body. The order must belong to the requesting account. Only USDT-margined perpetual contracts ( instId ending in -USDT-SWAP ) are supported. Other instrument types will return an error. Returns a shortLink \u2014 a universal OKX App link that can be shared with others to prefill the trading panel with the order parameters. Rate limit: 10 requests per second per user.\nRequest example\nPOST /api/v5/copytrade/create-sgl-link\nbody { \"orderId\" : \"3556007031710728192\" , \"instId\" : \"ADA-USDT-SWAP\" }\nRequest parameters\nParameter Type Required Description orderId String Yes Order ID. Must belong to the requesting account. instId String Yes Instrument ID, e.g. BTC-USDT-SWAP . Only USDT-margined perpetuals are supported.\nResponse example\n{ \"code\" : \"0\" , \"data\" : [ { \"shortLink\" : \"https://www.okx.com/ul/1xJ7nV\" } ], \"msg\" : \"\" }\nResponse parameters\nParameter Type Description shortLink String Universal sharing link. Recipients can open this link in the OKX App to have the order parameters prefilled in the trading panel."
     }
   }
