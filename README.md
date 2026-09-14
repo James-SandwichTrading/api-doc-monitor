@@ -86,7 +86,7 @@ To get these:
 2. Send a message to your bot, then visit `https://api.telegram.org/bot<TOKEN>/getUpdates` to find your chat ID
 3. For group chats, add the bot to the group and look for the negative chat ID in getUpdates
 
-`admin_chat_id` is optional. Notifications list at most 10 sections per group (new, modified, deleted). When a group is cut off and `admin_chat_id` is set, the complete list is sent to that chat (split over several messages if needed) and the main notification names the admin (looked up via the bot, falling back to "the admin") so people know who to ask for the full list. Without `admin_chat_id` the cut-off groups just end with "... and N more".
+`admin_chat_id` is optional. Notifications list at most 10 sections per group (new, modified, deleted). When a group is cut off and `admin_chat_id` is set, the complete list is sent to that chat (split over several messages if needed) and the main notification says the full list was sent to the admin, so people know who to ask. Without `admin_chat_id` the cut-off groups just end with "... and N more".
 
 ## Usage
 

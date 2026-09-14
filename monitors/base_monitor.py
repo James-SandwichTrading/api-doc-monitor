@@ -373,32 +373,6 @@ class BaseDocMonitor(ABC):
         )
         return False
 
-    def _get_telegram_chat_name(self, chat_id: str) -> str:
-        """
-        Look up a chat's display name via the Bot API (getChat).
-
-        Args:
-            chat_id: Chat to look up
-
-        Returns:
-            The person's name for a private chat, the title for a group, or an
-            empty string if the lookup fails
-        """
-        try:
-            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/getChat"
-            response = requests.get(url, params={"chat_id": chat_id}, timeout=10)
-            response.raise_for_status()
-            chat = response.json().get("result") or {}
-            name = " ".join(
-                part for part in (chat.get("first_name"), chat.get("last_name")) if part
-            )
-            return name or chat.get("title") or chat.get("username") or ""
-        except Exception as e:
-            self.logger.warning(
-                f"Could not look up the name of Telegram chat {chat_id}: {e}"
-            )
-            return ""
-
     def _split_telegram_message(
         self, header: str, blocks: List[str], footer: str
     ) -> List[str]:
@@ -550,7 +524,7 @@ class BaseDocMonitor(ABC):
         notify_additions, notify_modifications, and notify_deletions settings.
         Each group lists at most TELEGRAM_MAX_SECTIONS_PER_GROUP sections. When
         a group is cut off and an admin chat is configured, the complete list is
-        sent to the admin chat and the main notification says who to contact.
+        sent to the admin chat and the main notification says so.
         Long messages are split rather than rejected by Telegram.
 
         Args:
@@ -577,10 +551,8 @@ class BaseDocMonitor(ABC):
 
         cutoff_note = ""
         if admin_chat_id:
-            admin_name = self._get_telegram_chat_name(admin_chat_id)
-            who = self.escape_markdown(admin_name) if admin_name else "the admin"
             cutoff_note = (
-                f"the full list has been sent to {who}, "
+                "the full list has been sent to the admin, "
                 "please contact them if you would like access to it"
             )
 
