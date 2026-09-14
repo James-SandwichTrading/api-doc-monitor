@@ -7,7 +7,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | Exchange | Monitor Type | Description |
 |----------|--------------|-------------|
 | **Binance** | Changelog | Spot & Derivatives changelog |
-| **Bitget** | Changelog | Classic & UTA changelog (Selenium) |
+| **Bitget** | Changelog | UTA Update Preview + UTA & Classic changelog (current and previous year) |
 | **BitMEX** | Changelog | API changelog |
 | **Bybit** | Full site | Crawls entire V5 API docs |
 | **Coinbase** | Changelog | API changelog |
@@ -25,7 +25,7 @@ scraper/
 │   ├── __init__.py
 │   ├── base_monitor.py       # Base class with common functionality
 │   ├── binance.py
-│   ├── bitget.py             # Uses Selenium for JS rendering
+│   ├── bitget.py             # Update Preview + monthly changelog pages
 │   ├── bitmex.py
 │   ├── bybit.py
 │   ├── coinbase.py
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 Requirements:
 - `requests` - HTTP requests
 - `beautifulsoup4` - HTML parsing
-- `selenium` - JS rendering (for Bitget)
+- `selenium` - JS rendering (for Binance)
 - `webdriver-manager` - Chrome driver management
 
 ## Configuration

@@ -600,6 +600,8 @@ class BaseDocMonitor(ABC):
         config_modifications = None
         config_deletions = None
         config_no_sections = None
+        config_many_deletions = None
+        config_many_deletions_threshold = None
 
 
         if os.path.exists(args.config):
