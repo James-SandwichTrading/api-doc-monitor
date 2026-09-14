@@ -99,6 +99,10 @@ def main():
         help="Telegram chat ID to send notifications to (overrides config file)",
     )
     parser.add_argument(
+        "--telegram-admin-chat-id",
+        help="Telegram chat ID that receives the full list of changes when a notification is cut off (overrides config file)",
+    )
+    parser.add_argument(
         "--no-telegram", action="store_true", help="Disable Telegram notifications"
     )
     parser.add_argument(
@@ -210,6 +214,7 @@ def main():
             config,
             telegram_token,
             telegram_chat_id,
+            telegram_admin_chat_id,
             no_telegram,
             notify_additions,
             notify_modifications,
@@ -221,6 +226,7 @@ def main():
             self.config = config
             self.telegram_token = telegram_token
             self.telegram_chat_id = telegram_chat_id
+            self.telegram_admin_chat_id = telegram_admin_chat_id
             self.no_telegram = no_telegram
             self.notify_additions = notify_additions
             self.notify_modifications = notify_modifications
@@ -233,6 +239,7 @@ def main():
         args.config,
         args.telegram_token,
         args.telegram_chat_id,
+        args.telegram_admin_chat_id,
         args.no_telegram,
         args.notify_additions,
         args.notify_modifications,
@@ -244,6 +251,7 @@ def main():
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(
         dummy_args
     )
+    telegram_admin_chat_id = BaseDocMonitor.get_telegram_admin_chat_id(dummy_args)
 
     # Get notification settings
     notify_additions, notify_modifications, notify_deletions, notify_no_sections, notify_many_deletions, notify_many_deletions_threshold = (
@@ -274,6 +282,7 @@ def main():
     common_kwargs = {
         "telegram_bot_token": telegram_token,
         "telegram_chat_id": telegram_chat_id,
+        "telegram_admin_chat_id": telegram_admin_chat_id,
         "notify_additions": notify_additions,
         "notify_modifications": notify_modifications,
         "notify_deletions": notify_deletions,
@@ -335,6 +344,7 @@ def main():
                 "kwargs": {
                     "telegram_bot_token": telegram_token,
                     "telegram_chat_id": telegram_chat_id,
+                    "telegram_admin_chat_id": telegram_admin_chat_id,
                     "max_announcement_pages": 1,
                     "notify_additions": notify_additions,
                     "notify_modifications": False,

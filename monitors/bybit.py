@@ -21,6 +21,7 @@ class BybitDocMonitor(BaseDocMonitor):
         storage_file: str = "state/bybit_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        telegram_admin_chat_id: str = None,
         max_pages: int = 500,
         notify_additions: bool = True,
         notify_modifications: bool = True,
@@ -36,6 +37,7 @@ class BybitDocMonitor(BaseDocMonitor):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            telegram_admin_chat_id: Chat ID that receives the full list when a notification is cut off (optional)
             max_pages: Maximum number of pages to discover
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
@@ -49,6 +51,7 @@ class BybitDocMonitor(BaseDocMonitor):
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            telegram_admin_chat_id=telegram_admin_chat_id,
             notify_additions=notify_additions,
             notify_modifications=notify_modifications,
             notify_deletions=notify_deletions,
@@ -215,6 +218,7 @@ def main():
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
+        telegram_admin_chat_id=BaseDocMonitor.get_telegram_admin_chat_id(args),
         max_pages=args.max_pages,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,

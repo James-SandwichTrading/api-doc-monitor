@@ -13,7 +13,7 @@ import os
 import re
 from datetime import datetime
 import time
-from typing import Dict, Tuple
+from typing import Dict, List, Optional, Tuple
 from abc import ABC, abstractmethod
 from logger_config import setup_logger
 
@@ -27,6 +27,7 @@ class BaseDocMonitor(ABC):
         storage_file: str,
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        telegram_admin_chat_id: str = None,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -42,6 +43,8 @@ class BaseDocMonitor(ABC):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            telegram_admin_chat_id: Chat ID that receives the full list of changes when a
+                notification is cut off (optional, see send_telegram)
             notify_additions: Send Telegram notification for new sections (default: True)
             notify_modifications: Send Telegram notification for modified sections (default: True)
             notify_deletions: Send Telegram notification for deleted sections (default: False)
@@ -54,6 +57,7 @@ class BaseDocMonitor(ABC):
         self.storage_file = storage_file
         self.telegram_bot_token = telegram_bot_token
         self.telegram_chat_id = telegram_chat_id
+        self.telegram_admin_chat_id = telegram_admin_chat_id
         self.notify_additions = notify_additions
         self.notify_modifications = notify_modifications
         self.notify_deletions = notify_deletions
@@ -308,79 +312,262 @@ class BaseDocMonitor(ABC):
             return f"[{label}] {title}"
         return title
 
+    # Telegram rejects messages longer than this
+    TELEGRAM_MAX_MESSAGE_LENGTH = 4096
+
+    # Sections listed per group (new / modified / deleted) in the main
+    # notification. When a group is cut off and an admin chat is configured,
+    # the complete list is sent to the admin chat instead of the main chat.
+    TELEGRAM_MAX_SECTIONS_PER_GROUP = 10
+
+    def _send_telegram_message(self, chat_id: str, text: str) -> bool:
+        """
+        Send a single Telegram message.
+
+        Args:
+            chat_id: Chat to send to
+            text: Markdown-formatted message text
+
+        Returns:
+            True if the message was accepted by Telegram
+        """
+        try:
+            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
+            payload = {
+                "chat_id": chat_id,
+                "text": text,
+                "parse_mode": "Markdown",
+                "disable_web_page_preview": True,
+            }
+            response = requests.post(url, json=payload, timeout=10)
+            response.raise_for_status()
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to send Telegram message: {e}")
+            return False
+
+    def _send_telegram_messages(
+        self, chat_id: str, messages: List[str], description: str
+    ) -> bool:
+        """
+        Send a sequence of messages to one chat and log the outcome.
+
+        Args:
+            chat_id: Chat to send to
+            messages: Message texts, sent in order
+            description: What is being sent, for the log
+
+        Returns:
+            True if every message was accepted
+        """
+        sent = sum(
+            1 for message in messages if self._send_telegram_message(chat_id, message)
+        )
+        if sent == len(messages):
+            self.logger.info(
+                f"Telegram {description} sent successfully ({sent} message(s))"
+            )
+            return True
+        self.logger.error(
+            f"Telegram {description} incomplete: {sent} of {len(messages)} message(s) sent"
+        )
+        return False
+
+    def _split_telegram_message(
+        self, header: str, blocks: List[str], footer: str
+    ) -> List[str]:
+        """
+        Split a notification into messages that fit Telegram's length limit.
+
+        Blocks are never split, so Markdown links and section headings stay
+        intact. The header goes on the first message, the footer on the last,
+        and continuation messages get a short "continued" heading.
+
+        Args:
+            header: Text placed at the top of the first message
+            blocks: Message body pieces, each kept whole
+            footer: Text placed at the end of the last message
+
+        Returns:
+            List of message texts
+        """
+        continued_header = (
+            f"🔔 *{self.exchange_name} API Documentation Changed* (continued)\n\n"
+        )
+        messages = []
+        current = header
+
+        for block in blocks:
+            if (
+                len(current) + len(block) > self.TELEGRAM_MAX_MESSAGE_LENGTH
+                and current.strip()
+            ):
+                messages.append(current.rstrip())
+                current = continued_header
+            current += block
+
+        if len(current) + len(footer) > self.TELEGRAM_MAX_MESSAGE_LENGTH:
+            messages.append(current.rstrip())
+            current = continued_header
+        current += footer
+
+        messages.append(current.rstrip())
+        return messages
+
+    def _format_section_blocks(
+        self, heading: str, sections: List[Dict], with_links: bool = True
+    ) -> List[str]:
+        """
+        Build the message blocks for one group of sections.
+
+        The heading is merged into the first entry so a message split never
+        leaves a heading dangling at the end of a message.
+
+        Args:
+            heading: Group heading line (e.g. "📄 *NEW SECTIONS (3)*:")
+            sections: Section dictionaries with 'id' and 'title'
+            with_links: Whether to add a [View] link for each section
+
+        Returns:
+            List of blocks
+        """
+        blocks = []
+        for i, section in enumerate(sections):
+            block = f"  • {self.format_section_title(section)}\n"
+            if with_links:
+                block += f"    [View]({section['id']})\n"
+            if i == 0:
+                block = f"{heading}\n" + block
+            blocks.append(block)
+        return blocks
+
+    def _notification_groups(self, changes: Dict) -> List[Tuple[str, List[Dict], bool]]:
+        """
+        Get the section groups to notify about, honouring the notify_* settings.
+
+        Args:
+            changes: Dictionary with change information
+
+        Returns:
+            List of (heading, sections, with_links) tuples
+        """
+        groups = []
+        if self.notify_additions and changes["new_sections"]:
+            groups.append(
+                (
+                    f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:",
+                    changes["new_sections"],
+                    True,
+                )
+            )
+        if self.notify_modifications and changes["modified_sections"]:
+            groups.append(
+                (
+                    f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:",
+                    changes["modified_sections"],
+                    True,
+                )
+            )
+        if self.notify_deletions and changes["deleted_sections"]:
+            groups.append(
+                (
+                    f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:",
+                    changes["deleted_sections"],
+                    False,
+                )
+            )
+        return groups
+
+    def _build_telegram_messages(
+        self,
+        groups: List[Tuple[str, List[Dict], bool]],
+        limit: Optional[int] = None,
+        cutoff_note: str = "",
+        title_suffix: str = "",
+    ) -> List[str]:
+        """
+        Build the notification messages for the given groups.
+
+        Args:
+            groups: Output of _notification_groups
+            limit: Maximum sections listed per group (None lists all)
+            cutoff_note: Text appended to the "... and N more" line of a cut-off group
+            title_suffix: Text appended to the message title
+
+        Returns:
+            List of message texts, each within Telegram's length limit
+        """
+        total = sum(len(sections) for _, sections, _ in groups)
+        header = f"🔔 *{self.exchange_name} API Documentation Changed{title_suffix}*\n\n"
+        header += f"📊 Total Changes: *{total}*\n"
+        header += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
+
+        blocks = []
+        for heading, sections, with_links in groups:
+            listed = sections if limit is None else sections[:limit]
+            blocks += self._format_section_blocks(heading, listed, with_links)
+            if len(listed) < len(sections):
+                more = f"  ... and {len(sections) - len(listed)} more"
+                if cutoff_note:
+                    more += f", {cutoff_note}"
+                blocks.append(more + "\n")
+            blocks.append("\n")
+
+        footer = self.get_telegram_footer()
+        return self._split_telegram_message(header, blocks, footer)
+
     def send_telegram(self, changes: Dict):
         """
         Send Telegram notification if changes were detected.
 
         Only sends notifications for change types that are enabled via
         notify_additions, notify_modifications, and notify_deletions settings.
+        Each group lists at most TELEGRAM_MAX_SECTIONS_PER_GROUP sections. When
+        a group is cut off and an admin chat is configured, the complete list is
+        sent to the admin chat and the main notification says so.
+        Long messages are split rather than rejected by Telegram.
 
         Args:
             changes: Dictionary with change information
         """
-        # Count only changes we want to notify about
-        notifiable_additions = len(changes["new_sections"]) if self.notify_additions else 0
-        notifiable_modifications = len(changes["modified_sections"]) if self.notify_modifications else 0
-        notifiable_deletions = len(changes["deleted_sections"]) if self.notify_deletions else 0
-        total_notifiable = notifiable_additions + notifiable_modifications + notifiable_deletions
-
-        if (
-            total_notifiable == 0
-            or not self.telegram_bot_token
-            or not self.telegram_chat_id
-        ):
+        if not self.telegram_bot_token or not self.telegram_chat_id:
             return
 
-        # Build message
-        message = f"🔔 *{self.exchange_name} API Documentation Changed*\n\n"
-        message += f"📊 Total Changes: *{total_notifiable}*\n"
-        message += f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}\n\n"
+        groups = self._notification_groups(changes)
+        if not groups:
+            return
 
-        if self.notify_additions and changes["new_sections"]:
-            message += f"📄 *NEW SECTIONS ({len(changes['new_sections'])})*:\n"
-            for section in changes["new_sections"][:10]:  # Limit to 10
-                formatted_title = self.format_section_title(section)
-                message += f"  • {formatted_title}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["new_sections"]) > 10:
-                message += f"  ... and {len(changes['new_sections']) - 10} more\n"
-            message += "\n"
+        cut_off = any(
+            len(sections) > self.TELEGRAM_MAX_SECTIONS_PER_GROUP
+            for _, sections, _ in groups
+        )
+        admin_chat_id = self.telegram_admin_chat_id if cut_off else None
 
-        if self.notify_modifications and changes["modified_sections"]:
-            message += f"✏️ *MODIFIED SECTIONS ({len(changes['modified_sections'])})*:\n"
-            for section in changes["modified_sections"][:10]:  # Limit to 10
-                formatted_title = self.format_section_title(section)
-                message += f"  • {formatted_title}\n"
-                message += f"    [View]({section['id']})\n"
-            if len(changes["modified_sections"]) > 10:
-                message += f"  ... and {len(changes['modified_sections']) - 10} more\n"
-            message += "\n"
+        # The admin chat is the main chat: send the complete list once
+        if admin_chat_id and str(admin_chat_id) == str(self.telegram_chat_id):
+            messages = self._build_telegram_messages(groups)
+            self._send_telegram_messages(self.telegram_chat_id, messages, "notification")
+            return
 
-        if self.notify_deletions and changes["deleted_sections"]:
-            message += f"🗑️ *DELETED SECTIONS ({len(changes['deleted_sections'])})*:\n"
-            for section in changes["deleted_sections"][:10]:
-                formatted_title = self.format_section_title(section)
-                message += f"  • {formatted_title}\n"
-            if len(changes["deleted_sections"]) > 10:
-                message += f"  ... and {len(changes['deleted_sections']) - 10} more\n"
+        cutoff_note = ""
+        if admin_chat_id:
+            cutoff_note = (
+                "the full list has been sent to the admin, "
+                "please contact them if you would like access to it"
+            )
 
-        # Add documentation link(s) - subclasses can override this
-        message += self.get_telegram_footer()
+        messages = self._build_telegram_messages(
+            groups, limit=self.TELEGRAM_MAX_SECTIONS_PER_GROUP, cutoff_note=cutoff_note
+        )
+        self._send_telegram_messages(self.telegram_chat_id, messages, "notification")
 
-        # Send via Telegram
-        try:
-            url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
-            payload = {
-                "chat_id": self.telegram_chat_id,
-                "text": message,
-                "parse_mode": "Markdown",
-                "disable_web_page_preview": True,
-            }
-            response = requests.post(url, json=payload, timeout=10)
-            response.raise_for_status()
-            self.logger.info("Telegram notification sent successfully")
-        except Exception as e:
-            self.logger.error(f"Failed to send Telegram notification: {e}")
+        if admin_chat_id:
+            admin_messages = self._build_telegram_messages(
+                groups, title_suffix=" (full list)"
+            )
+            self._send_telegram_messages(
+                admin_chat_id, admin_messages, "full list to admin chat"
+            )
 
     def get_telegram_footer(self) -> str:
         """
@@ -509,6 +696,10 @@ class BaseDocMonitor(ABC):
             help="Telegram chat ID to send notifications to (overrides config file)",
         )
         parser.add_argument(
+            "--telegram-admin-chat-id",
+            help="Telegram chat ID that receives the full list of changes when a notification is cut off (overrides config file)",
+        )
+        parser.add_argument(
             "--no-telegram", action="store_true", help="Disable Telegram notifications"
         )
         parser.add_argument(
@@ -580,6 +771,31 @@ class BaseDocMonitor(ABC):
             telegram_chat_id = None
 
         return telegram_token, telegram_chat_id
+
+    @staticmethod
+    def get_telegram_admin_chat_id(args):
+        """
+        Get the optional admin chat ID from arguments and config file.
+
+        The admin chat receives the full list of changes when a notification
+        is cut off (see send_telegram). Configured as "admin_chat_id" under
+        "telegram" in the config file.
+
+        Args:
+            args: Parsed command-line arguments
+
+        Returns:
+            Admin chat ID, or None if not configured or Telegram is disabled
+        """
+        if args.no_telegram:
+            return None
+
+        admin_chat_id = getattr(args, "telegram_admin_chat_id", None)
+        if not admin_chat_id and os.path.exists(args.config):
+            config = BaseDocMonitor.load_config_file(args.config)
+            admin_chat_id = config.get("telegram", {}).get("admin_chat_id")
+
+        return admin_chat_id or None
 
     @staticmethod
     def get_notification_settings(args):

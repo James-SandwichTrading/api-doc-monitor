@@ -75,7 +75,8 @@ Create a `config.json` file with your Telegram credentials:
 {
   "telegram": {
     "bot_token": "YOUR_BOT_TOKEN",
-    "chat_id": "YOUR_CHAT_ID"
+    "chat_id": "YOUR_CHAT_ID",
+    "admin_chat_id": "YOUR_ADMIN_CHAT_ID"
   }
 }
 ```
@@ -84,6 +85,8 @@ To get these:
 1. Create a bot via [@BotFather](https://t.me/BotFather) to get the bot token
 2. Send a message to your bot, then visit `https://api.telegram.org/bot<TOKEN>/getUpdates` to find your chat ID
 3. For group chats, add the bot to the group and look for the negative chat ID in getUpdates
+
+`admin_chat_id` is optional. Notifications list at most 10 sections per group (new, modified, deleted). When a group is cut off and `admin_chat_id` is set, the complete list is sent to that chat (split over several messages if needed) and the main notification says the full list was sent to the admin, so people know who to ask. Without `admin_chat_id` the cut-off groups just end with "... and N more".
 
 ## Usage
 
@@ -128,6 +131,7 @@ python -m monitors.okx
 | `--config` | Path to config file (default: `config.json`) |
 | `--telegram-token` | Bot token (overrides config) |
 | `--telegram-chat-id` | Chat ID (overrides config) |
+| `--telegram-admin-chat-id` | Admin chat ID for full lists (overrides config) |
 | `--no-telegram` | Disable Telegram notifications |
 | `--no-save-content` | Don't save page content (reduces storage) |
 | `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `htx`, `hyperliquid`, `kraken`, `lighter`, `okx`, or `all` |
@@ -142,6 +146,7 @@ All monitors support:
 | `--storage-file` | Path to state file |
 | `--telegram-token` | Bot token (overrides config) |
 | `--telegram-chat-id` | Chat ID (overrides config) |
+| `--telegram-admin-chat-id` | Admin chat ID for full lists (overrides config) |
 | `--no-telegram` | Disable notifications |
 | `--save-content` | Save full page content |
 
