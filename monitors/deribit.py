@@ -56,6 +56,7 @@ class DeribitDocMonitor(BaseDocMonitor):
         storage_file: str = "state/deribit_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        telegram_admin_chat_id: str = None,
         max_pages: int = 1000,
         max_announcement_pages: int = 1,
         monitor_docs: bool = True,
@@ -75,6 +76,7 @@ class DeribitDocMonitor(BaseDocMonitor):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            telegram_admin_chat_id: Chat ID that receives the full list when a notification is cut off (optional)
             max_pages: Maximum number of documentation pages to discover
             max_announcement_pages: How many pages of 50 announcements to fetch,
                 newest first (default: 1; capped at ANNOUNCEMENTS_MAX_PAGES)
@@ -93,6 +95,7 @@ class DeribitDocMonitor(BaseDocMonitor):
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            telegram_admin_chat_id=telegram_admin_chat_id,
             notify_additions=notify_additions,
             notify_modifications=notify_modifications,
             notify_deletions=notify_deletions,
@@ -685,6 +688,7 @@ def main():
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
+        telegram_admin_chat_id=BaseDocMonitor.get_telegram_admin_chat_id(args),
         max_pages=args.max_pages,
         max_announcement_pages=args.max_announcement_pages,
         monitor_docs=not args.no_docs,

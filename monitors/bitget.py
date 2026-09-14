@@ -42,6 +42,7 @@ class BitgetDocMonitor(BaseDocMonitor):
         storage_file: str = "state/bitget_docs_state.json",
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
+        telegram_admin_chat_id: str = None,
         monitor_classic: bool = True,
         monitor_uta: bool = True,
         notify_additions: bool = True,
@@ -58,6 +59,7 @@ class BitgetDocMonitor(BaseDocMonitor):
             storage_file: Path to JSON file storing previous state
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
+            telegram_admin_chat_id: Chat ID that receives the full list when a notification is cut off (optional)
             monitor_classic: Whether to monitor Classic Account changelog
             monitor_uta: Whether to monitor UTA (Unified Trading Account) changelog
             notify_additions: Send Telegram notification for new sections
@@ -72,6 +74,7 @@ class BitgetDocMonitor(BaseDocMonitor):
             storage_file=storage_file,
             telegram_bot_token=telegram_bot_token,
             telegram_chat_id=telegram_chat_id,
+            telegram_admin_chat_id=telegram_admin_chat_id,
             notify_additions=notify_additions,
             notify_modifications=notify_modifications,
             notify_deletions=notify_deletions,
@@ -375,6 +378,7 @@ def main():
         storage_file=args.storage_file,
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
+        telegram_admin_chat_id=BaseDocMonitor.get_telegram_admin_chat_id(args),
         monitor_classic=monitor_classic,
         monitor_uta=monitor_uta,
         notify_additions=notify_additions,
