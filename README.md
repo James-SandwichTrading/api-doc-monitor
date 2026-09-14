@@ -7,11 +7,12 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | Exchange | Monitor Type | Description |
 |----------|--------------|-------------|
 | **Binance** | Changelog | Spot & Derivatives changelog |
-| **Bitget** | Changelog | Classic & UTA changelog (Selenium) |
+| **Bitget** | Changelog | UTA Update Preview + UTA & Classic changelog (current and previous year) |
 | **BitMEX** | Changelog | API changelog |
 | **Bybit** | Full site | Crawls entire V5 API docs |
 | **Coinbase** | Changelog | API changelog |
-| **Deribit** | Full site | Crawls API reference |
+| **Deribit** | Full site + changelog | Crawls API reference; JSON-RPC, FIX and Starbase changelogs plus the newest announcements (current and previous year) |
+| **HTX** | Changelog | API update record (current and previous year) |
 | **Hyperliquid** | Full site | API, Trading, and HyperCore docs |
 | **Kraken** | Changelog | API changelog |
 | **Lighter** | Full site | Crawls API docs |
@@ -25,11 +26,12 @@ scraper/
 │   ├── __init__.py
 │   ├── base_monitor.py       # Base class with common functionality
 │   ├── binance.py
-│   ├── bitget.py             # Uses Selenium for JS rendering
+│   ├── bitget.py             # Update Preview + monthly changelog pages
 │   ├── bitmex.py
 │   ├── bybit.py
 │   ├── coinbase.py
 │   ├── deribit.py
+│   ├── htx.py                # API update record (JSON feed)
 │   ├── hyperliquid.py
 │   ├── kraken.py
 │   ├── lighter.py
@@ -41,6 +43,7 @@ scraper/
 │   ├── bybit_docs_state.json
 │   ├── coinbase_docs_state.json
 │   ├── deribit_docs_state.json
+│   ├── htx_docs_state.json
 │   ├── hyperliquid_docs_state.json
 │   ├── kraken_docs_state.json
 │   ├── lighter_docs_state.json
@@ -61,7 +64,7 @@ pip install -r requirements.txt
 Requirements:
 - `requests` - HTTP requests
 - `beautifulsoup4` - HTML parsing
-- `selenium` - JS rendering (for Bitget)
+- `selenium` - JS rendering (for Binance)
 - `webdriver-manager` - Chrome driver management
 
 ## Configuration
@@ -109,6 +112,7 @@ python -m monitors.bitmex
 python -m monitors.bybit
 python -m monitors.coinbase
 python -m monitors.deribit
+python -m monitors.htx
 python -m monitors.hyperliquid
 python -m monitors.kraken
 python -m monitors.lighter
@@ -126,7 +130,7 @@ python -m monitors.okx
 | `--telegram-chat-id` | Chat ID (overrides config) |
 | `--no-telegram` | Disable Telegram notifications |
 | `--no-save-content` | Don't save page content (reduces storage) |
-| `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `hyperliquid`, `kraken`, `lighter`, `okx`, or `all` |
+| `--exchanges` | Which exchanges to run: `binance`, `bitget`, `bitmex`, `bybit`, `coinbase`, `deribit`, `htx`, `hyperliquid`, `kraken`, `lighter`, `okx`, or `all` |
 
 #### Individual Monitors
 
@@ -141,7 +145,7 @@ All monitors support:
 | `--no-telegram` | Disable notifications |
 | `--save-content` | Save full page content |
 
-Some monitors have additional options (e.g., `--max-pages` for Bybit).
+Some monitors have additional options (e.g., `--max-pages` for Bybit; `--max-announcement-pages`, `--no-docs`, `--no-changelogs` and `--no-announcements` for Deribit).
 
 ## State Files
 

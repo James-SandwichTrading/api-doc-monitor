@@ -17,6 +17,7 @@ from monitors import (
     BybitDocMonitor,
     CoinbaseDocMonitor,
     DeribitDocMonitor,
+    HTXDocMonitor,
     HyperliquidDocMonitor,
     KrakenDocMonitor,
     LighterDocMonitor,
@@ -186,6 +187,7 @@ def main():
             "bybit",
             "coinbase",
             "deribit",
+            "htx",
             "hyperliquid",
             "kraken",
             "lighter",
@@ -258,6 +260,7 @@ def main():
             "bybit",
             "coinbase",
             "deribit",
+            "htx",
             "hyperliquid",
             "kraken",
             "lighter",
@@ -332,10 +335,20 @@ def main():
                 "kwargs": {
                     "telegram_bot_token": telegram_token,
                     "telegram_chat_id": telegram_chat_id,
+                    "max_announcement_pages": 1,
                     "notify_additions": notify_additions,
                     "notify_modifications": False,
                     "notify_deletions": notify_deletions,
                 },
+            }
+        )
+
+    if "htx" in exchanges_to_run:
+        monitors_config.append(
+            {
+                "class": HTXDocMonitor,
+                "name": "HTX",
+                "kwargs": {**common_kwargs},
             }
         )
 
