@@ -11,8 +11,9 @@ This script monitors three Deribit sources:
    current and previous year so new releases show up as additions.
 3. Platform announcements from the public API
    (https://www.deribit.com/api/v2/public/get_announcements) - each
-   announcement is tracked as its own section, limited to the current and
-   previous year.
+   announcement is tracked as its own section. Only the newest page(s) of
+   announcements are fetched (one page of 50 by default), limited to the
+   current and previous year.
 
 Automatically sends Telegram notifications when changes are detected.
 """
@@ -45,8 +46,8 @@ class DeribitDocMonitor(BaseDocMonitor):
 
     ANNOUNCEMENTS_API = "https://www.deribit.com/api/v2/public/get_announcements"
 
-    # Maximum the announcements API returns per request, and how many pages
-    # to walk back through at most
+    # Maximum the announcements API returns per request, and the hard ceiling
+    # on how many pages max_announcement_pages may ask for
     ANNOUNCEMENTS_MAX_COUNT = 50
     ANNOUNCEMENTS_MAX_PAGES = 20
 
@@ -56,6 +57,7 @@ class DeribitDocMonitor(BaseDocMonitor):
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         max_pages: int = 1000,
+        max_announcement_pages: int = 1,
         monitor_docs: bool = True,
         monitor_changelogs: bool = True,
         monitor_announcements: bool = True,
@@ -74,6 +76,8 @@ class DeribitDocMonitor(BaseDocMonitor):
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
             max_pages: Maximum number of documentation pages to discover
+            max_announcement_pages: How many pages of 50 announcements to fetch,
+                newest first (default: 1; capped at ANNOUNCEMENTS_MAX_PAGES)
             monitor_docs: Whether to crawl the documentation site pages
             monitor_changelogs: Whether to monitor the API changelog entries
             monitor_announcements: Whether to monitor platform announcements
@@ -98,6 +102,9 @@ class DeribitDocMonitor(BaseDocMonitor):
         )
         self.base_url = "https://docs.deribit.com"
         self.max_pages = max_pages
+        self.max_announcement_pages = max(
+            1, min(int(max_announcement_pages), self.ANNOUNCEMENTS_MAX_PAGES)
+        )
         self.monitor_docs = monitor_docs
         self.monitor_changelogs = monitor_changelogs
         self.monitor_announcements = monitor_announcements
@@ -430,14 +437,19 @@ class DeribitDocMonitor(BaseDocMonitor):
         """
         sections = {}
         cutoff_ms = int(self._cutoff_date().timestamp() * 1000)
-        self.logger.info(f"Fetching announcements from {self.ANNOUNCEMENTS_API}...")
+        self.logger.info(
+            f"Fetching the newest {self.max_announcement_pages} page(s) of announcements "
+            f"from {self.ANNOUNCEMENTS_API}..."
+        )
 
-        # The API returns at most 50 announcements per call, newest first, so
-        # page back with start_timestamp until the cutoff is passed
+        # The API returns at most 50 announcements per call, newest first; page
+        # back with start_timestamp until max_announcement_pages is reached or
+        # the cutoff is passed
         announcements = []
         start_timestamp = None
+        more_in_range = False
         try:
-            for page in range(self.ANNOUNCEMENTS_MAX_PAGES):
+            for page in range(self.max_announcement_pages):
                 params = {"count": self.ANNOUNCEMENTS_MAX_COUNT}
                 if start_timestamp is not None:
                     params["start_timestamp"] = start_timestamp
@@ -453,14 +465,17 @@ class DeribitDocMonitor(BaseDocMonitor):
                     break
                 start_timestamp = oldest_ms
             else:
-                self.logger.warning(
-                    f"  Stopped after {self.ANNOUNCEMENTS_MAX_PAGES} pages of announcements; "
-                    "older announcements within the monitored range may be missing"
-                )
+                more_in_range = True
         except Exception as e:
             self.logger.error(f"  Error fetching announcements: {e}")
             if not announcements:
                 return sections
+
+        if more_in_range:
+            self.logger.info(
+                f"  Older announcements within the monitored range exist beyond the "
+                f"{self.max_announcement_pages} page(s) fetched and are not tracked"
+            )
 
         skipped = 0
         for announcement in announcements:
@@ -630,6 +645,12 @@ def main():
         help="Maximum number of pages to discover (default: 1000)",
     )
     parser.add_argument(
+        "--max-announcement-pages",
+        type=int,
+        default=1,
+        help="Pages of 50 announcements to fetch, newest first (default: 1)",
+    )
+    parser.add_argument(
         "--no-docs",
         action="store_true",
         help="Do not crawl the documentation site pages",
@@ -665,6 +686,7 @@ def main():
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
         max_pages=args.max_pages,
+        max_announcement_pages=args.max_announcement_pages,
         monitor_docs=not args.no_docs,
         monitor_changelogs=not args.no_changelogs,
         monitor_announcements=not args.no_announcements,
