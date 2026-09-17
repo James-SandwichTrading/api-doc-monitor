@@ -1,730 +1,730 @@
 {
-  "timestamp": "2026-09-16T08:46:37.130678",
+  "timestamp": "2026-09-17T08:43:16.681015",
   "sections": {
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-05-08-7ec50654-7773-11ed-9966-0242ac110003-2": {
       "title": "2025-05-08 [Wallet(Deposits and withdrawals] /v2/account/withdraw/address (Update): Add the \"status\" field to the response parameter",
       "hash": "5049d7df18f2de8738390587e1d9646ca9296fe1d5ffae80ea571ee5baee14ce",
-      "last_checked": "2026-09-16T08:46:37.130678",
+      "last_checked": "2026-09-17T08:43:16.681015",
       "content": "Date: 2025-05-08\nInterface: /v2/account/withdraw/address\nBusiness: Wallet(Deposits and withdrawals\nType: Update\nSummary: Add the \"status\" field to the response parameter"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-05-12-8cb89359-77b5-11ed-9966-196a8401f83-1": {
       "title": "2025-05-12 [General] /v5/trade/order (Add): New U-standard contract joint margin v5 interface",
       "hash": "9d5eae263b65621474a1548f37868e5322ade959e0d5d227574e9ecd6a7573e1",
-      "last_checked": "2026-09-16T08:46:37.446258",
+      "last_checked": "2026-09-17T08:43:16.995734",
       "content": "Date: 2025-05-12\nInterface: /v5/trade/order\nBusiness: General\nType: Add\nSummary: New U-standard contract joint margin v5 interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-07-02-8cb89359-77b5-11ed-9966-197ca1dc071-1": {
       "title": "2025-07-02 [Referral] /v2/invitee/rebate/all_rebate/detail (Add): add /v2/invitee/rebate/all_rebate/detail",
       "hash": "278ee1199da9ee9aa77a37d4d7b040a5e393fa717fe55d86e77c098519f3569f",
-      "last_checked": "2026-09-16T08:46:37.756713",
+      "last_checked": "2026-09-17T08:43:17.306973",
       "content": "Date: 2025-07-02\nInterface: /v2/invitee/rebate/all_rebate/detail\nBusiness: Referral\nType: Add\nSummary: add /v2/invitee/rebate/all_rebate/detail"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-07-02-8cb89359-77b5-11ed-9966-197ca28067c-1": {
       "title": "2025-07-02 [Referral] /v2/invitee/rebate/batcher_rebate/detail (Add): add /v2/invitee/rebate/batcher_rebate/detail",
       "hash": "74a41b7359c8cda7755375666c27befe917ba0d2c59af48c44b045c2688eb670",
-      "last_checked": "2026-09-16T08:46:38.071103",
+      "last_checked": "2026-09-17T08:43:17.618030",
       "content": "Date: 2025-07-02\nInterface: /v2/invitee/rebate/batcher_rebate/detail\nBusiness: Referral\nType: Add\nSummary: add /v2/invitee/rebate/batcher_rebate/detail"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-08-14-8cb89359-77b5-11ed-9966-19711352bcd-2": {
       "title": "2025-08-14 [General] match_orders.$contract_code (Update): add total_trade_volume",
       "hash": "8f1233b9faf87d6738127652abd76c011181a3b17ed0c01c7f85b91d8c9280a5",
-      "last_checked": "2026-09-16T08:46:38.386163",
+      "last_checked": "2026-09-17T08:43:17.922160",
       "content": "Date: 2025-08-14\nInterface: match_orders.$contract_code\nBusiness: General\nType: Update\nSummary: add total_trade_volume"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-09-04-8cb89359-77b5-11ed-9966-18f7c48b051-2": {
       "title": "2025-09-04 [Spot] /v1/account/switch/user/info (Update): add deductionType\u3001totalDeductionLimit\u3001remainingDeductionLimit",
       "hash": "e9ccb19692aa4666b763a4ca1a60f595ef68ff7a12dc3a1ae70d7b0a52c14bad",
-      "last_checked": "2026-09-16T08:46:38.698515",
+      "last_checked": "2026-09-17T08:43:18.223281",
       "content": "Date: 2025-09-04\nInterface: /v1/account/switch/user/info\nBusiness: Spot\nType: Update\nSummary: add deductionType\u3001totalDeductionLimit\u3001remainingDeductionLimit"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb7d8d9-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] orders.$contract_code (Update): New parameters",
       "hash": "99b588efcac8c348453a7d70a4985b6b42e0ba3df76ba0c344d653de21fbe46e",
-      "last_checked": "2026-09-16T08:46:39.009789",
+      "last_checked": "2026-09-17T08:43:18.527606",
       "content": "Date: 2025-11-03\nInterface: orders.$contract_code\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb7d8d9-77b5-11ed-9966-0242ac110003-2-2": {
       "title": "2025-11-03 [USDT-M] orders.$contract_code (Update): New parameters",
       "hash": "99b588efcac8c348453a7d70a4985b6b42e0ba3df76ba0c344d653de21fbe46e",
-      "last_checked": "2026-09-16T08:46:39.323292",
+      "last_checked": "2026-09-17T08:43:18.837276",
       "content": "Date: 2025-11-03\nInterface: orders.$contract_code\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb7da4b-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] orders_cross.$contract_code (Update): New parameters",
       "hash": "903bcf35cd8baf213c0efed1ce7c398c9469fbdc4c53226250cf052cb7f764a4",
-      "last_checked": "2026-09-16T08:46:39.635245",
+      "last_checked": "2026-09-17T08:43:19.139615",
       "content": "Date: 2025-11-03\nInterface: orders_cross.$contract_code\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb7e05a-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] matchOrders.$contract_code (Update): New parameters",
       "hash": "e6827b3db7aa9d93518295a8d3b9d4b4ca0a90cd122bbfb413e6c5b12f3fda77",
-      "last_checked": "2026-09-16T08:46:39.943719",
+      "last_checked": "2026-09-17T08:43:19.441174",
       "content": "Date: 2025-11-03\nInterface: matchOrders.$contract_code\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb7e155-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] matchOrders_cross.$contract_code (Update): New parameters",
       "hash": "d83ce4d21efd28be80c4f02c89b6e822afe4579173be6a30cdf29a7137ee2d15",
-      "last_checked": "2026-09-16T08:46:40.256872",
+      "last_checked": "2026-09-17T08:43:19.757745",
       "content": "Date: 2025-11-03\nInterface: matchOrders_cross.$contract_code\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb844bb-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_order (Update): New parameters",
       "hash": "25bab0ac7cc9adaae313c7edd6be580969ede1dc90808236af1802c4ba98d6df",
-      "last_checked": "2026-09-16T08:46:40.569314",
+      "last_checked": "2026-09-17T08:43:20.069183",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_order\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb84611-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_cross_order (Update): New parameters",
       "hash": "3a455ebb7f7a5f40a2446176d95aca96cd30d34c32d0152c728a712ab6fc9065",
-      "last_checked": "2026-09-16T08:46:40.882749",
+      "last_checked": "2026-09-17T08:43:20.378733",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_cross_order\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb84775-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_batchorder (Update): New parameters",
       "hash": "3c8c126eb66ded7ee32cee400bb8cd03adfa7447fc737ef9407f30d3e6d43300",
-      "last_checked": "2026-09-16T08:46:41.194743",
+      "last_checked": "2026-09-17T08:43:20.690402",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_batchorder\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb848f6-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_cross_batchorder (Update): New parameters",
       "hash": "0584151c9d2739ff86d145e55b7889a1e56549751106d5a2c18c1c375766481e",
-      "last_checked": "2026-09-16T08:46:41.506875",
+      "last_checked": "2026-09-17T08:43:21.002647",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_cross_batchorder\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85222-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_order_info (Update): New parameters",
       "hash": "3b82cb4df0359970c907e92794dadf2ff09152926ac506e6b6fe9c8049953e44",
-      "last_checked": "2026-09-16T08:46:41.818600",
+      "last_checked": "2026-09-17T08:43:21.316971",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_order_info\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85379-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_cross_order_info (Update): New parameters",
       "hash": "900bfea380936e7672f3ea12a6f0b4a756857b5d44bf5b75dd6f13f40ca481a6",
-      "last_checked": "2026-09-16T08:46:42.131259",
+      "last_checked": "2026-09-17T08:43:21.631799",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_cross_order_info\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb854d2-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_order_detail (Update): New parameters",
       "hash": "ae3cdb847b83ef59f0b8561ed8ffe2feee06f315e7d0ed918565ef5dfc932e52",
-      "last_checked": "2026-09-16T08:46:42.444681",
+      "last_checked": "2026-09-17T08:43:21.946496",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_order_detail\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb8562d-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_cross_order_detail (Update): New parameters",
       "hash": "a716ae62688369263a873cf9e179b9b9d2e404b2bfae583af8b9b0c57934b611",
-      "last_checked": "2026-09-16T08:46:42.756561",
+      "last_checked": "2026-09-17T08:43:22.258121",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_cross_order_detail\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85791-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_openorders (Update): New parameters",
       "hash": "0341a4424c56da487c224e516534067305eeca478cd9df5d06adfe1d2410c94b",
-      "last_checked": "2026-09-16T08:46:43.067076",
+      "last_checked": "2026-09-17T08:43:22.569675",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_openorders\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb858fe-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v1/swap_cross_openorders (Update): New parameters",
       "hash": "75b026b2ccf79538a336e84069eae5888e6f39ea54c60687ef838cc8a9a2f30c",
-      "last_checked": "2026-09-16T08:46:43.378743",
+      "last_checked": "2026-09-17T08:43:22.881044",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v1/swap_cross_openorders\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85a53-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v3/swap_hisorders (Update): New parameters",
       "hash": "d03251f7784df5d4f91b27b3201f0ae90ae5187f35bf44a8bf11039d4ddca846",
-      "last_checked": "2026-09-16T08:46:43.690489",
+      "last_checked": "2026-09-17T08:43:23.194465",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v3/swap_hisorders\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85ba1-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v3/swap_cross_hisorders (Update): New parameters",
       "hash": "1485c582f8138b6b05549197c00f9733e53500c9678d7f1cdce9d5c9aefd102e",
-      "last_checked": "2026-09-16T08:46:44.003094",
+      "last_checked": "2026-09-17T08:43:23.495291",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v3/swap_cross_hisorders\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85cf7-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v3/swap_hisorders_exact (Update): New parameters",
       "hash": "a00bcf53757a2eb9b055138ef073654528b52127907b78a4d7a03d916bcc9b0c",
-      "last_checked": "2026-09-16T08:46:44.312862",
+      "last_checked": "2026-09-17T08:43:23.810219",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v3/swap_hisorders_exact\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb85e4a-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-03 [USDT-M] /linear-swap-api/v3/swap_cross_hisorders_exact (Update): New parameters",
       "hash": "a6b029923d29573fe53ce151243470014e34524be9d1a4149d1adc75a7855c98",
-      "last_checked": "2026-09-16T08:46:44.624406",
+      "last_checked": "2026-09-17T08:43:24.124063",
       "content": "Date: 2025-11-03\nInterface: /linear-swap-api/v3/swap_cross_hisorders_exact\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-190263a1987-2": {
       "title": "2025-11-03 [USDT-M] create_order (Update): New parameters",
       "hash": "a7da077813b541a4009d7ca74aab0a1cbac85e98dbbc7d53df39f83bbdc5117a",
-      "last_checked": "2026-09-16T08:46:44.936719",
+      "last_checked": "2026-09-17T08:43:24.425081",
       "content": "Date: 2025-11-03\nInterface: create_order\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-1902650839d-2": {
       "title": "2025-11-03 [USDT-M] create_cross_order (Update): New parameters",
       "hash": "51a9f75dc853a31b029e8a682ce8bf0a7a164c2bbe493ce9f1900225904a5616",
-      "last_checked": "2026-09-16T08:46:45.248749",
+      "last_checked": "2026-09-17T08:43:24.739865",
       "content": "Date: 2025-11-03\nInterface: create_cross_order\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-190266ce558-2": {
       "title": "2025-11-03 [USDT-M] create_batchorder (Update): New parameters",
       "hash": "4169f47823c5a58f088184ee1b76d6bc823634ac02c0dee270cea355192d1569",
-      "last_checked": "2026-09-16T08:46:45.557868",
+      "last_checked": "2026-09-17T08:43:25.040900",
       "content": "Date: 2025-11-03\nInterface: create_batchorder\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-19028fff17a-2": {
       "title": "2025-11-03 [USDT-M] create_cross_batchorder (Update): New parameters",
       "hash": "d58b30ba3e41f2a9410de570ee40ec3be29d6cc8664f94606921ffbfa32edad2",
-      "last_checked": "2026-09-16T08:46:45.870170",
+      "last_checked": "2026-09-17T08:43:25.356817",
       "content": "Date: 2025-11-03\nInterface: create_cross_batchorder\nBusiness: USDT-M\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-19588768fe7-2": {
       "title": "2025-11-03 [General] /v5/trade/order (Update): New parameters",
       "hash": "310fac6a8a2f70d9e0e914908d4b59d4a3ed3182b5bf6bfd46f2d195a80678b0",
-      "last_checked": "2026-09-16T08:46:46.187501",
+      "last_checked": "2026-09-17T08:43:25.659763",
       "content": "Date: 2025-11-03\nInterface: /v5/trade/order\nBusiness: General\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-19588768fe7-2-2": {
       "title": "2025-11-03 [General] /v5/trade/order (Update): New enumeration added",
       "hash": "401135f4fb12898694b932bb083b3659f94a07f5b8b6199cb440eddef5f0de1d",
-      "last_checked": "2026-09-16T08:46:46.501922",
+      "last_checked": "2026-09-17T08:43:25.969760",
       "content": "Date: 2025-11-03\nInterface: /v5/trade/order\nBusiness: General\nType: Update\nSummary: New enumeration added"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-1958935dae1-2": {
       "title": "2025-11-03 [General] /v5/trade/batch_orders (Update): New enumeration added",
       "hash": "7f298b3711d58538b902bfc7d7e665a680a99fa713e740ef21a1ec626e017ad6",
-      "last_checked": "2026-09-16T08:46:46.812153",
+      "last_checked": "2026-09-17T08:43:26.273212",
       "content": "Date: 2025-11-03\nInterface: /v5/trade/batch_orders\nBusiness: General\nType: Update\nSummary: New enumeration added"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-19589587da5-2": {
       "title": "2025-11-03 [General] /v5/trade/order/opens (Update): New parameters",
       "hash": "9250bdfddf18ac09bed76d91866965011810deef440423e359881fcba0e176d8",
-      "last_checked": "2026-09-16T08:46:47.124437",
+      "last_checked": "2026-09-17T08:43:26.578677",
       "content": "Date: 2025-11-03\nInterface: /v5/trade/order/opens\nBusiness: General\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-19589bc57bc-2": {
       "title": "2025-11-03 [General] /v5/trade/order/history (Update): New parameters",
       "hash": "b0dc87088f6c6ed68bb6709ddcd8783c62051a24fbdcf66d790e366f4797c5aa",
-      "last_checked": "2026-09-16T08:46:47.437384",
+      "last_checked": "2026-09-17T08:43:26.891385",
       "content": "Date: 2025-11-03\nInterface: /v5/trade/order/history\nBusiness: General\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-196a9995f84-2": {
       "title": "2025-11-03 [General] place_order (Update): New enumeration added",
       "hash": "ed50f98dce65ae1e5a74dffb165f16c1757ce397744102d8dc611ef74d0ee493",
-      "last_checked": "2026-09-16T08:46:47.747203",
+      "last_checked": "2026-09-17T08:43:27.193600",
       "content": "Date: 2025-11-03\nInterface: place_order\nBusiness: General\nType: Update\nSummary: New enumeration added"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-196a9affedc-2": {
       "title": "2025-11-03 [General] place_batch_orders (Update): New enumeration added",
       "hash": "89252ba01e2d9580395c26873ca889d167e8fb17edc262c4e60209008b877a15",
-      "last_checked": "2026-09-16T08:46:48.059429",
+      "last_checked": "2026-09-17T08:43:27.506693",
       "content": "Date: 2025-11-03\nInterface: place_batch_orders\nBusiness: General\nType: Update\nSummary: New enumeration added"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-03-8cb89359-77b5-11ed-9966-19711352bcd-2": {
       "title": "2025-11-03 [General] match_orders.$contract_code (Update): New parameters",
       "hash": "9c002ae3b702b87f06f9123f7bac7e722a5d89902369cd7169be5e51589bb241",
-      "last_checked": "2026-09-16T08:46:48.373385",
+      "last_checked": "2026-09-17T08:43:27.822705",
       "content": "Date: 2025-11-03\nInterface: match_orders.$contract_code\nBusiness: General\nType: Update\nSummary: New parameters"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-21-7ec52e28-7773-11ed-9966-0242ac110003-2": {
       "title": "2025-11-21 [Spot] accounts.update#${mode} (Update): add mode",
       "hash": "5518fce16196f4c7e804183b54d2c38096f5a0920e72c0840be589d514291451",
-      "last_checked": "2026-09-16T08:46:48.685013",
+      "last_checked": "2026-09-17T08:43:28.130927",
       "content": "Date: 2025-11-21\nInterface: accounts.update#${mode}\nBusiness: Spot\nType: Update\nSummary: add mode"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-21-7ec53c8f-7773-11ed-9966-0242ac110003-2": {
       "title": "2025-11-21 [Spot] orders#${symbol} (Update): add symbol",
       "hash": "4586ad8a8b949328b30f100c1fe7a12fb879c62325cf3c73359b6a48f0f74941",
-      "last_checked": "2026-09-16T08:46:48.998022",
+      "last_checked": "2026-09-17T08:43:28.443662",
       "content": "Date: 2025-11-21\nInterface: orders#${symbol}\nBusiness: Spot\nType: Update\nSummary: add symbol"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-21-7ec53dd5-7773-11ed-9966-0242ac110003-2": {
       "title": "2025-11-21 [Spot] trade.clearing#${symbol}#${mode} (Update): add symbol and mode",
       "hash": "69fd83722e0c6be0b2cbcf52d13a9ae6c62206c4650823fc3237c0f80607c94e",
-      "last_checked": "2026-09-16T08:46:49.311400",
+      "last_checked": "2026-09-17T08:43:28.756746",
       "content": "Date: 2025-11-21\nInterface: trade.clearing#${symbol}#${mode}\nBusiness: Spot\nType: Update\nSummary: add symbol and mode"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-21-8cb89359-77b5-11ed-9966-19594451302-2": {
       "title": "2025-11-21 [General] /v5/position/risk/limit (Update): add volume_unit",
       "hash": "a3215edfb4a2baaec359bd05c0136225b42cf6a689f1976686335a1422ae1c05",
-      "last_checked": "2026-09-16T08:46:49.621552",
+      "last_checked": "2026-09-17T08:43:29.058175",
       "content": "Date: 2025-11-21\nInterface: /v5/position/risk/limit\nBusiness: General\nType: Update\nSummary: add volume_unit"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-21-8cb89359-77b5-11ed-9966-195a1c64aef-2": {
       "title": "2025-11-21 [General] /v5/market/risk/limit (Update): add volume_unit",
       "hash": "d7eadf4b0841c2e18efa0a5bcbbfd57e517982642b10e5f8cc22269f96c60b9b",
-      "last_checked": "2026-09-16T08:46:49.933087",
+      "last_checked": "2026-09-17T08:43:29.358375",
       "content": "Date: 2025-11-21\nInterface: /v5/market/risk/limit\nBusiness: General\nType: Update\nSummary: add volume_unit"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-28-5d516f96-77b6-11ed-9966-0242ac110003-2": {
       "title": "2025-11-28 [Coin-M Swaps] /swap-api/v1/swap_contract_info (Update): add settlement_period",
       "hash": "6d72e082806dbd19327623b2410cc733b02f68bd18b7b6c5e53fa32c7466ccdf",
-      "last_checked": "2026-09-16T08:46:50.245818",
+      "last_checked": "2026-09-17T08:43:29.661343",
       "content": "Date: 2025-11-28\nInterface: /swap-api/v1/swap_contract_info\nBusiness: Coin-M Swaps\nType: Update\nSummary: add settlement_period"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-11-28-8cb802c2-77b5-11ed-9966-0242ac110003-2": {
       "title": "2025-11-28 [USDT-M] /linear-swap-api/v1/swap_contract_info (Update): add settlement_period",
       "hash": "6fb4e24e29cc73228eab887caebdd9a788f6700e03cb244521cd3cfaaa9a4dc0",
-      "last_checked": "2026-09-16T08:46:50.559008",
+      "last_checked": "2026-09-17T08:43:29.965588",
       "content": "Date: 2025-11-28\nInterface: /linear-swap-api/v1/swap_contract_info\nBusiness: USDT-M\nType: Update\nSummary: add settlement_period"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abb96926b-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/instruments (Add): New interface",
       "hash": "dc98455a05a20607a72cb118e236ff516477e3edfe32784d334cdcee4f5d9ae6",
-      "last_checked": "2026-09-16T08:46:50.871200",
+      "last_checked": "2026-09-17T08:43:30.277728",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/instruments\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abb97d298-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/statistics (Add): New interface",
       "hash": "689c8752773585bd9ed16f1dd1ecab0c40687d8170c618b0becf90c723467c90",
-      "last_checked": "2026-09-16T08:46:51.180200",
+      "last_checked": "2026-09-17T08:43:30.590111",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/statistics\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abb9d2e52-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/profit-sharing-history (Add): New interface",
       "hash": "7110561abb1942e1e0a06289f8f2a2a7b1f24639e62e0f8d2f700b8f4d30bfaa",
-      "last_checked": "2026-09-16T08:46:51.496207",
+      "last_checked": "2026-09-17T08:43:30.897639",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/profit-sharing-history\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abba0cffe-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/profit-sharing-history-summary (Add): New interface",
       "hash": "6704b9c683373d8fbd539152e32026072bf3cfc571465008d7adb95e32479683",
-      "last_checked": "2026-09-16T08:46:51.806449",
+      "last_checked": "2026-09-17T08:43:31.198488",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/profit-sharing-history-summary\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abba23f09-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/unrealized-profit-sharing-summary (Add): New interface",
       "hash": "fc6fe0d2aec754046b4837086dc8f8894c4167a0759897789e62a865d9406511",
-      "last_checked": "2026-09-16T08:46:52.119160",
+      "last_checked": "2026-09-17T08:43:31.508252",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/unrealized-profit-sharing-summary\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abba5f924-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/followers (Add): New interface",
       "hash": "3f320d3e6d9b018ca7ca601b1ce6689517f14ad31eb594fb4f6ebff35a03a617",
-      "last_checked": "2026-09-16T08:46:52.430790",
+      "last_checked": "2026-09-17T08:43:31.810296",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/followers\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abba9b501-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/follower (Add): New interface",
       "hash": "4df1f76cb679f692ca7f167b1e994f81f2e1a26e1286cad7fe39c1e04ac0f7ec",
-      "last_checked": "2026-09-16T08:46:52.745050",
+      "last_checked": "2026-09-17T08:43:32.111316",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/follower\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abbab5bad-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/transfer (Add): New interface",
       "hash": "882d2ac6c94bc024a4a38a27b1330b92d87ec52a44552ca5741b04f9514ad912",
-      "last_checked": "2026-09-16T08:46:53.056752",
+      "last_checked": "2026-09-17T08:43:32.416590",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/transfer\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abbacd60f-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/follower-settings (Add): New interface",
       "hash": "112c2e34215978b377858467f7e269de7e5ddd7fc3744a1a1b631c966a8faea4",
-      "last_checked": "2026-09-16T08:46:53.366621",
+      "last_checked": "2026-09-17T08:43:32.730919",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/follower-settings\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abbaf4af6-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/config (Add): New interface",
       "hash": "97204095a9c600763d7cde28eefb1ce2d304d329844ac59530851eaef2095781",
-      "last_checked": "2026-09-16T08:46:53.677829",
+      "last_checked": "2026-09-17T08:43:33.036398",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/config\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-02-8cb89359-77b5-11ed-9966-19abbb100ec-1": {
       "title": "2025-12-02 [General] /api/v6/copyTrading/trader/apikey (Add): New interface",
       "hash": "3915ca1228a87d0cfeb8b438bf53929d883a04d473302d24a9ebb7ff0ffa89f2",
-      "last_checked": "2026-09-16T08:46:53.991957",
+      "last_checked": "2026-09-17T08:43:33.339411",
       "content": "Date: 2025-12-02\nInterface: /api/v6/copyTrading/trader/apikey\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-04-8cb89359-77b5-11ed-9966-19ae20fa483-1": {
       "title": "2025-12-04 [Referral] /v2/invitee/rebate/referrals (Add): New interface",
       "hash": "1e0ae089777896cfc712e1bfb1a4e8dc4ee97529c64841b4cab64e3f411fe7ce",
-      "last_checked": "2026-09-16T08:46:54.303997",
+      "last_checked": "2026-09-17T08:43:33.651004",
       "content": "Date: 2025-12-04\nInterface: /v2/invitee/rebate/referrals\nBusiness: Referral\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-12-8cb89359-77b5-11ed-9966-18bd764260c-2": {
       "title": "2025-12-12 [USDT-M] /linear-swap-api/v1/swap_query_elements (Update): New field",
       "hash": "c0628fb8c3b3105508ae495919e09b8d02e0ecb4fd5d6698e956450d7f87c3e3",
-      "last_checked": "2026-09-16T08:46:54.614593",
+      "last_checked": "2026-09-17T08:43:33.952549",
       "content": "Date: 2025-12-12\nInterface: /linear-swap-api/v1/swap_query_elements\nBusiness: USDT-M\nType: Update\nSummary: New field"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-15-8cb89359-77b5-11ed-9966-18ef15d1f28-2": {
       "title": "2025-12-15 [USDT-M] public.$contract_code.contract_elements (Update): New field",
       "hash": "e2aa09f0c85646b0948804f02a76dcb6656ce72b8151156b5339090057726d76",
-      "last_checked": "2026-09-16T08:46:54.929690",
+      "last_checked": "2026-09-17T08:43:34.258356",
       "content": "Date: 2025-12-15\nInterface: public.$contract_code.contract_elements\nBusiness: USDT-M\nType: Update\nSummary: New field"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2025-12-22-8cb89359-77b5-11ed-9966-19b4551f1fd-1": {
       "title": "2025-12-22 [General] /v5/position/risk/limit_tier (Add): New interface",
       "hash": "1434a4bbab9b4d189c30b4bc59b44d64b6f85249542ea7e23eb7bef8ba15efde",
-      "last_checked": "2026-09-16T08:46:55.243607",
+      "last_checked": "2026-09-17T08:43:34.562122",
       "content": "Date: 2025-12-22\nInterface: /v5/position/risk/limit_tier\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-07-8cb89359-77b5-11ed-9966-1959436a93a-2": {
       "title": "2026-01-07 [General] /v5/position/lever (Update): Added new fields",
       "hash": "c504d85e21f38215480498d0e48fca33ff30f8785ae301e0cddc57adaecf55f6",
-      "last_checked": "2026-09-16T08:46:55.554753",
+      "last_checked": "2026-09-17T08:43:34.874397",
       "content": "Date: 2026-01-07\nInterface: /v5/position/lever\nBusiness: General\nType: Update\nSummary: Added new fields"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-07-8cb89359-77b5-11ed-9966-1959439f997-2": {
       "title": "2026-01-07 [General] /v5/position/lever (Update): Added new fields",
       "hash": "c504d85e21f38215480498d0e48fca33ff30f8785ae301e0cddc57adaecf55f6",
-      "last_checked": "2026-09-16T08:46:55.863327",
+      "last_checked": "2026-09-17T08:43:35.182645",
       "content": "Date: 2026-01-07\nInterface: /v5/position/lever\nBusiness: General\nType: Update\nSummary: Added new fields"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-08-8cb89359-77b5-11ed-9966-19b92383f8f-1": {
       "title": "2026-01-08 [General] /v5/trade/cancel-after (Add): New interface",
       "hash": "79a8ef60b5ef4eda01fdd3ff8728529132018ce60c543761811d273d5a48cbeb",
-      "last_checked": "2026-09-16T08:46:56.177241",
+      "last_checked": "2026-09-17T08:43:35.497468",
       "content": "Date: 2026-01-08\nInterface: /v5/trade/cancel-after\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-08-8cb89359-77b5-11ed-9966-19b9252dd6c-1": {
       "title": "2026-01-08 [General] /v5/account/fee_deduction_currency (Add): New interface",
       "hash": "18995f8f7039986c334fe154facd387556b0c7b8584406409550fe9670830056",
-      "last_checked": "2026-09-16T08:46:56.488121",
+      "last_checked": "2026-09-17T08:43:35.805388",
       "content": "Date: 2026-01-08\nInterface: /v5/account/fee_deduction_currency\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-08-8cb89359-77b5-11ed-9966-19b930b8bee-1": {
       "title": "2026-01-08 [General] /v5/account/bills (Add): New interface",
       "hash": "36468c9f02010d7e7c15bff40c971d340c031fe2ccd465635ed2b8d5c905e707",
-      "last_checked": "2026-09-16T08:46:56.801201",
+      "last_checked": "2026-09-17T08:43:36.112125",
       "content": "Date: 2026-01-08\nInterface: /v5/account/bills\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-08-8cb89359-77b5-11ed-9966-19b93271fc2-1": {
       "title": "2026-01-08 [General] /v5/position/margin (Add): New interface",
       "hash": "2ba4e665361ac358495a33424dde0e66caac004633b8059331c79dc47dea7564",
-      "last_checked": "2026-09-16T08:46:57.110957",
+      "last_checked": "2026-09-17T08:43:36.422415",
       "content": "Date: 2026-01-08\nInterface: /v5/position/margin\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-01-08-8cb89359-77b5-11ed-9966-19b97d0c0bf-1": {
       "title": "2026-01-08 [General] /v5/market/funding_rate (Add): New interface",
       "hash": "52df5463aa6b97eadad4c8fab48afb532d33905142ea2a1379eef1a9f0f21b9e",
-      "last_checked": "2026-09-16T08:46:57.423781",
+      "last_checked": "2026-09-17T08:43:36.737999",
       "content": "Date: 2026-01-08\nInterface: /v5/market/funding_rate\nBusiness: General\nType: Add\nSummary: New interface"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-06-8cb89359-77b5-11ed-9966-196a9995f84-3": {
       "title": "2026-03-06 [General] place_order (Optimize): USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiti...",
       "hash": "d0357303db9eb382173d18b0c4d1a6524e74ad117f8714fe56ea013474308ea0",
-      "last_checked": "2026-09-16T08:46:57.733862",
+      "last_checked": "2026-09-17T08:43:37.048982",
       "content": "Date: 2026-03-06\nInterface: place_order\nBusiness: General\nType: Optimize\nSummary: USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiting parameters."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-06-8cb89359-77b5-11ed-9966-196a9affedc-3": {
       "title": "2026-03-06 [General] place_batch_orders (Optimize): USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiti...",
       "hash": "9395f9382e51a5bb1980a91350cce2c46be81a64683914315dd316ff6a4ff57e",
-      "last_checked": "2026-09-16T08:46:58.044142",
+      "last_checked": "2026-09-17T08:43:37.349133",
       "content": "Date: 2026-03-06\nInterface: place_batch_orders\nBusiness: General\nType: Optimize\nSummary: USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiting parameters."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-06-8cb89359-77b5-11ed-9966-196a9c5cdbb-3": {
       "title": "2026-03-06 [General] cancel_order (Optimize): USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiti...",
       "hash": "0cd1a876229cbfce43349a122f23294ae23fc52765749f92dfed50f6901f48a8",
-      "last_checked": "2026-09-16T08:46:58.354710",
+      "last_checked": "2026-09-17T08:43:37.655171",
       "content": "Date: 2026-03-06\nInterface: cancel_order\nBusiness: General\nType: Optimize\nSummary: USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiting parameters."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-06-8cb89359-77b5-11ed-9966-196a9cdf9dc-3": {
       "title": "2026-03-06 [General] cancel_batch_orders (Optimize): USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiti...",
       "hash": "1130480fc98e1c805b8eba69bb908a005bb58fc987b52dac298369a87d3ae6ee",
-      "last_checked": "2026-09-16T08:46:58.666894",
+      "last_checked": "2026-09-17T08:43:37.955482",
       "content": "Date: 2026-03-06\nInterface: cancel_batch_orders\nBusiness: General\nType: Optimize\nSummary: USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiting parameters."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-06-8cb89359-77b5-11ed-9966-196a9df9306-3": {
       "title": "2026-03-06 [General] cancel_all_orders (Optimize): USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiti...",
       "hash": "7144f625b1847f81a407a77350c28db6daec9ba95bd3e5b3ca7ca826e522af91",
-      "last_checked": "2026-09-16T08:46:58.977876",
+      "last_checked": "2026-09-17T08:43:38.265310",
       "content": "Date: 2026-03-06\nInterface: cancel_all_orders\nBusiness: General\nType: Optimize\nSummary: USDT-M Futures\uff1aWebSocket transaction API order placement and cancellation now include rate limiting parameters."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b72756dd7-1": {
       "title": "2026-03-09 [General] /v5/algo/order (Add): Added \"Strategy Order Placement\" endpoint",
       "hash": "d4006a5adbaf78765ba801e28a2cc2d8e765fa420c7b95f82d065a65a3f7c203",
-      "last_checked": "2026-09-16T08:46:59.289674",
+      "last_checked": "2026-09-17T08:43:38.572480",
       "content": "Date: 2026-03-09\nInterface: /v5/algo/order\nBusiness: General\nType: Add\nSummary: Added \"Strategy Order Placement\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b7361ac19-1": {
       "title": "2026-03-09 [General] /v5/algo/order/history (Add): Added \"Query Historical Strategy Orders\" endpoint",
       "hash": "e57f4246ba288f7a194960eceb30808fab0ee5da38c3ee3d1dd6f2dce9aedc43",
-      "last_checked": "2026-09-16T08:46:59.603405",
+      "last_checked": "2026-09-17T08:43:38.877088",
       "content": "Date: 2026-03-09\nInterface: /v5/algo/order/history\nBusiness: General\nType: Add\nSummary: Added \"Query Historical Strategy Orders\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b925f21f6-1": {
       "title": "2026-03-09 [General] /v5/market/estimated_settlement_price (Add): Added \"Query Estimated Settlement Price\" endpoint",
       "hash": "1ae1e2c67e8becf7a20e441be8baa4fb197f4626338a2fba9f458e276e135f45",
-      "last_checked": "2026-09-16T08:46:59.913690",
+      "last_checked": "2026-09-17T08:43:39.189926",
       "content": "Date: 2026-03-09\nInterface: /v5/market/estimated_settlement_price\nBusiness: General\nType: Add\nSummary: Added \"Query Estimated Settlement Price\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b930654e0-1": {
       "title": "2026-03-09 [General] /v5/market/elite_position_ratio (Add): A new endpoint for \"Querying Elite Account Long/Short Positions Comparison - Position Count\" has...",
       "hash": "828143f9eeba3f12697a6415f8c1948279e9bac693e646ac0ca284036b61f3a5",
-      "last_checked": "2026-09-16T08:47:00.227620",
+      "last_checked": "2026-09-17T08:43:39.498328",
       "content": "Date: 2026-03-09\nInterface: /v5/market/elite_position_ratio\nBusiness: General\nType: Add\nSummary: A new endpoint for \"Querying Elite Account Long/Short Positions Comparison - Position Count\" has been added."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b930e9f7a-1": {
       "title": "2026-03-09 [General] /v5/market/elite_account_ratio (Add): A new endpoint for \"Querying Elite Account Long/Short Positions Comparison - Number of Accounts\"...",
       "hash": "4e4b7b3cb5147a4b816b8fe5a166c5a7f4609cc9a61fc79cf5780b10bc687689",
-      "last_checked": "2026-09-16T08:47:00.535676",
+      "last_checked": "2026-09-17T08:43:39.799540",
       "content": "Date: 2026-03-09\nInterface: /v5/market/elite_account_ratio\nBusiness: General\nType: Add\nSummary: A new endpoint for \"Querying Elite Account Long/Short Positions Comparison - Number of Accounts\" has been added."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b931869f0-1": {
       "title": "2026-03-09 [General] /v5/market/settlement_history (Add): Added \"Query Platform Settlement History\" endpoint",
       "hash": "1629693f31d31e096dad29c8b01a5f008d031fd73690f19748915f8766644551",
-      "last_checked": "2026-09-16T08:47:00.850661",
+      "last_checked": "2026-09-17T08:43:40.103972",
       "content": "Date: 2026-03-09\nInterface: /v5/market/settlement_history\nBusiness: General\nType: Add\nSummary: Added \"Query Platform Settlement History\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b933812c9-1": {
       "title": "2026-03-09 [General] /v5/algo/order (Add): Added \"Query Strategy Delegation Information\" endpoint",
       "hash": "e5b0635b6a60d60f513990b36ec0bc3e382d3e85d6058ec33884372f9ed4b0da",
-      "last_checked": "2026-09-16T08:47:01.163018",
+      "last_checked": "2026-09-17T08:43:40.419565",
       "content": "Date: 2026-03-09\nInterface: /v5/algo/order\nBusiness: General\nType: Add\nSummary: Added \"Query Strategy Delegation Information\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b935d4997-1": {
       "title": "2026-03-09 [General] /v5/algo/cancel_orders (Add): Added \"Cancel Strategy Orders\" endpoint",
       "hash": "c87c9e8ac642133124153e51e0844e2718d94900c0e55ef34b5736528bc430c8",
-      "last_checked": "2026-09-16T08:47:01.476240",
+      "last_checked": "2026-09-17T08:43:40.720673",
       "content": "Date: 2026-03-09\nInterface: /v5/algo/cancel_orders\nBusiness: General\nType: Add\nSummary: Added \"Cancel Strategy Orders\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b9754d736-1": {
       "title": "2026-03-09 [General] /v5/algo/order/opens (Add): Added \"View Current Policy Delegation\" endpoint",
       "hash": "62f99bfcef40c7083bd9d6923537c913acf0d0b3e4f90dd470c82eb7a900b0fe",
-      "last_checked": "2026-09-16T08:47:01.785224",
+      "last_checked": "2026-09-17T08:43:41.036380",
       "content": "Date: 2026-03-09\nInterface: /v5/algo/order/opens\nBusiness: General\nType: Add\nSummary: Added \"View Current Policy Delegation\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b975edf5a-1": {
       "title": "2026-03-09 [General] /v5/market/liquidation_orders (Add): Added endpoint for \"Querying Forced Liquidation Orders\"",
       "hash": "ba9c27a24ccda26d78b9f67dc8ccbf33351f4e9a63ea3dc2e9b9266c136b39fb",
-      "last_checked": "2026-09-16T08:47:02.097453",
+      "last_checked": "2026-09-17T08:43:41.339751",
       "content": "Date: 2026-03-09\nInterface: /v5/market/liquidation_orders\nBusiness: General\nType: Add\nSummary: Added endpoint for \"Querying Forced Liquidation Orders\""
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b97ea5941-1": {
       "title": "2026-03-09 [General] /v5/market/funding_rate_history (Add): Added \"Query Historical Fee Rates\" endpoint",
       "hash": "9cb4675990b2d11a370b6b9db28890658cf1a670fbfba027d04a39e2a4b32c79",
-      "last_checked": "2026-09-16T08:47:02.411229",
+      "last_checked": "2026-09-17T08:43:41.642495",
       "content": "Date: 2026-03-09\nInterface: /v5/market/funding_rate_history\nBusiness: General\nType: Add\nSummary: Added \"Query Historical Fee Rates\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b97fb53f2-1": {
       "title": "2026-03-09 [General] /v5/market/open_interest (Add): Added endpoint for \"Querying the total open interest of contracts on the current platform\"",
       "hash": "ef1b8ebcb4b2b91635c594e2952d5eed63ee0ccd66719d6946e4ea78e1bd27e4",
-      "last_checked": "2026-09-16T08:47:02.717089",
+      "last_checked": "2026-09-17T08:43:41.955033",
       "content": "Date: 2026-03-09\nInterface: /v5/market/open_interest\nBusiness: General\nType: Add\nSummary: Added endpoint for \"Querying the total open interest of contracts on the current platform\""
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-03-09-8cb89359-77b5-11ed-9966-19b980aed1a-1": {
       "title": "2026-03-09 [General] /v5/market/price_limit (Add): Added endpoint for querying the highest and lowest bid/ask prices.",
       "hash": "871df36de95628f1bcaae83496036f750294248d350e6835d5deb2edfc0287ee",
-      "last_checked": "2026-09-16T08:47:03.031188",
+      "last_checked": "2026-09-17T08:43:42.257938",
       "content": "Date: 2026-03-09\nInterface: /v5/market/price_limit\nBusiness: General\nType: Add\nSummary: Added endpoint for querying the highest and lowest bid/ask prices."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-04-02-8cb7d8d9-77b5-11ed-9966-0242ac110003-3": {
       "title": "2026-04-02 [USDT-M] orders.$contract_code (Optimize): Field (volume) logic adjustment: If the modification is successful, the value will change. Added...",
       "hash": "d2b5aa3fd98254c469e8902ce356db1c473bef91d8f4daac3417d1dc7d25fc5a",
-      "last_checked": "2026-09-16T08:47:03.340221",
+      "last_checked": "2026-09-17T08:43:42.562026",
       "content": "Date: 2026-04-02\nInterface: orders.$contract_code\nBusiness: USDT-M\nType: Optimize\nSummary: Field (volume) logic adjustment: If the modification is successful, the value will change. Added new field (amend_rigin-volume): The original order quantity before the amendment. Added new field (amend_source): Reason for order modification. Added new field (amend_result): The result of modifying the order. Added enumeration value for field (cancel_deason): \"Order cancellation due to reduce only\"."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-04-02-8cb89359-77b5-11ed-9966-19711352bcd-3": {
       "title": "2026-04-02 [General] match_orders.$contract_code (Optimize): Field (volume) logic adjustment: If the modification is successful, the value will change. Added...",
       "hash": "bf95154842eb1fc9e7f258a89f9f84ec56c9f6b1d52bcb6edeedec9f4a3243a6",
-      "last_checked": "2026-09-16T08:47:03.656180",
+      "last_checked": "2026-09-17T08:43:42.866779",
       "content": "Date: 2026-04-02\nInterface: match_orders.$contract_code\nBusiness: General\nType: Optimize\nSummary: Field (volume) logic adjustment: If the modification is successful, the value will change. Added new field (amend_rigin-volume): The original order quantity before the amendment. Added new field (amend_source): Reason for order modification. Added new field (amend_result): The result of modifying the order. Added enumeration value for field (cancel_deason): \"Order cancellation due to reduce only\"."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-04-03-8cb77159-77b5-11ed-9966-0242ac110003-3": {
       "title": "2026-04-03 [USDT-M] /linear-swap-api/v1/swap_cross_order (Optimize): Announcement Regarding the Upgrade and Migration of the HTX USDT-M Futures Trading System:https:/...",
       "hash": "b49c20976206e687b736d0a69fc1f7023766476bac3db97de235b8150166e057",
-      "last_checked": "2026-09-16T08:47:03.963653",
+      "last_checked": "2026-09-17T08:43:43.179456",
       "content": "Date: 2026-04-03\nInterface: /linear-swap-api/v1/swap_cross_order\nBusiness: USDT-M\nType: Optimize\nSummary: Announcement Regarding the Upgrade and Migration of the HTX USDT-M Futures Trading System:https://www.htx.com/support/55029524265440"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-12-8cb89359-77b5-11ed-9966-19e1b99240f-1": {
       "title": "2026-05-12 [General] /v5/account/universal_transfer (Add): Added \"Create Universal Transfer\" endpoint",
       "hash": "448669c3d77af78a9c94620a25e54ca562f70993488edef5226c53b5f4e1588b",
-      "last_checked": "2026-09-16T08:47:04.278569",
+      "last_checked": "2026-09-17T08:43:43.482922",
       "content": "Date: 2026-05-12\nInterface: /v5/account/universal_transfer\nBusiness: General\nType: Add\nSummary: Added \"Create Universal Transfer\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-12-8cb89359-77b5-11ed-9966-19e1badeb29-1": {
       "title": "2026-05-12 [General] /v5/account/universal_transfer_records (Add): Added \"Universal Transfer Records\" endpoint",
       "hash": "80b03b70fa0778e546672dc90039b4d63d3ed4f3927f77ed91114eab7beef609",
-      "last_checked": "2026-09-16T08:47:04.591203",
+      "last_checked": "2026-09-17T08:43:43.788437",
       "content": "Date: 2026-05-12\nInterface: /v5/account/universal_transfer_records\nBusiness: General\nType: Add\nSummary: Added \"Universal Transfer Records\" endpoint"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-13-8cb89359-77b5-11ed-9966-195886fed64-3": {
       "title": "2026-05-13 [General] /v5/account/asset_mode (Optimize): New asset mode type: 2-Single currency margin mode (new)",
       "hash": "19e8191c604b5209d3b9e952452a2bb3a4b9ddfe66230294a649fcb332e874cb",
-      "last_checked": "2026-09-16T08:47:04.903759",
+      "last_checked": "2026-09-17T08:43:44.091087",
       "content": "Date: 2026-05-13\nInterface: /v5/account/asset_mode\nBusiness: General\nType: Optimize\nSummary: New asset mode type: 2-Single currency margin mode (new)"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-13-8cb89359-77b5-11ed-9966-19ae20fa483-3": {
       "title": "2026-05-13 [Referral] /v2/invitee/rebate/referrals (Optimize): The response data returns whether advanced KYC was completed \uff08completed_kyc\uff09and includes the emai...",
       "hash": "475aa845cb04c29fcbf4f54a47787c07b3c787997a0f4dc912c3df1c5c81465a",
-      "last_checked": "2026-09-16T08:47:05.215048",
+      "last_checked": "2026-09-17T08:43:44.394828",
       "content": "Date: 2026-05-13\nInterface: /v2/invitee/rebate/referrals\nBusiness: Referral\nType: Optimize\nSummary: The response data returns whether advanced KYC was completed \uff08completed_kyc\uff09and includes the email field\uff08mail\uff09."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-14-8cb89359-77b5-11ed-9966-19711352bcd-3": {
       "title": "2026-05-14 [General] match_orders.$contract_code (Optimize): The push notification now includes an `in_time` field, which indicates the time when a new order...",
       "hash": "a258681f7898a032f69c740529ff15206f4109abadf0fd66fa07508e8e5f0ddf",
-      "last_checked": "2026-09-16T08:47:05.526689",
+      "last_checked": "2026-09-17T08:43:44.699150",
       "content": "Date: 2026-05-14\nInterface: match_orders.$contract_code\nBusiness: General\nType: Optimize\nSummary: The push notification now includes an `in_time` field, which indicates the time when a new order enters the matching system when an order is placed, and the time when the order cancellation request enters the matching system when an order is cancelled."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-22-5d5156b5-77b6-11ed-9966-0242ac110003-3": {
       "title": "2026-05-22 [Coin-M Swaps] positions.$contract_code (Optimize): [USDT-Margined Futures Multi-Assets Collateral API] Added new push parameters\uff1a total_trade_fee (T...",
       "hash": "f92668c3f1c2997f2e894c0451b58cfa0d1cc1d68be2854af4cb3e501aa9aed1",
-      "last_checked": "2026-09-16T08:47:05.842425",
+      "last_checked": "2026-09-17T08:43:45.003204",
       "content": "Date: 2026-05-22\nInterface: positions.$contract_code\nBusiness: Coin-M Swaps\nType: Optimize\nSummary: [USDT-Margined Futures Multi-Assets Collateral API] Added new push parameters\uff1a total_trade_fee (Total trade fee)\uff0cbreak_even_price (Break even price)"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-05-26-8cb89359-77b5-11ed-9966-19588768fe7-1": {
       "title": "2026-05-26 [General] /v5/trade/order (Add): HTX to Roll Out API Upgrade for USDT-M Futures Trading System:https://www.htx.com.ph/support/9503...",
       "hash": "731bb0297c697ee87030d6f9c259d3cbdb4d9fdd4d60ff52a25a7fe004a68827",
-      "last_checked": "2026-09-16T08:47:06.155326",
+      "last_checked": "2026-09-17T08:43:45.307544",
       "content": "Date: 2026-05-26\nInterface: /v5/trade/order\nBusiness: General\nType: Add\nSummary: HTX to Roll Out API Upgrade for USDT-M Futures Trading System:https://www.htx.com.ph/support/95034086350701"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-06-11-8cb89359-77b5-11ed-9966-19b983362f8-1": {
       "title": "2026-06-11 [General] algo_orders.$contract_code (Add): Added new channel \u201csubscribe to algo order data\u201d",
       "hash": "df57478a199b7c91f50ee457e4ce64accb7f7768b563d6312f40dbdf1e86c232",
-      "last_checked": "2026-09-16T08:47:06.470476",
+      "last_checked": "2026-09-17T08:43:45.609802",
       "content": "Date: 2026-06-11\nInterface: algo_orders.$contract_code\nBusiness: General\nType: Add\nSummary: Added new channel \u201csubscribe to algo order data\u201d"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-07-8cb7de1c-77b5-11ed-9966-0242ac110003-3": {
       "title": "2026-07-07 [USDT-M] positions.$contract_code (Optimize): Added a new field margin: when in cross margin mode, it represents the initial margin; when in is...",
       "hash": "c029ce238af318a74c8e9d893c73b76ec77a70a4529d8d0fb898a7cb952c6e28",
-      "last_checked": "2026-09-16T08:47:06.779827",
+      "last_checked": "2026-09-17T08:43:45.913235",
       "content": "Date: 2026-07-07\nInterface: positions.$contract_code\nBusiness: USDT-M\nType: Optimize\nSummary: Added a new field margin: when in cross margin mode, it represents the initial margin; when in isolated margin mode, it represents the position margin.\""
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-08-8cb89359-77b5-11ed-9966-19f408277bc-1": {
       "title": "2026-07-08 [General] trade_detail.$contract_code (Add): A new channel for subscription-based trade execution details has been added. Compared to the `tra...",
       "hash": "24683164fdbcbc4fe04e0135f33394fc0d0a1095415a030faa17d9bc0db4c743",
-      "last_checked": "2026-09-16T08:47:07.089007",
+      "last_checked": "2026-09-17T08:43:46.215053",
       "content": "Date: 2026-07-08\nInterface: trade_detail.$contract_code\nBusiness: General\nType: Add\nSummary: A new channel for subscription-based trade execution details has been added. Compared to the `trade.$contract_code` channel, this feed has a latency of a few milliseconds but includes additional data on trading fees, the currency used for fee deduction, and the price of that deduction currency."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-09-7ec51870-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-07-09 [Spot] /v2/reference/transact-fee-rate (Optimize): Added RPI order fee field: rpiFeeRate",
       "hash": "26181a41fd7c00e335acee72ebd14fd15a4b0d4ef0fbc061edd8ba4a260c8ea0",
-      "last_checked": "2026-09-16T08:47:07.400813",
+      "last_checked": "2026-09-17T08:43:46.517406",
       "content": "Date: 2026-07-09\nInterface: /v2/reference/transact-fee-rate\nBusiness: Spot\nType: Optimize\nSummary: Added RPI order fee field: rpiFeeRate"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-10-28c2e7ad-77ae-11ed-9966-0242ac110003-3": {
       "title": "2026-07-10 [Coin-M Futures] /market/trade (Optimize): Added field indicating whether the transaction is an RPI trade: is-rpi-trade",
       "hash": "1e3ba4ff38d3a345d3ff6d169f6f9f9cabc714feeb6fce9a63348936b5d87d92",
-      "last_checked": "2026-09-16T08:47:07.714628",
+      "last_checked": "2026-09-17T08:43:46.826465",
       "content": "Date: 2026-07-10\nInterface: /market/trade\nBusiness: Coin-M Futures\nType: Optimize\nSummary: Added field indicating whether the transaction is an RPI trade: is-rpi-trade"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-10-28c2e8fc-77ae-11ed-9966-0242ac110003-3": {
       "title": "2026-07-10 [Coin-M Futures] /market/history/trade (Optimize): Added field indicating whether the transaction is an RPI trade: is-rpi-trade",
       "hash": "3c26ad5e75c3c9851301de1be3923aa4f367583e19479370b51dc50597df6121",
-      "last_checked": "2026-09-16T08:47:08.026659",
+      "last_checked": "2026-09-17T08:43:47.135075",
       "content": "Date: 2026-07-10\nInterface: /market/history/trade\nBusiness: Coin-M Futures\nType: Optimize\nSummary: Added field indicating whether the transaction is an RPI trade: is-rpi-trade"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-10-7ec51cb5-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-07-10 [Spot] /v2/settings/common/symbols (Optimize): Field indicating whether the newly added trading pair supports RPI trading: enable_rpi",
       "hash": "5966abaaf0d8739b455927d84eb273ab340aceb551f144d95c797584c1c6984a",
-      "last_checked": "2026-09-16T08:47:08.340175",
+      "last_checked": "2026-09-17T08:43:47.449193",
       "content": "Date: 2026-07-10\nInterface: /v2/settings/common/symbols\nBusiness: Spot\nType: Optimize\nSummary: Field indicating whether the newly added trading pair supports RPI trading: enable_rpi"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-13-7ec4ee16-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-07-13 [Spot] /v1/order/orders/place (Optimize): RPI orders are supported; announcement regarding RPI orders: https://www.htx.com.hr/support/75037...",
       "hash": "902f0d42c59466b0d7b9be94b603fbb4b42b573a68db8fe2a66a3eba7a41afad",
-      "last_checked": "2026-09-16T08:47:08.651200",
+      "last_checked": "2026-09-17T08:43:47.754447",
       "content": "Date: 2026-07-13\nInterface: /v1/order/orders/place\nBusiness: Spot\nType: Optimize\nSummary: RPI orders are supported; announcement regarding RPI orders: https://www.htx.com.hr/support/75037826882574"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-13-8cb89359-77b5-11ed-9966-19fef766e75-1": {
       "title": "2026-07-13 [Spot] market.$symbol.fullDepth.$type (Add): Added the `market.$symbol.fullDepth.$type` channel; this channel includes both RPI and non-RPI or...",
       "hash": "7ac7cbdd4bbe098bbea33f32eac53b2561196b5743191642b2c89af48ad53558",
-      "last_checked": "2026-09-16T08:47:08.963465",
+      "last_checked": "2026-09-17T08:43:48.056953",
       "content": "Date: 2026-07-13\nInterface: market.$symbol.fullDepth.$type\nBusiness: Spot\nType: Add\nSummary: Added the `market.$symbol.fullDepth.$type` channel; this channel includes both RPI and non-RPI orders."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-28-8cb89359-77b5-11ed-9966-19711352bcd-3": {
       "title": "2026-07-28 [General] match_orders.$contract_code (Optimize): A new field, \"cancel_volume\" (representing the number of cancelled contracts), has been added. It...",
       "hash": "95a139edb3b42815b75df52a1ea2c61e47cc28995357f038f7d039901d0b060e",
-      "last_checked": "2026-09-16T08:47:09.272818",
+      "last_checked": "2026-09-17T08:43:48.370662",
       "content": "Date: 2026-07-28\nInterface: match_orders.$contract_code\nBusiness: General\nType: Optimize\nSummary: A new field, \"cancel_volume\" (representing the number of cancelled contracts), has been added. It returns \"0\" if no cancellations have occurred for the order."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-29-8cb89359-77b5-11ed-9966-191d5dd3143-3": {
       "title": "2026-07-29 [USDT-M] /linear-swap-api/market/swap_contract_constituents (Optimize): A symbol price value of -1 indicates that HTX has masked all related prices with -1 to avoid disc...",
       "hash": "b700a1dfab0524a42e45dea07f2b6828f531b2f1aca518cf934475617bf24e57",
-      "last_checked": "2026-09-16T08:47:09.584610",
+      "last_checked": "2026-09-17T08:43:48.685577",
       "content": "Date: 2026-07-29\nInterface: /linear-swap-api/market/swap_contract_constituents\nBusiness: USDT-M\nType: Optimize\nSummary: A symbol price value of -1 indicates that HTX has masked all related prices with -1 to avoid disclosing the proprietary pricing data provided by the third-party index provider."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-30-7ec4cc41-7773-11ed-9966-0242ac110003-1": {
       "title": "2026-07-30 [Wallet(Deposits and withdrawals] /v1/dw/withdraw/api/create (Add): Added the feature to transfer funds to Poloniex across exchanges with zero fees.",
       "hash": "ad86f412bb4f73d5d62cb7f6f10818827dc10b940f34f52054b39159e5857871",
-      "last_checked": "2026-09-16T08:47:09.896923",
+      "last_checked": "2026-09-17T08:43:48.990506",
       "content": "Date: 2026-07-30\nInterface: /v1/dw/withdraw/api/create\nBusiness: Wallet(Deposits and withdrawals\nType: Add\nSummary: Added the feature to transfer funds to Poloniex across exchanges with zero fees."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-30-7ec516fc-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-07-30 [Spot] /v2/reference/currencies (Optimize): A new field, `externalTransferEnabled`, has been added to the output parameters, indicating wheth...",
       "hash": "036b0e994e4d6785384516cf842fc33f3f19b771759cde079a2656329dcbcb71",
-      "last_checked": "2026-09-16T08:47:10.209141",
+      "last_checked": "2026-09-17T08:43:49.292351",
       "content": "Date: 2026-07-30\nInterface: /v2/reference/currencies\nBusiness: Spot\nType: Optimize\nSummary: A new field, `externalTransferEnabled`, has been added to the output parameters, indicating whether the currency supports direct transfers to Poloniex."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-07-31-7ec4f050-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-07-31 [Wallet(Deposits and withdrawals] /v1/query/deposit-withdraw (Optimize): Supports querying records of rapid transfers from Poloniex to HTX; the `address` field returns th...",
       "hash": "e023112994225d5b31677a46222c2cc9c408a985e74f25ed03a4e2e948d97794",
-      "last_checked": "2026-09-16T08:47:10.522812",
+      "last_checked": "2026-09-17T08:43:49.593586",
       "content": "Date: 2026-07-31\nInterface: /v1/query/deposit-withdraw\nBusiness: Wallet(Deposits and withdrawals\nType: Optimize\nSummary: Supports querying records of rapid transfers from Poloniex to HTX; the `address` field returns the HTX UID in the format `UID:XXXX` (e.g., `UID:1234567`), and the `chain` parameter defaults to the value `t397342`."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-05-7ec4f5d6-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-08-05 [Spot] /v1/settings/common/market-symbols (Optimize): The response parameters minoa (minimum order quantity), lominoa (minimum order quantity for limit...",
       "hash": "a7ad5c9ff890b1535d3870b67367410c3ff9a1ff5ca93f294303c288feea2e83",
-      "last_checked": "2026-09-16T08:47:10.829733",
+      "last_checked": "2026-09-17T08:43:49.895147",
       "content": "Date: 2026-08-05\nInterface: /v1/settings/common/market-symbols\nBusiness: Spot\nType: Optimize\nSummary: The response parameters minoa (minimum order quantity), lominoa (minimum order quantity for limit price), and smminoa (minimum order quantity for market price sale) fields are deprecated and no longer valid."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-05-7ec50654-7773-11ed-9966-0242ac110003-1": {
       "title": "2026-08-05 [Wallet(Deposits and withdrawals] /v2/account/withdraw/address (Add): When currency=t397342 is added, the function of querying the withdrawal address of the UID added...",
       "hash": "d26dd96f7c0c97fca3e718129e8dfed1269b25b14ac7ea48d686af17d8c623f1",
-      "last_checked": "2026-09-16T08:47:11.142318",
+      "last_checked": "2026-09-17T08:43:50.204924",
       "content": "Date: 2026-08-05\nInterface: /v2/account/withdraw/address\nBusiness: Wallet(Deposits and withdrawals\nType: Add\nSummary: When currency=t397342 is added, the function of querying the withdrawal address of the UID added on the platform can be found."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-05-7ec52336-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-08-05 [Sub_account Management] /v2/sub-user/creation (Optimize): The interface response now includes a new field: spotAccountId, used for spot order transactions.",
       "hash": "ab2fe29c3e5917691dab1b7f4d2a5dee1ed346452f4f21fafc8c815408f3d4d6",
-      "last_checked": "2026-09-16T08:47:11.458723",
+      "last_checked": "2026-09-17T08:43:50.514310",
       "content": "Date: 2026-08-05\nInterface: /v2/sub-user/creation\nBusiness: Sub_account Management\nType: Optimize\nSummary: The interface response now includes a new field: spotAccountId, used for spot order transactions."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-11-7ec4ee16-7773-11ed-9966-0242ac110003-3": {
       "title": "2026-08-11 [Spot] /v1/order/orders/place (Optimize): Adjustment of the minimum order amount for spot and leveraged USDT trading pairs to 1 USDT: https...",
       "hash": "c28d3fa361d42aaa9d2e21f494d4dda67ccdee002e6ada8a560dc6f2b7255b79",
-      "last_checked": "2026-09-16T08:47:11.769284",
+      "last_checked": "2026-09-17T08:43:50.815929",
       "content": "Date: 2026-08-11\nInterface: /v1/order/orders/place\nBusiness: Spot\nType: Optimize\nSummary: Adjustment of the minimum order amount for spot and leveraged USDT trading pairs to 1 USDT: https://www.htx.com.ua/support/35040215360963"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-12-28c2d918-77ae-11ed-9966-0242ac110003-1": {
       "title": "2026-08-12 [Coin-M Futures] /api/v1/contract_contract_info (Add): add\"labels\"(Contract Section Tags)field",
       "hash": "11db401796e76225e551623a13b7939ed21e3a9315aea42ec76f6efc4d84e1a1",
-      "last_checked": "2026-09-16T08:47:12.074724",
+      "last_checked": "2026-09-17T08:43:51.131557",
       "content": "Date: 2026-08-12\nInterface: /api/v1/contract_contract_info\nBusiness: Coin-M Futures\nType: Add\nSummary: add\"labels\"(Contract Section Tags)field"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-12-5d516f96-77b6-11ed-9966-0242ac110003-1": {
       "title": "2026-08-12 [Coin-M Swaps] /swap-api/v1/swap_contract_info (Add): add\"labels\"(Contract Section Tags)field",
       "hash": "8e73f21923b31f4eb61d0424378d41c1a3017b63dab40c07745f1f55512db337",
-      "last_checked": "2026-09-16T08:47:12.376221",
+      "last_checked": "2026-09-17T08:43:51.435672",
       "content": "Date: 2026-08-12\nInterface: /swap-api/v1/swap_contract_info\nBusiness: Coin-M Swaps\nType: Add\nSummary: add\"labels\"(Contract Section Tags)field"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-12-8cb802c2-77b5-11ed-9966-0242ac110003-1": {
       "title": "2026-08-12 [USDT-M] /linear-swap-api/v1/swap_contract_info (Add): add\"labels\"(Contract Section Tags)\u3001\"tradfi_labels\"(Contract TradFi tags)field",
       "hash": "cb30d08571d0b849b825fa889639feb14110a58a3e2c03ca9dbd7ee75663b7f4",
-      "last_checked": "2026-09-16T08:47:12.683700",
+      "last_checked": "2026-09-17T08:43:51.738317",
       "content": "Date: 2026-08-12\nInterface: /linear-swap-api/v1/swap_contract_info\nBusiness: USDT-M\nType: Add\nSummary: add\"labels\"(Contract Section Tags)\u3001\"tradfi_labels\"(Contract TradFi tags)field"
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-13-7ec4b85b-7773-11ed-9966-0242ac110003-1": {
       "title": "2026-08-13 [Spot] /v1/account/history (Add): The \"transact-types\" field has added the following enum values: \"loan-disburse\", \"loan-repay\", \"l...",
       "hash": "5d321e8eff1ba3b776c781fd34d386187e09066962a81812272ebcfe3a6bc35e",
-      "last_checked": "2026-09-16T08:47:12.994894",
+      "last_checked": "2026-09-17T08:43:52.041761",
       "content": "Date: 2026-08-13\nInterface: /v1/account/history\nBusiness: Spot\nType: Add\nSummary: The \"transact-types\" field has added the following enum values: \"loan-disburse\", \"loan-repay\", \"loan-interest-refund\", \"loan-interest-pay\""
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-17-8cb89359-77b5-11ed-9966-19589bc57bc-1": {
       "title": "2026-08-17 [General] /v5/trade/order/history (Add): A `cancel_volume` field has been added to the response body; order volume (`volume`) = cumulative...",
       "hash": "14928e9adfe56c1a19d5e73e194c106b6fcca1e23bf4244ea23d110a602936cb",
-      "last_checked": "2026-09-16T08:47:13.306336",
+      "last_checked": "2026-09-17T08:43:52.344272",
       "content": "Date: 2026-08-17\nInterface: /v5/trade/order/history\nBusiness: General\nType: Add\nSummary: A `cancel_volume` field has been added to the response body; order volume (`volume`) = cumulative traded volume (`trade_volume`) + cancelled volume (`cancel_volume`)."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-17-8cb89359-77b5-11ed-9966-196a8401f83-1": {
       "title": "2026-08-17 [General] /v5/trade/order (Add): A `cancel_volume` field has been added to the response body; order volume (`volume`) = cumulative...",
       "hash": "a225d328f557c47f86ef73281d81e2b7d77f8e0f2329c98aa9c2b34596120f4b",
-      "last_checked": "2026-09-16T08:47:13.623414",
+      "last_checked": "2026-09-17T08:43:52.647055",
       "content": "Date: 2026-08-17\nInterface: /v5/trade/order\nBusiness: General\nType: Add\nSummary: A `cancel_volume` field has been added to the response body; order volume (`volume`) = cumulative traded volume (`trade_volume`) + cancelled volume (`cancel_volume`)."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-17-8cb89359-77b5-11ed-9966-19711352bcd-1": {
       "title": "2026-08-17 [General] match_orders.$contract_code (Add): Added the `cancel_volume` field; order volume (`volume`) = cumulative traded volume (`trade_volum...",
       "hash": "48e5da59c645e6be126282eaedbe25ab0f5323189f72f04a4d86d4f1392107c1",
-      "last_checked": "2026-09-16T08:47:13.924033",
+      "last_checked": "2026-09-17T08:43:52.950150",
       "content": "Date: 2026-08-17\nInterface: match_orders.$contract_code\nBusiness: General\nType: Add\nSummary: Added the `cancel_volume` field; order volume (`volume`) = cumulative traded volume (`trade_volume`) + cancelled volume (`cancel_volume`)."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-18-8cb89359-77b5-11ed-9966-19588469969-1": {
       "title": "2026-08-18 [General] /v5/account/balance (Add): Added the `isolated_available` field (available balance for isolated positions) for currencies; C...",
       "hash": "ecbc43fd07be5f5be1f42293456c59fc7f6e70d7ba9d53f7a81a78629fa8422d",
-      "last_checked": "2026-09-16T08:47:14.248339",
+      "last_checked": "2026-09-17T08:43:53.253175",
       "content": "Date: 2026-08-18\nInterface: /v5/account/balance\nBusiness: General\nType: Add\nSummary: Added the `isolated_available` field (available balance for isolated positions) for currencies; Currency Balance = `available` + `isolated_available`. Here, \"Currency Balance\" refers to the total available assets of that currency in the Unified Margin Account (excluding amounts already utilized as margin)."
     },
     "https://www.htx.com/en-us/opend/newApiPages/?id=record#2026-08-25-8cb89359-77b5-11ed-9966-195a6c94551-1": {
       "title": "2026-08-25 [General] account (Add): Added new push parameter available_margin\uff08Cross-margin available margin for this currency\uff09",
       "hash": "8754c2322daf25409dbe3b7fcefff59d6ae367f49377cb4a0d6fd64ec01e7a4a",
-      "last_checked": "2026-09-16T08:47:14.557891",
+      "last_checked": "2026-09-17T08:43:53.568136",
       "content": "Date: 2026-08-25\nInterface: account\nBusiness: General\nType: Add\nSummary: Added new push parameter available_margin\uff08Cross-margin available margin for this currency\uff09"
     }
   }
