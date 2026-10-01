@@ -132,13 +132,14 @@ class BaseDocMonitor(ABC):
         driver = webdriver.Chrome(service=service, options=chrome_options)
         return driver
 
-    def _render_page(self, url: str, wait_selector: str) -> str:
+    def _render_page(self, url: str, wait_selector: Optional[str] = None) -> str:
         """
         Render a page with Selenium once, raising if anything goes wrong.
 
         Args:
             url: The URL to fetch
-            wait_selector: CSS selector that must be present before the page counts as loaded
+            wait_selector: CSS selector that must be present before the page counts
+                as loaded. Each exchange passes its own; None skips the check.
 
         Returns:
             Rendered HTML content
@@ -148,9 +149,10 @@ class BaseDocMonitor(ABC):
             driver = self._create_driver()
             driver.get(url)
 
-            WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, wait_selector))
-            )
+            if wait_selector:
+                WebDriverWait(driver, 15).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, wait_selector))
+                )
 
             # Additional wait for dynamic content
             time.sleep(2)
@@ -160,7 +162,7 @@ class BaseDocMonitor(ABC):
             if driver:
                 driver.quit()
 
-    def _fetch_rendered_page(self, url: str, wait_selector: str) -> str:
+    def _fetch_rendered_page(self, url: str, wait_selector: Optional[str] = None) -> str:
         """
         Fetch a page using Selenium to render JavaScript content.
 
@@ -170,7 +172,8 @@ class BaseDocMonitor(ABC):
 
         Args:
             url: The URL to fetch
-            wait_selector: CSS selector that must be present before the page counts as loaded
+            wait_selector: CSS selector that must be present before the page counts
+                as loaded. Each exchange passes its own; None skips the check.
 
         Returns:
             Rendered HTML content, or "" if every attempt failed
@@ -188,12 +191,13 @@ class BaseDocMonitor(ABC):
                 self._page_cache[url] = html
                 return html
             except Exception as e:
+                # Selenium timeouts carry no message, so always name the exception
+                error = f"{type(e).__name__}: {e}"
                 if attempt == attempts:
-                    self.logger.error(f"  Error rendering page {url}: {e}")
+                    self.logger.error(f"  Error rendering page {url}: {error}")
                     break
-                reason = (str(e).strip().splitlines() or [type(e).__name__])[0]
                 self.logger.warning(
-                    f"  Attempt {attempt}/{attempts} failed rendering {url}: {reason}"
+                    f"  Attempt {attempt}/{attempts} failed rendering {url}: {error.splitlines()[0]}"
                 )
                 time.sleep(self.BROWSER_RETRY_DELAY)
 
