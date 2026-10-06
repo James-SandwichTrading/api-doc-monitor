@@ -15,6 +15,13 @@ from datetime import datetime
 import time
 from typing import Dict, List, Optional, Tuple
 from abc import ABC, abstractmethod
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 from logger_config import setup_logger
 
 
@@ -71,6 +78,9 @@ class BaseDocMonitor(ABC):
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
             }
         )
+        # Browser-rendered pages fetched this run, and the ones that failed every attempt
+        self._page_cache = {}
+        self._failed_pages = []
 
     def get_page_hash(self, content: str) -> str:
         """Generate SHA-256 hash of page content with whitespace normalization."""
@@ -98,6 +108,120 @@ class BaseDocMonitor(ABC):
             self.logger.info(f"State saved to {self.storage_file}")
         except Exception as e:
             self.logger.error(f"Error saving state: {e}")
+
+    # Times a browser-rendered page is attempted before it is reported as failed
+    BROWSER_MAX_RENDER_ATTEMPTS = 3
+
+    # Seconds to wait between attempts at rendering a page
+    BROWSER_RETRY_DELAY = 5
+
+    def _create_driver(self):
+        """Create a headless Chrome WebDriver."""
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.add_argument(
+            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
+
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        return driver
+
+    def _render_page(self, url: str, wait_selector: Optional[str] = None) -> str:
+        """
+        Render a page with Selenium once, raising if anything goes wrong.
+
+        Args:
+            url: The URL to fetch
+            wait_selector: CSS selector that must be present before the page counts
+                as loaded. Each exchange passes its own; None skips the check.
+
+        Returns:
+            Rendered HTML content
+        """
+        driver = None
+        try:
+            driver = self._create_driver()
+            driver.get(url)
+
+            if wait_selector:
+                WebDriverWait(driver, 15).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, wait_selector))
+                )
+
+            # Additional wait for dynamic content
+            time.sleep(2)
+
+            return driver.page_source
+        finally:
+            if driver:
+                driver.quit()
+
+    def _fetch_rendered_page(self, url: str, wait_selector: Optional[str] = None) -> str:
+        """
+        Fetch a page using Selenium to render JavaScript content.
+
+        Each page is attempted up to BROWSER_MAX_RENDER_ATTEMPTS times. A page
+        that fails every attempt is recorded in _failed_pages, which
+        check_for_changes reports on Telegram.
+
+        Args:
+            url: The URL to fetch
+            wait_selector: CSS selector that must be present before the page counts
+                as loaded. Each exchange passes its own; None skips the check.
+
+        Returns:
+            Rendered HTML content, or "" if every attempt failed
+        """
+        if url in self._page_cache:
+            return self._page_cache[url]
+        if url in self._failed_pages:
+            return ""
+
+        self.logger.info(f"  Rendering page with Selenium: {url}")
+        attempts = self.BROWSER_MAX_RENDER_ATTEMPTS
+        for attempt in range(1, attempts + 1):
+            try:
+                html = self._render_page(url, wait_selector)
+                self._page_cache[url] = html
+                return html
+            except Exception as e:
+                # Selenium timeouts carry no message, so always name the exception
+                error = f"{type(e).__name__}: {e}"
+                if attempt == attempts:
+                    self.logger.error(f"  Error rendering page {url}: {error}")
+                    break
+                self.logger.warning(
+                    f"  Attempt {attempt}/{attempts} failed rendering {url}: {error.splitlines()[0]}"
+                )
+                time.sleep(self.BROWSER_RETRY_DELAY)
+
+        self._failed_pages.append(url)
+        return ""
+
+    def _send_render_failure_warning(self):
+        """Warn on Telegram about pages that could not be rendered this run."""
+        if not self._failed_pages:
+            return
+        if not self.telegram_bot_token or not self.telegram_chat_id:
+            return
+
+        text = (
+            f"❌ Failed to render {self.exchange_name} documentation after "
+            f"{self.BROWSER_MAX_RENDER_ATTEMPTS} attempts, this is likely indicative of "
+            "a doc monitoring failure. These pages were not fetched this run:\n"
+        )
+        for page_url in self._failed_pages:
+            text += f"  • {self.escape_markdown(page_url)}\n"
+
+        self._send_telegram_messages(
+            self.telegram_chat_id, [text.rstrip()], "render failure warning"
+        )
 
     @abstractmethod
     def discover_sections(self) -> Dict[str, str]:
@@ -261,6 +385,8 @@ class BaseDocMonitor(ABC):
                 self.logger.info("Telegram notification sent successfully")
             except Exception as e:
                 self.logger.error(f"Failed to send Telegram notification: {e}")
+
+        self._send_render_failure_warning()
 
         # Save current state
         self.save_state(current_state)
