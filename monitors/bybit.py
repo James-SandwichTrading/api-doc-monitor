@@ -22,7 +22,7 @@ class BybitDocMonitor(BaseDocMonitor):
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         telegram_admin_chat_id: str = None,
-        max_pages: int = 500,
+        max_pages: int = 1000,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -200,8 +200,8 @@ def main():
     parser.add_argument(
         "--max-pages",
         type=int,
-        default=500,
-        help="Maximum number of pages to discover (default: 500)",
+        default=1000,
+        help="Maximum number of pages to discover (default: 1000)",
     )
     args = parser.parse_args()
 
