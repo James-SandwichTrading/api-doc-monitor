@@ -346,6 +346,33 @@ class BaseDocMonitor(ABC):
             self.logger.error(f"Failed to send Telegram message: {e}")
             return False
 
+    def notify_page_limit_reached(
+        self, pages_checked: int, max_pages: int, pages_found: Optional[int] = None
+    ):
+        """
+        Warn that page discovery stopped at the page limit, so some pages were not checked.
+
+        Args:
+            pages_checked: Number of pages discovered before stopping
+            max_pages: The page limit that was reached
+            pages_found: Number of pages linked to when discovery stopped, including
+                the ones not checked (optional, a lower bound on the real total)
+        """
+        text = (
+            f"⚠️ Stopped searching the {self.exchange_name} docs after {pages_checked} pages.\n"
+            f"Reason: reached the maximum search limit of {max_pages} pages."
+        )
+        if pages_found and pages_found > pages_checked:
+            text += (
+                f"\nFound links to at least {pages_found} pages, "
+                f"so {pages_found - pages_checked} or more were not checked."
+            )
+        self.logger.warning(text)
+
+        if self.telegram_bot_token and self.telegram_chat_id:
+            if self._send_telegram_message(self.telegram_chat_id, text):
+                self.logger.info("Telegram page limit notification sent successfully")
+
     def _send_telegram_messages(
         self, chat_id: str, messages: List[str], description: str
     ) -> bool:

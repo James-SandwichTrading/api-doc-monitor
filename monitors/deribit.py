@@ -173,7 +173,7 @@ class DeribitDocMonitor(BaseDocMonitor):
         return False
 
     def _discover_links_from_page(
-        self, url: str, discovered: Dict[str, str], visited: set
+        self, url: str, discovered: Dict[str, str], visited: set, not_checked: set
     ):
         """
         Recursively discover links from a page.
@@ -182,8 +182,13 @@ class DeribitDocMonitor(BaseDocMonitor):
             url: URL to fetch
             discovered: Dictionary to populate with discovered pages
             visited: Set of already visited URLs to avoid loops
+            not_checked: Set to populate with URLs skipped because the page limit was reached
         """
-        if url in visited or len(discovered) >= self.max_pages:
+        if url in visited:
+            return
+
+        if len(discovered) >= self.max_pages:
+            not_checked.add(url)
             return
 
         visited.add(url)
@@ -230,12 +235,10 @@ class DeribitDocMonitor(BaseDocMonitor):
                 clean_url = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
 
                 # Check if this is a valid doc page we should follow
-                if (
-                    clean_url not in visited
-                    and self._is_valid_doc_page(clean_url)
-                    and len(discovered) < self.max_pages
-                ):
-                    self._discover_links_from_page(clean_url, discovered, visited)
+                if clean_url not in visited and self._is_valid_doc_page(clean_url):
+                    self._discover_links_from_page(
+                        clean_url, discovered, visited, not_checked
+                    )
 
             time.sleep(0.3)  # Rate limiting
 
@@ -253,14 +256,20 @@ class DeribitDocMonitor(BaseDocMonitor):
 
         discovered = {}
         visited = set()
+        not_checked = set()
 
         # Start by discovering from each main section
         for section in self.SECTIONS_TO_MONITOR:
             section_url = f"{self.base_url}/{section}"
             self.logger.info(f"Crawling section: {section}")
-            self._discover_links_from_page(section_url, discovered, visited)
+            self._discover_links_from_page(section_url, discovered, visited, not_checked)
 
         self.logger.info(f"Discovered {len(discovered)} documentation pages to monitor")
+
+        if not_checked:
+            self.notify_page_limit_reached(
+                len(discovered), self.max_pages, len(discovered) + len(not_checked)
+            )
 
         return discovered
 

@@ -116,7 +116,6 @@ class BybitDocMonitor(BaseDocMonitor):
                         parsed.netloc == self.docs_domain
                         and "/docs/v5/" in parsed.path
                         and absolute_url not in visited
-                        and len(discovered) < self.max_pages
                     ):
                         # Remove fragments and query params
                         clean_url = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
@@ -128,6 +127,14 @@ class BybitDocMonitor(BaseDocMonitor):
                 self.logger.error(f"Error discovering from {url}: {e}")
 
         self.logger.info(f"Discovered {len(discovered)} pages")
+
+        # Links that were never visited because the page limit was reached
+        not_checked = to_visit - visited
+        if len(discovered) >= self.max_pages and not_checked:
+            self.notify_page_limit_reached(
+                len(discovered), self.max_pages, len(discovered) + len(not_checked)
+            )
+
         return discovered
 
     def fetch_section_content(self, section_id: str) -> Tuple[str, str]:
