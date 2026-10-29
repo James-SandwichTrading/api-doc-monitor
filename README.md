@@ -25,6 +25,7 @@ scraper/
 ├── monitors/                 # Monitor implementations
 │   ├── __init__.py
 │   ├── base_monitor.py       # Base class with common functionality
+│   ├── selenium_monitor.py   # Base class for monitors that render pages with Selenium
 │   ├── binance.py
 │   ├── bitget.py             # Update Preview + monthly changelog pages
 │   ├── bitmex.py
