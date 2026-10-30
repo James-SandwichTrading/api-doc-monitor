@@ -2,7 +2,7 @@
 """
 Lighter API Documentation Change Monitor with Telegram Notifications
 
-This script monitors Lighter API documentation (Docs and API Reference) and tracks changes
+This script monitors Lighter API documentation (API Reference) and tracks changes
 by storing page hashes for comparison.
 
 Automatically sends Telegram notifications when changes are detected.
@@ -13,18 +13,21 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from .base_monitor import BaseDocMonitor
+from .selenium_monitor import SeleniumDocMonitor
 
 
-class LighterDocMonitor(BaseDocMonitor):
-    """Monitor for Lighter API documentation hosted on ReadMe.io."""
+class LighterDocMonitor(SeleniumDocMonitor):
+    """Monitor for Lighter API documentation hosted on GitBook."""
 
-    BASE_URL = "https://apidocs.lighter.xyz"
+    BASE_URL = "https://docs.lighter.xyz"
 
     # Seed pages to scrape sidebar navigation from
     SEED_PAGES = {
-        "docs": f"{BASE_URL}/docs/get-started",
-        "reference": f"{BASE_URL}/reference/status",
+        "reference": f"{BASE_URL}/api",
     }
 
     def __init__(
@@ -33,8 +36,6 @@ class LighterDocMonitor(BaseDocMonitor):
         telegram_bot_token: str = None,
         telegram_chat_id: str = None,
         telegram_admin_chat_id: str = None,
-        monitor_docs: bool = True,
-        monitor_reference: bool = True,
         notify_additions: bool = True,
         notify_modifications: bool = True,
         notify_deletions: bool = False,
@@ -50,8 +51,6 @@ class LighterDocMonitor(BaseDocMonitor):
             telegram_bot_token: Telegram bot token from @BotFather
             telegram_chat_id: Telegram chat ID to send messages to
             telegram_admin_chat_id: Chat ID that receives the full list when a notification is cut off (optional)
-            monitor_docs: Whether to monitor guide/docs pages
-            monitor_reference: Whether to monitor API reference pages
             notify_additions: Send Telegram notification for new sections
             notify_modifications: Send Telegram notification for modified sections
             notify_deletions: Send Telegram notification for deleted sections
@@ -73,9 +72,6 @@ class LighterDocMonitor(BaseDocMonitor):
             notify_many_deletions_threshold=notify_many_deletions_threshold,
         )
 
-        self.monitor_docs = monitor_docs
-        self.monitor_reference = monitor_reference
-
         # Pattern to match "Updated\nX days/weeks/months/years ago" text
         # This avoids false positives from relative timestamp changes
         self._updated_pattern = re.compile(
@@ -83,13 +79,43 @@ class LighterDocMonitor(BaseDocMonitor):
             re.IGNORECASE,
         )
 
+    def get_page_hash(self, content: str) -> str:
+        """
+        Hash page content with all whitespace removed.
+
+        GitBook highlights code in the browser after the page loads, which splits
+        code into tokens (e.g. "HTTP/1.1" becomes "HTTP / 1.1"). Ignoring whitespace
+        makes the hash the same whether or not highlighting has finished.
+        """
+        return super().get_page_hash(re.sub(r"\s+", "", content))
+
+    def _wait_for_page(self, driver):
+        """
+        Wait for the page body and expand every collapsed schema.
+
+        GitBook builds code samples in the browser and only loads schema properties
+        (e.g. on /api/models) when their "Show properties" toggle is clicked, so
+        every toggle on the page is clicked before the HTML is read.
+        """
+        # Wait for page content to load
+        WebDriverWait(driver, 15).until(
+            EC.presence_of_element_located((By.TAG_NAME, "main"))
+        )
+
+        # Expand every collapsed schema so its properties are rendered
+        toggles = driver.find_elements(
+            By.XPATH, "//main//*[normalize-space(text())='Show properties']"
+        )
+        for toggle in toggles:
+            driver.execute_script("arguments[0].click();", toggle)
+
     def _discover_sidebar_links(self, seed_url: str, prefix: str) -> Dict[str, str]:
         """
         Fetch a seed page and extract all sidebar navigation links matching a prefix.
 
         Args:
             seed_url: URL to fetch for sidebar discovery
-            prefix: URL path prefix to filter links (e.g., "/docs/", "/reference/")
+            prefix: URL path prefix to filter links (e.g., "/api")
 
         Returns:
             Dict of full_url -> page_title
@@ -97,24 +123,39 @@ class LighterDocMonitor(BaseDocMonitor):
         pages = {}
 
         try:
-            response = self.session.get(seed_url, timeout=15)
-            response.raise_for_status()
+            html = self._fetch_rendered_page(seed_url)
+            if not html:
+                return pages
 
-            soup = BeautifulSoup(response.text, "html.parser")
+            soup = BeautifulSoup(html, "html.parser")
 
-            # ReadMe.io sidebar links are <a> tags with hrefs starting with the prefix
+            # GitBook sidebar links are <a> tags with hrefs starting with the prefix
             for link in soup.find_all("a", href=True):
                 href = link.get("href", "")
 
-                # Match links like /docs/get-started or /reference/status
+                # Match links like /api or /api/system/status
                 if not href.startswith(prefix):
                     continue
+
+                # Skip in-page anchors (e.g. /api/websocket#trade), the page itself is already tracked
+                if "#" in href:
+                    continue
+
+                # Endpoint links carry an HTTP method badge, e.g. "get" + "status"
+                method = link.find(class_="openapi-method")
+                method_text = ""
+                if method:
+                    method_text = method.get_text(strip=True).upper()
+                    method.decompose()
 
                 title = link.get_text(strip=True)
 
                 # Skip empty titles, overly long ones, or pure navigation elements
                 if not title or len(title) > 150:
                     continue
+
+                if method_text:
+                    title = f"{method_text} {title}"
 
                 full_url = f"{self.BASE_URL}{href}"
 
@@ -132,30 +173,30 @@ class LighterDocMonitor(BaseDocMonitor):
         """
         Discover documentation pages by scraping sidebar navigation.
 
+        GitBook only expands a sidebar group on that group's own pages, so every
+        discovered page is visited to reveal its children.
+
         Returns:
             Dict of page_url -> page_title
         """
         all_sections = {}
 
-        if self.monitor_docs:
-            self.logger.info(
-                f"Discovering docs pages from {self.SEED_PAGES['docs']}..."
-            )
-            docs_pages = self._discover_sidebar_links(
-                self.SEED_PAGES["docs"], "/docs/"
-            )
-            all_sections.update(docs_pages)
-            self.logger.info(f"  Discovered {len(docs_pages)} docs pages")
+        self.logger.info(
+            f"Discovering reference pages from {self.SEED_PAGES['reference']}..."
+        )
+        to_visit = [self.SEED_PAGES["reference"]]
+        visited = set()
 
-        if self.monitor_reference:
-            self.logger.info(
-                f"Discovering reference pages from {self.SEED_PAGES['reference']}..."
-            )
-            ref_pages = self._discover_sidebar_links(
-                self.SEED_PAGES["reference"], "/reference/"
-            )
-            all_sections.update(ref_pages)
-            self.logger.info(f"  Discovered {len(ref_pages)} reference pages")
+        while to_visit:
+            page_url = to_visit.pop(0)
+            if page_url in visited:
+                continue
+            visited.add(page_url)
+
+            for url, title in self._discover_sidebar_links(page_url, "/api").items():
+                if url not in all_sections:
+                    all_sections[url] = title
+                    to_visit.append(url)
 
         self.logger.info(f"Total pages to monitor: {len(all_sections)}")
         return all_sections
@@ -171,23 +212,17 @@ class LighterDocMonitor(BaseDocMonitor):
             Tuple of (content, hash)
         """
         try:
-            response = self.session.get(page_url, timeout=15)
-            response.raise_for_status()
+            html = self._fetch_rendered_page(page_url)
+            if not html:
+                return "", ""
 
-            soup = BeautifulSoup(response.text, "html.parser")
+            soup = BeautifulSoup(html, "html.parser")
 
             # Remove non-content elements
             for element in soup(
                 ["script", "style", "nav", "footer", "header", "aside"]
             ):
                 element.decompose()
-
-            # Remove navigation menus and sidebars
-            for nav_class in ["navbar", "menu", "sidebar", "toc", "navigation"]:
-                for element in soup.find_all(
-                    class_=lambda x: x and nav_class in x.lower()
-                ):
-                    element.decompose()
 
             # Get main content
             main_content = (
@@ -224,10 +259,8 @@ class LighterDocMonitor(BaseDocMonitor):
 
     def get_section_label(self, section_id: str) -> str:
         """Get category label from page URL."""
-        if "/reference/" in section_id:
+        if "/api" in section_id:
             return "API"
-        elif "/docs/" in section_id:
-            return "DOCS"
         return ""
 
     def get_telegram_footer(self) -> str:
@@ -238,19 +271,13 @@ class LighterDocMonitor(BaseDocMonitor):
             Footer string with documentation links
         """
         message = "\n📚 Documentation:\n"
-        if self.monitor_docs:
-            message += f"  • [Docs]({self.SEED_PAGES['docs']})\n"
-        if self.monitor_reference:
-            message += f"  • [API Reference]({self.SEED_PAGES['reference']})"
+        message += f"  • [API Reference]({self.SEED_PAGES['reference']})"
         return message
 
     def print_summary_footer(self):
         """Print footer for summary with documentation URLs."""
         self.logger.info("View documentation at:")
-        if self.monitor_docs:
-            self.logger.info(f"  Docs: {self.SEED_PAGES['docs']}")
-        if self.monitor_reference:
-            self.logger.info(f"  API Reference: {self.SEED_PAGES['reference']}")
+        self.logger.info(f"  API Reference: {self.SEED_PAGES['reference']}")
 
 
 def main():
@@ -261,24 +288,7 @@ def main():
         default_storage_file="state/lighter_docs_state.json",
     )
 
-    # Add Lighter-specific arguments
-    parser.add_argument(
-        "--docs-only",
-        action="store_true",
-        help="Monitor only guide/docs pages",
-    )
-    parser.add_argument(
-        "--reference-only",
-        action="store_true",
-        help="Monitor only API reference pages",
-    )
-
     args = parser.parse_args()
-
-    # Determine which sections to monitor
-    only_flags = args.docs_only or args.reference_only
-    monitor_docs = args.docs_only if only_flags else True
-    monitor_reference = args.reference_only if only_flags else True
 
     # Get Telegram credentials using base class helper
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
@@ -294,8 +304,6 @@ def main():
         telegram_bot_token=telegram_token,
         telegram_chat_id=telegram_chat_id,
         telegram_admin_chat_id=BaseDocMonitor.get_telegram_admin_chat_id(args),
-        monitor_docs=monitor_docs,
-        monitor_reference=monitor_reference,
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,

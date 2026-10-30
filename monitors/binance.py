@@ -14,17 +14,14 @@ from datetime import datetime
 from typing import Dict, Tuple
 import re
 import time
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
 from .base_monitor import BaseDocMonitor
+from .selenium_monitor import SeleniumDocMonitor
 
 
-class BinanceDocMonitor(BaseDocMonitor):
+class BinanceDocMonitor(SeleniumDocMonitor):
     def __init__(
         self,
         storage_file: str = "state/binance_docs_state.json",
@@ -90,62 +87,16 @@ class BinanceDocMonitor(BaseDocMonitor):
         # Get current year and previous year for filtering
         current_year = datetime.now().year
         self.years_to_monitor = [current_year, current_year - 1]
-        self._page_cache = {}
 
-    def _create_driver(self):
-        """Create a headless Chrome WebDriver."""
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--window-size=1920,1080")
-        chrome_options.add_argument(
-            "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    def _wait_for_page(self, driver):
+        """Wait for the changelog content to render."""
+        # Wait for changelog content to load
+        WebDriverWait(driver, 15).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "h2[id], h3[id], [id*='20']"))
         )
 
-        service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=service, options=chrome_options)
-        return driver
-
-    def _fetch_rendered_page(self, url: str) -> str:
-        """
-        Fetch a page using Selenium to render JavaScript content.
-
-        Args:
-            url: The URL to fetch
-
-        Returns:
-            Rendered HTML content
-        """
-        if url in self._page_cache:
-            return self._page_cache[url]
-
-        driver = None
-        try:
-            self.logger.info(f"  Rendering page with Selenium: {url}")
-            driver = self._create_driver()
-            driver.get(url)
-
-            # Wait for changelog content to load
-            WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "h2[id], h3[id], [id*='20']"))
-            )
-
-            # Additional wait for dynamic content
-            time.sleep(2)
-
-            html = driver.page_source
-            self._page_cache[url] = html
-            return html
-
-        except Exception as e:
-            self.logger.error(f"  Error rendering page {url}: {e}")
-            return ""
-        finally:
-            if driver:
-                driver.quit()
+        # Additional wait for dynamic content
+        time.sleep(2)
 
     def _is_recent_section(self, section_id: str, section_title: str) -> bool:
         """
