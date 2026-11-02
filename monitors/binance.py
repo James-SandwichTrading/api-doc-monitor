@@ -13,13 +13,15 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from typing import Dict, Tuple
 import re
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from .base_monitor import BaseDocMonitor
+from .selenium_monitor import SeleniumDocMonitor
 
 
-class BinanceDocMonitor(BaseDocMonitor):
-    # Changelog content that must be present before a rendered page counts as loaded
-    RENDER_WAIT_SELECTOR = "h2[id], h3[id], [id*='20']"
-
+class BinanceDocMonitor(SeleniumDocMonitor):
     def __init__(
         self,
         storage_file: str = "state/binance_docs_state.json",
@@ -86,6 +88,16 @@ class BinanceDocMonitor(BaseDocMonitor):
         current_year = datetime.now().year
         self.years_to_monitor = [current_year, current_year - 1]
 
+    def _wait_for_page(self, driver):
+        """Wait for the changelog content to render."""
+        # Wait for changelog content to load
+        WebDriverWait(driver, 15).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "h2[id], h3[id], [id*='20']"))
+        )
+
+        # Additional wait for dynamic content
+        time.sleep(2)
+
     def _is_recent_section(self, section_id: str, section_title: str) -> bool:
         """
         Check if a section is from current or previous year.
@@ -146,7 +158,7 @@ class BinanceDocMonitor(BaseDocMonitor):
             )
 
             try:
-                html = self._fetch_rendered_page(url, self.RENDER_WAIT_SELECTOR)
+                html = self._fetch_rendered_page(url)
                 if not html:
                     continue
 
@@ -204,7 +216,7 @@ class BinanceDocMonitor(BaseDocMonitor):
         base_url = section_url.split("#")[0]
 
         try:
-            html = self._fetch_rendered_page(base_url, self.RENDER_WAIT_SELECTOR)
+            html = self._page_cache.get(base_url) or self._fetch_rendered_page(base_url)
             if not html:
                 return "", ""
 
