@@ -89,6 +89,8 @@ To get these:
 
 `admin_chat_id` is optional. Notifications list at most 10 sections per group (new, modified, deleted). When a group is cut off and `admin_chat_id` is set, the complete list is sent to that chat (split over several messages if needed) and the main notification says the full list was sent to the admin, so people know who to ask. Without `admin_chat_id` the cut-off groups just end with "... and N more".
 
+Pages that need a browser to render (Binance and Lighter) are attempted up to 3 times. If the browser cannot start, or 3 pages in a row fail, rendering stops for that run. Pages that were not rendered are listed in one warning sent to `chat_id`.
+
 ## Usage
 
 ### Run All Monitors
