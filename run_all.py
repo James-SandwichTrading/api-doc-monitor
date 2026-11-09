@@ -323,7 +323,7 @@ def main():
             {
                 "class": BybitDocMonitor,
                 "name": "Bybit",
-                "kwargs": {**common_kwargs},
+                "kwargs": {**common_kwargs, "max_announcement_pages": 1},
             }
         )
 
