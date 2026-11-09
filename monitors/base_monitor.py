@@ -323,8 +323,16 @@ class BaseDocMonitor(ABC):
             response.raise_for_status()
             return True
         except Exception as e:
-            self.logger.error(f"Failed to send Telegram message: {e}")
+            # requests includes the request URL, and so the bot token, in its
+            # error messages; keep the token out of the logs
+            self.logger.error(f"Failed to send Telegram message: {self._redact_token(str(e))}")
             return False
+
+    def _redact_token(self, text: str) -> str:
+        """Replace the Telegram bot token in text with a placeholder."""
+        if self.telegram_bot_token:
+            return text.replace(self.telegram_bot_token, "<redacted>")
+        return text
 
     def _send_alert(self, text: str):
         """
