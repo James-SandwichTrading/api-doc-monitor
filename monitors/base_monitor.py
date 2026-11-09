@@ -6,6 +6,8 @@ Provides common functionality for all exchange documentation monitors.
 """
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 import hashlib
 import json
@@ -20,6 +22,15 @@ from logger_config import setup_logger
 
 class BaseDocMonitor(ABC):
     """Base class for documentation monitors with common functionality."""
+
+    # Retries for page fetches made through self.session. A single 5xx or
+    # dropped connection would otherwise make a page look deleted for a run.
+    # Waits between attempts are 0 s then 2 s, so a page that keeps failing
+    # costs about 2 s extra. Read timeouts are not retried, so a slow server
+    # does not triple the wait.
+    HTTP_RETRIES = 2
+    HTTP_RETRY_BACKOFF_FACTOR = 1
+    HTTP_RETRY_STATUSES = (500, 502, 503, 504)
 
     def __init__(
         self,
@@ -66,6 +77,20 @@ class BaseDocMonitor(ABC):
         self.notify_many_deletions_threshold = notify_many_deletions_threshold
         self.logger = setup_logger(exchange_name)
         self.session = requests.Session()
+        retry = Retry(
+            total=self.HTTP_RETRIES,
+            connect=self.HTTP_RETRIES,
+            read=0,
+            status=self.HTTP_RETRIES,
+            backoff_factor=self.HTTP_RETRY_BACKOFF_FACTOR,
+            status_forcelist=self.HTTP_RETRY_STATUSES,
+            allowed_methods=frozenset({"GET", "HEAD"}),
+            # Return the last response so raise_for_status reports it as before
+            raise_on_status=False,
+        )
+        adapter = HTTPAdapter(max_retries=retry)
+        self.session.mount("https://", adapter)
+        self.session.mount("http://", adapter)
         self.session.headers.update(
             {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
