@@ -159,9 +159,14 @@ def main():
     telegram_token, telegram_chat_id = BaseDocMonitor.get_telegram_credentials(args)
 
     # Get notification settings
-    notify_additions, notify_modifications, notify_deletions = (
-        BaseDocMonitor.get_notification_settings(args)
-    )
+    (
+        notify_additions,
+        notify_modifications,
+        notify_deletions,
+        notify_no_sections,
+        notify_many_deletions,
+        notify_many_deletions_threshold,
+    ) = BaseDocMonitor.get_notification_settings(args)
 
     # Create monitor instance
     monitor = KrakenDocMonitor(
@@ -172,6 +177,9 @@ def main():
         notify_additions=notify_additions,
         notify_modifications=notify_modifications,
         notify_deletions=notify_deletions,
+        notify_no_sections=notify_no_sections,
+        notify_many_deletions=notify_many_deletions,
+        notify_many_deletions_threshold=notify_many_deletions_threshold,
     )
 
     # Check for changes
