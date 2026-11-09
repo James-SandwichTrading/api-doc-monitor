@@ -9,7 +9,7 @@ Monitor cryptocurrency exchange API documentation for changes and receive Telegr
 | **Binance** | Changelog | Spot & Derivatives changelog |
 | **Bitget** | Changelog | UTA Update Preview + UTA & Classic changelog (current and previous year) |
 | **BitMEX** | Changelog | API changelog |
-| **Bybit** | Full site | Crawls entire V5 API docs |
+| **Bybit** | Full site + announcements | Crawls entire V5 API docs plus the newest announcements (current and previous year) |
 | **Coinbase** | Changelog | API changelog |
 | **Deribit** | Full site + changelog | Crawls API reference; JSON-RPC, FIX and Starbase changelogs plus the newest announcements (current and previous year) |
 | **HTX** | Changelog | API update record (current and previous year) |
@@ -151,7 +151,7 @@ All monitors support:
 | `--no-telegram` | Disable notifications |
 | `--save-content` | Save full page content |
 
-Some monitors have additional options (e.g., `--max-pages` for Bybit; `--max-announcement-pages`, `--no-docs`, `--no-changelogs` and `--no-announcements` for Deribit).
+Some monitors have additional options (e.g., `--max-pages`, `--max-announcement-pages`, `--no-docs` and `--no-announcements` for Bybit; `--max-announcement-pages`, `--no-docs`, `--no-changelogs` and `--no-announcements` for Deribit).
 
 ## State Files
 
