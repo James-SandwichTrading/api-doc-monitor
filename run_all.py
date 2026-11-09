@@ -172,9 +172,10 @@ def main():
     )
     parser.add_argument(
         "--notify_many_deletions_threshold",
+        type=float,
         dest="notify_many_deletions_threshold",
-        default=0.2,
-        help="Threshold for notify_many_deletions (default: 0.2)",
+        default=None,
+        help="Threshold for notify_many_deletions (default: config value, else 0.2)",
     )
     parser.add_argument(
         "--no-save-content",
