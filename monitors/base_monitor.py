@@ -741,6 +741,40 @@ class BaseDocMonitor(ABC):
             dest="notify_deletions",
             help="Disable Telegram notifications for deleted sections",
         )
+        # Same flag spellings as run_all.py so both CLIs accept the same options
+        parser.add_argument(
+            "--notify-no_sections",
+            action="store_true",
+            dest="notify_no_sections",
+            default=None,
+            help="Enable Telegram notifications when no sections are found (default: enabled)",
+        )
+        parser.add_argument(
+            "--no-notify-no_sections",
+            action="store_false",
+            dest="notify_no_sections",
+            help="Disable Telegram notifications when no sections are found",
+        )
+        parser.add_argument(
+            "--notify_many_deletions",
+            action="store_true",
+            dest="notify_many_deletions",
+            default=None,
+            help="Enable Telegram notifications when many sections are deleted (default: enabled)",
+        )
+        parser.add_argument(
+            "--no-notify_many_deletions",
+            action="store_false",
+            dest="notify_many_deletions",
+            help="Disable Telegram notifications when many sections are deleted",
+        )
+        parser.add_argument(
+            "--notify_many_deletions_threshold",
+            type=float,
+            dest="notify_many_deletions_threshold",
+            default=None,
+            help="Threshold for notify_many_deletions (default: 0.2)",
+        )
 
         return parser
 
