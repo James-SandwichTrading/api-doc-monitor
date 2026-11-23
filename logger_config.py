@@ -38,9 +38,9 @@ def setup_logger(
     Returns:
         Configured logger instance
     """
-    # Create logs directory if it doesn't exist
-    if not os.path.exists(LOG_DIR):
-        os.makedirs(LOG_DIR)
+    # Create logs directory if it doesn't exist (exist_ok so monitors started
+    # at the same moment don't fail when another creates it first)
+    os.makedirs(LOG_DIR, exist_ok=True)
 
     # Create logger
     logger_name = f"monitor.{exchange_name.lower()}"
