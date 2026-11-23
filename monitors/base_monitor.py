@@ -160,19 +160,9 @@ class BaseDocMonitor(ABC):
         self.logger.info(f"Discovered {len(sections)} sections")
 
         if(len(sections) == 0 and self.notify_no_sections):
-            try:
-                url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
-                payload = {
-                    "chat_id": self.telegram_chat_id,
-                    "text": f"❌ Failed to find sections for {self.exchange_name}, this is likely indicative of a doc monitoring failure.",
-                    "parse_mode": "Markdown",
-                    "disable_web_page_preview": True,
-                }
-                response = requests.post(url, json=payload, timeout=10)
-                response.raise_for_status()
-                self.logger.info("Telegram notification sent successfully")
-            except Exception as e:
-                self.logger.error(f"Failed to send Telegram notification: {e}")
+            self._send_alert(
+                f"❌ Failed to find sections for {self.exchange_name}, this is likely indicative of a doc monitoring failure."
+            )
 
         # Load previous state
         previous_state = self.load_previous_state()
@@ -248,19 +238,9 @@ class BaseDocMonitor(ABC):
                 )
 
         if(len(changes["deleted_sections"]) > self.notify_many_deletions_threshold * len(previous_sections)and self.notify_many_deletions):
-            try:
-                url = f"https://api.telegram.org/bot{self.telegram_bot_token}/sendMessage"
-                payload = {
-                    "chat_id": self.telegram_chat_id,
-                    "text": f"❌ {self.notify_many_deletions_threshold * 100}% or more of {self.exchange_name} sections have been deleted, this could be indicative of a doc monitoring failure.",
-                    "parse_mode": "Markdown",
-                    "disable_web_page_preview": True,
-                    }
-                response = requests.post(url, json=payload, timeout=10)
-                response.raise_for_status()
-                self.logger.info("Telegram notification sent successfully")
-            except Exception as e:
-                self.logger.error(f"Failed to send Telegram notification: {e}")
+            self._send_alert(
+                f"❌ {self.notify_many_deletions_threshold * 100}% or more of {self.exchange_name} sections have been deleted, this could be indicative of a doc monitoring failure."
+            )
 
         # Save current state
         self.save_state(current_state)
@@ -345,6 +325,23 @@ class BaseDocMonitor(ABC):
         except Exception as e:
             self.logger.error(f"Failed to send Telegram message: {e}")
             return False
+
+    def _send_alert(self, text: str):
+        """
+        Send a monitoring-failure alert to the main chat.
+
+        With Telegram disabled (no token or chat ID) the alert is logged as a
+        warning instead of attempting a request that cannot succeed.
+
+        Args:
+            text: Markdown-formatted alert text
+        """
+        if not self.telegram_bot_token or not self.telegram_chat_id:
+            self.logger.warning(f"Telegram disabled, alert not sent: {text}")
+            return
+
+        if self._send_telegram_message(self.telegram_chat_id, text):
+            self.logger.info("Telegram notification sent successfully")
 
     def _send_telegram_messages(
         self, chat_id: str, messages: List[str], description: str
